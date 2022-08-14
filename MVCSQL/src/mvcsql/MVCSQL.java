@@ -99,7 +99,7 @@ public class MVCSQL{
         ControladorDepartamentos CtrlDep = new ControladorDepartamentos(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config,addProdu ,Dep ,ElimProd ,ModProd ,NewProd);
         ControladorEliminarProducto CtrlElimProd = new ControladorEliminarProducto(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config,addProdu ,Dep ,ElimProd ,ModProd ,NewProd);
         ControladorModificarProducto CtrlModProd = new ControladorModificarProducto(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config,addProdu ,Dep ,ElimProd ,ModProd ,NewProd);
-        ControladorConfiguracion CtrlConf = new ControladorConfiguracion(Config, archivos);
+        ControladorConfiguracion CtrlConf = new ControladorConfiguracion(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config, archivos, ticket, impuestos, simb);
         CtrlVen.inicioDeSesion();
         inicioSesion.setVisible(true);
         

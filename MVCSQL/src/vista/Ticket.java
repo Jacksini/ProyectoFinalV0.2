@@ -5,15 +5,8 @@ Nombre: David Enrique Garcia Olvera
  */
 package vista;
 
-import Modelo.Settings;
-import Modelo.ConsultaArchivos;
-import controlador.ControladorConfiguracion;
-import javax.swing.JOptionPane;
+public class Ticket extends javax.swing.JFrame{
 
-public class Ticket extends javax.swing.JFrame implements Settings{
-
-    private ConsultaArchivos settings = new ConsultaArchivos();
-    
     public Ticket() {
         initComponents();
     }
@@ -56,19 +49,9 @@ public class Ticket extends javax.swing.JFrame implements Settings{
 
         btnPrintTrial.setText("Probar impresión con último ticket");
         btnPrintTrial.setToolTipText("");
-        btnPrintTrial.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPrintTrialActionPerformed(evt);
-            }
-        });
 
         btnConfHome.setText("Mostrar todas las opciones");
         btnConfHome.setToolTipText("");
-        btnConfHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConfHomeActionPerformed(evt);
-            }
-        });
 
         panelTicket.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -130,11 +113,6 @@ public class Ticket extends javax.swing.JFrame implements Settings{
 
         btnChanges.setText("Guardar Cambios");
         btnChanges.setToolTipText("");
-        btnChanges.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnChangesActionPerformed(evt);
-            }
-        });
 
         menuVentas.setText("Ventas");
         jMenuBar1.add(menuVentas);
@@ -202,79 +180,29 @@ public class Ticket extends javax.swing.JFrame implements Settings{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnPrintTrialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintTrialActionPerformed
-        //Creacioon de un archivo de ejemplo
-        crearEjemplo();
-    }//GEN-LAST:event_btnPrintTrialActionPerformed
-
-    private void btnChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangesActionPerformed
-        //Guarda Cambios
-        settings.setNombreTienda(txtNombreTienda.getText());
-        settings.setDireccion(txtDireccion.getText());
-        settings.setTelefono(txtTelefono.getText());
-        settings.setRfc(txtRFC.getText());
-        settings.setEndLine(txtEndLine.getText());
-        settings.setUrl(txtURL.getText());
-        settings.writeDocument("Configuracion", "ticket", settings.settingsTicket());
-        JOptionPane.showMessageDialog(null, "Se guardo exitosamente");
-    }//GEN-LAST:event_btnChangesActionPerformed
-
-    private void btnConfHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfHomeActionPerformed
-        Configuracion Config = new Configuracion();
-        ControladorConfiguracion CtrlConf = new ControladorConfiguracion(Config, settings);
-        CtrlConf.iniciarVista();
-        this.dispose();
-    }//GEN-LAST:event_btnConfHomeActionPerformed
-
-    
-    public void crearEjemplo(){
-        modelo.ConsultaConfiguracion query = new modelo.ConsultaConfiguracion();
-        settings.updateSettings("Configuracion");
-        String dialog = "Se imprimio un ticket en la carpeta de configuracion";
-        //Obtiene el resultado en una variable para poder evitar errores
-        String result = settings.exampleTicket(query.ticketConsultar());
-        if(result == null || result.isEmpty()){
-            settings.writeDocument("Configuracion", "exampleTicket.txt", settings.exampleTicket());
-            dialog += ". No se pudo obtener los datos de la ultima consulta, por lo que se usara una default";
-        }else{
-            settings.writeDocument("Configuracion", "exampleTicket.txt", result);
-        }
-        JOptionPane.showMessageDialog(null, dialog);
-    }
-    
-    @Override
-    public void updateSettings(){
-        settings.setTicket("Configuracion", "ticket");
-        txtNombreTienda.setText(settings.getNombreTienda());
-        txtDireccion.setText(settings.getDireccion());
-        txtTelefono.setText(settings.getTelefono());
-        txtRFC.setText(settings.getRfc());
-        txtEndLine.setText(settings.getEndLine());
-        txtURL.setText(settings.getUrl());
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnChanges;
-    private javax.swing.JButton btnConfHome;
-    private javax.swing.JButton btnPrintTrial;
+    public javax.swing.JButton btnChanges;
+    public javax.swing.JButton btnConfHome;
+    public javax.swing.JButton btnPrintTrial;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblConfiguracion;
     private javax.swing.JLabel lblTicket;
     private javax.swing.JTextArea lblTicketEjemplo;
-    private javax.swing.JMenu menuClientes;
-    private javax.swing.JMenu menuConfiguracion;
-    private javax.swing.JMenu menuInventario;
-    private javax.swing.JMenu menuProductos;
-    private javax.swing.JMenu menuProveedores;
-    private javax.swing.JMenu menuVentas;
+    public javax.swing.JMenu menuClientes;
+    public javax.swing.JMenu menuConfiguracion;
+    public javax.swing.JMenu menuInventario;
+    public javax.swing.JMenu menuProductos;
+    public javax.swing.JMenu menuProveedores;
+    public javax.swing.JMenu menuVentas;
     private javax.swing.JPanel panelTicket;
-    private javax.swing.JTextField txtDireccion;
-    private javax.swing.JTextField txtEndLine;
-    private javax.swing.JTextField txtNombreTienda;
-    private javax.swing.JTextField txtRFC;
-    private javax.swing.JTextField txtTelefono;
-    private javax.swing.JTextField txtURL;
+    public javax.swing.JTextField txtDireccion;
+    public javax.swing.JTextField txtEndLine;
+    public javax.swing.JTextField txtNombreTienda;
+    public javax.swing.JTextField txtRFC;
+    public javax.swing.JTextField txtTelefono;
+    public javax.swing.JTextField txtURL;
     // End of variables declaration//GEN-END:variables
 }

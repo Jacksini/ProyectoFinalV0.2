@@ -1,0 +1,14 @@
+Abarrotes Mens
+Av. Mmms
+(999) 122 4445
+RFC3453456
+
+Cant.	Descripción		Importe
+=================================
+1	Agua Ciel 60ml 	$7.00
+1	Coca Cola Light 	$18.00
+
+	No. de Articulos: 4
+		Total: $33.00
+Gracias!
+www.google.com

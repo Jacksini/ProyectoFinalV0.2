@@ -50,6 +50,28 @@ public class Modelo {
             return false;
         }
     }
+    //Obtener ticket
+    public String[] ticketConsultar(){
+        try{
+            //Cambiar el usuario y la contrasena cuando ya este todo anidado
+                Statement s = con.createStatement();
+                int x = 0;
+                ResultSet rs = s.executeQuery("call ticket(" +x +")");
+                String[] columnas = {"Cantidad", "PrecioDeVenta", "DescripcionProducto"};
+                String[] values = new String[3];
+                int i=0;
+                for(String column : columnas){
+                    values [i] = rs.getObject(column).toString();
+                    i++;
+                }            
+                return values;
+        }catch(SQLException e){
+            return null;
+        }catch(Exception e){
+            System.out.println("catch: " +e.getMessage());
+            return null;
+        }
+    }
     //TABLA DE PROVEEDORES    
     public DefaultTableModel MostrarTablas(String query){
         try{
