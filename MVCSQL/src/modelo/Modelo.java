@@ -11,8 +11,6 @@ import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 /////////////////////////////////////////////////
 import vista.proveedores;
-import controlador.ControladorProveedor;
-import modelo.Modelo;
 
 public class Modelo {
     proveedores p = new proveedores();
@@ -53,7 +51,7 @@ public class Modelo {
         }
     }
     //TABLA DE PROVEEDORES    
-    public DefaultTableModel MostrarProveedores(String query){
+    public DefaultTableModel MostrarTablas(String query){
         try{
             Statement s= con.createStatement();
             ResultSet rs = s.executeQuery(query);
