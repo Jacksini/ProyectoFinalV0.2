@@ -8,49 +8,31 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ventas"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuClientes">
           <Properties>
             <Property name="text" type="java.lang.String" value="Clientes"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuProductos">
           <Properties>
             <Property name="text" type="java.lang.String" value="Productos"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuProveedores">
           <Properties>
             <Property name="text" type="java.lang.String" value="Proveedores"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuInventario">
           <Properties>
             <Property name="text" type="java.lang.String" value="Inventario"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuConfiguracion">
           <Properties>
             <Property name="text" type="java.lang.String" value="Configuraci&#xf3;n"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
         </Menu>
       </SubComponents>
     </Menu>
@@ -80,27 +62,37 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jSeparator1" max="32767" attributes="0"/>
-          <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblConfiguracion" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblGeneral" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnOpciones" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnCajeros" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblConfiguracion" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblSimbolo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnConfHome" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <Component id="lblGeneral1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnConfHome" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnTicket" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnImpuestos" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnMoneda" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnChanges" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblSimboloMoneda" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblSeparadorMiles" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblSeparadorDecimal" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtSimboloMoneda" pref="81" max="32767" attributes="0"/>
+                                  <Component id="txtSimboloMiles" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtSimboloDecimal" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="901" max="32767" attributes="0"/>
+              <EmptySpace pref="979" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -114,21 +106,25 @@
               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="lblGeneral" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="lblSimbolo" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnOpciones" alignment="3" max="-2" attributes="0"/>
-                  <Component id="btnCajeros" alignment="3" max="-2" attributes="0"/>
+                  <Component id="lblSimboloMoneda" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtSimboloMoneda" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblSeparadorMiles" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtSimboloMiles" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblSeparadorDecimal" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtSimboloDecimal" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="lblGeneral1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnTicket" alignment="3" max="-2" attributes="0"/>
-                  <Component id="btnImpuestos" alignment="3" max="-2" attributes="0"/>
-                  <Component id="btnMoneda" alignment="3" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="0" pref="435" max="32767" attributes="0"/>
+              <Component id="btnChanges" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="410" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -144,72 +140,69 @@
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
     </Component>
-    <Component class="javax.swing.JLabel" name="lblGeneral">
+    <Component class="javax.swing.JLabel" name="lblSimbolo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="General"/>
+        <Property name="text" type="java.lang.String" value="S&#xed;mbolo de moneda"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnOpciones">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Opciones"/>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnCajeros">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cajeros"/>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblGeneral1">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Personalizaci&#xf3;n"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnImpuestos">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Impuestos"/>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnTicket">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ticket"/>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnMoneda">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="S&#xed;mbolo de Moneda"/>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="btnConfHome">
       <Properties>
         <Property name="text" type="java.lang.String" value="Mostrar todas las opciones"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConfHomeActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSimboloMoneda">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="S&#xed;mbolo de Moneda:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtSimboloMoneda">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="$"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSeparadorMiles">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Separador de Miles:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtSimboloMiles">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=","/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSeparadorDecimal">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Separador Decimal:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtSimboloDecimal">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="."/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnChanges">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Guardar Cambios"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangesActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
