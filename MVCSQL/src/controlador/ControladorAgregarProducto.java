@@ -1,13 +1,10 @@
 package controlador;
 
-//Librerias Java
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
-
-//Packages Locales
 import modelo.Modelo;
 import vista.Agregarproducto;
 import vista.Clientes;
@@ -22,9 +19,9 @@ import vista.VentanaVentas;
 import vista.proveedores;
 import vista.sesion;
 
-public class ControladorInventario implements ActionListener, MouseListener{
-    
-    //Vistas Inventario
+public class ControladorAgregarProducto implements ActionListener, MouseListener{
+    //vistas de Ventas
+    private sesion vistaInicioSesion;
     private VentanaVentas ventasInicial;
     private Clientes ventanaClientes;
     private Productos Product;
@@ -42,7 +39,7 @@ public class ControladorInventario implements ActionListener, MouseListener{
     //Conexion a BD y consultas de SQL
     private Modelo model;
     
-    public ControladorInventario(Modelo model, 
+    public ControladorAgregarProducto(Modelo model, 
            sesion vistaInicioSesion, 
            VentanaVentas ventasInicial, 
            Clientes ventanaClientes, 
@@ -56,7 +53,8 @@ public class ControladorInventario implements ActionListener, MouseListener{
            ModificarProducto ModProdu,
            NuevoProducto NewProdu){
         
-        //Ventana Clientes
+        //Ventanas Productos
+        this.vistaInicioSesion = vistaInicioSesion;
         this.ventasInicial = ventasInicial;
         this.ventanaClientes = ventanaClientes;
         this.Product = Product;
@@ -74,28 +72,27 @@ public class ControladorInventario implements ActionListener, MouseListener{
         //Modelo
         this.model = model;
         
-        //Botones para cambiar entre ventanas sourse: Inventario
-        this.Inv.BtnMenuVentas.addMouseListener(this);
-        this.Inv.BtnMenuClientes.addMouseListener(this);
-        this.Inv.BtnMenuProductos.addMouseListener(this);
-        this.Inv.BtnMenuProveedores.addMouseListener(this);
-        this.Inv.BtnMenuConfiguracion.addMouseListener(this);
+        //Botones para cambiar entre ventanas sourse: Ventas
+        this.Agregarproduct.BtnMenuClientes.addMouseListener(this);
+        this.Agregarproduct.BtnMenuProductos.addMouseListener(this);
+        this.Agregarproduct.BtnMenuProveedores.addMouseListener(this);
+        this.Agregarproduct.BtnMenuInventario.addMouseListener(this);
+        this.Agregarproduct.BtnMenuConfiguracion.addMouseListener(this);
         
         //Botones para abrir ventanas emergentes
-        this.Inv.btnNuevo.addMouseListener(this);
-        this.Inv.btnAgregar.addMouseListener(this);
-        this.Inv.btnModificar.addMouseListener(this);
-        this.Inv.btnEliminar.addMouseListener(this);
-        this.Inv.btnDepartamentos.addMouseListener(this);
-        this.Inv.btnCatalogo.addMouseListener(this);
+        this.Agregarproduct.btnNuevo.addMouseListener(this);
+        this.Agregarproduct.btnAgregar.addMouseListener(this);
+        this.Agregarproduct.btnModificar.addMouseListener(this);
+        this.Agregarproduct.btnEliminar.addMouseListener(this);
+        this.Agregarproduct.btnDepartamentos.addMouseListener(this);
+        this.Agregarproduct.btnCatalogo.addMouseListener(this);
         
-        //Botones con funciones
-        this.Inv.btnBuscarCodigo.addMouseListener(this);
-        this.Inv.btnBuscarDepartamento.addMouseListener(this);
-        this.Inv.btnBuscarMinimo.addMouseListener(this);
+        //Botones con procesos
+        this.Agregarproduct.btnBuscar.addMouseListener(this);
+        this.Agregarproduct.btnAgregarInventario.addMouseListener(this);
     }
     
-    //Ventanas Inventario
+    //Ventanas Ventas
     public void ventanaVentas(){
         ventasInicial.setTitle("Ventas");
         ventasInicial.setLocationRelativeTo(null);
@@ -121,6 +118,15 @@ public class ControladorInventario implements ActionListener, MouseListener{
         Proveedor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         Proveedor.setLocationRelativeTo(null);
         Proveedor.setVisible(true); 
+    }
+    
+    public void ventanaInventario(){
+        Inv.setTitle("Inventario");
+        Inv.setLocationRelativeTo(null);
+        Inv.pack(); //Abre la ventana al tamaño preferido de los componentes
+        Inv.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        Inv.setLocationRelativeTo(null);
+        Inv.setVisible(true); 
     }
     
     public void ventanaProductos(){
@@ -186,7 +192,8 @@ public class ControladorInventario implements ActionListener, MouseListener{
         NewProdu.setLocationRelativeTo(null);
         NewProdu.setVisible(true);
     }
-
+    
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         
@@ -194,62 +201,59 @@ public class ControladorInventario implements ActionListener, MouseListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(Inv.BtnMenuVentas == e.getSource()){
-            Inv.setVisible(false); 
-            ventanaVentas();
-        }else if(Inv.BtnMenuProductos == e.getSource()){
-            Inv.setVisible(false);
+        if(Agregarproduct.BtnMenuClientes == e.getSource()){
+            Agregarproduct.setVisible(false); 
+            ventanaClientes();  
+        }else if(Agregarproduct.BtnMenuProductos == e.getSource()){
+            Agregarproduct.setVisible(false); 
             ventanaProductos();
-        }else if(Inv.BtnMenuProveedores == e.getSource()){
-            Inv.setVisible(false);
+        }else if(Agregarproduct.BtnMenuProveedores == e.getSource()){
+            Agregarproduct.setVisible(false);
             ventanaProveedores();
-        }else if(Inv.BtnMenuClientes == e.getSource()){
-            Inv.setVisible(false);
-            ventanaClientes();
-        }else if(Inv.BtnMenuConfiguracion == e.getSource()){
-            Inv.setVisible(false);
+        }else if(Agregarproduct.BtnMenuInventario == e.getSource()){
+            Agregarproduct.setVisible(false);
+            ventanaInventario();
+        }else if(Agregarproduct.BtnMenuConfiguracion == e.getSource()){
+            Agregarproduct.setVisible(false);
             ventanaConfiguracion();
-        }else if(Inv.btnNuevo == e.getSource()){
-            Inv.setVisible(false);
+        }else if(Agregarproduct.btnNuevo == e.getSource()){
+            Agregarproduct.setVisible(false);
             ventanaNuevoProducto();
-        }else if(Inv.btnAgregar == e.getSource()){
-            Inv.setVisible(false);
+        }else if(Agregarproduct.btnAgregar == e.getSource()){
+            Agregarproduct.setVisible(false);
             ventanaAgregarProducto();
-        }else if(Inv.btnModificar == e.getSource()){
-            Inv.setVisible(false);
+        }else if(Agregarproduct.btnModificar == e.getSource()){
+            Agregarproduct.setVisible(false);
             ventanaModificarProducto();
-        }else if(Inv.btnEliminar == e.getSource()){
-            Product.setVisible(false);
+        }else if(Agregarproduct.btnEliminar == e.getSource()){
+            Agregarproduct.setVisible(false);
             ventanaEliminarProducto();
-        }else if(Inv.btnDepartamentos == e.getSource()){
-            Inv.setVisible(false);
+        }else if(Agregarproduct.btnDepartamentos == e.getSource()){
+            Agregarproduct.setVisible(false);
             ventanaDepartamentos();
-        }else if(Inv.btnBuscarCodigo == e.getSource()){
+        }else if(Agregarproduct.btnCatalogo == e.getSource()){
+            Agregarproduct.setVisible(false);
+            ventanaInventario();
+        }else if(Agregarproduct.btnBuscar == e.getSource()){
             
-        }else if(Inv.btnBuscarDepartamento == e.getSource()){
-            
-        }else if(Inv.btnBuscarMinimo == e.getSource()){
+        }else if(Agregarproduct.btnAgregarInventario == e.getSource()){
             
         }
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        
     }
 }

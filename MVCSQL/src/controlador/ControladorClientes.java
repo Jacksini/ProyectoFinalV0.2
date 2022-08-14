@@ -56,6 +56,11 @@ public class ControladorClientes implements ActionListener, MouseListener{
         this.ventanaClientes.BtnMenuProveedores.addMouseListener(this);
         this.ventanaClientes.BtnMenuInventario.addMouseListener(this);
         this.ventanaClientes.BtnMenuConfiguracion.addMouseListener(this);
+        
+        //Botones con procesos
+        this.ventanaClientes.btnNuevoCliente.addMouseListener(this);
+        this.ventanaClientes.btnEliminarCliente.addMouseListener(this);
+        this.ventanaClientes.btnBuscar.addMouseListener(this);
     }
     
     //Ventanas Clientes
@@ -129,6 +134,12 @@ public class ControladorClientes implements ActionListener, MouseListener{
         }else if(ventanaClientes.BtnMenuConfiguracion == e.getSource()){
             ventanaClientes.setVisible(false);
             ventanaConfiguracion();
+        }else if(ventanaClientes.btnNuevoCliente == e.getSource()){
+            
+        }else if(ventanaClientes.btnEliminarCliente == e.getSource()){
+            
+        }else if(ventanaClientes.btnBuscar == e.getSource()){
+            
         }
     }
 

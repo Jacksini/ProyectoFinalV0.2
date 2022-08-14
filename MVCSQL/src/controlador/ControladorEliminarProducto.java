@@ -1,13 +1,10 @@
 package controlador;
 
-//Librerias Java
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
-
-//Packages Locales
 import modelo.Modelo;
 import vista.Agregarproducto;
 import vista.Clientes;
@@ -22,9 +19,9 @@ import vista.VentanaVentas;
 import vista.proveedores;
 import vista.sesion;
 
-public class ControladorInventario implements ActionListener, MouseListener{
-    
-    //Vistas Inventario
+public class ControladorEliminarProducto implements ActionListener, MouseListener{
+    //vistas de Ventas
+    private sesion vistaInicioSesion;
     private VentanaVentas ventasInicial;
     private Clientes ventanaClientes;
     private Productos Product;
@@ -42,7 +39,7 @@ public class ControladorInventario implements ActionListener, MouseListener{
     //Conexion a BD y consultas de SQL
     private Modelo model;
     
-    public ControladorInventario(Modelo model, 
+    public ControladorEliminarProducto(Modelo model, 
            sesion vistaInicioSesion, 
            VentanaVentas ventasInicial, 
            Clientes ventanaClientes, 
@@ -56,7 +53,8 @@ public class ControladorInventario implements ActionListener, MouseListener{
            ModificarProducto ModProdu,
            NuevoProducto NewProdu){
         
-        //Ventana Clientes
+        //Ventanas Productos
+        this.vistaInicioSesion = vistaInicioSesion;
         this.ventasInicial = ventasInicial;
         this.ventanaClientes = ventanaClientes;
         this.Product = Product;
@@ -74,28 +72,28 @@ public class ControladorInventario implements ActionListener, MouseListener{
         //Modelo
         this.model = model;
         
-        //Botones para cambiar entre ventanas sourse: Inventario
-        this.Inv.BtnMenuVentas.addMouseListener(this);
-        this.Inv.BtnMenuClientes.addMouseListener(this);
-        this.Inv.BtnMenuProductos.addMouseListener(this);
-        this.Inv.BtnMenuProveedores.addMouseListener(this);
-        this.Inv.BtnMenuConfiguracion.addMouseListener(this);
+        //Botones para cambiar entre ventanas sourse: Ventas
+        this.ElimProdu.BtnMenuClientes.addMouseListener(this);
+        this.ElimProdu.BtnMenuProductos.addMouseListener(this);
+        this.ElimProdu.BtnMenuProveedores.addMouseListener(this);
+        this.ElimProdu.BtnMenuInventario.addMouseListener(this);
+        this.ElimProdu.BtnMenuConfiguracion.addMouseListener(this);
         
         //Botones para abrir ventanas emergentes
-        this.Inv.btnNuevo.addMouseListener(this);
-        this.Inv.btnAgregar.addMouseListener(this);
-        this.Inv.btnModificar.addMouseListener(this);
-        this.Inv.btnEliminar.addMouseListener(this);
-        this.Inv.btnDepartamentos.addMouseListener(this);
-        this.Inv.btnCatalogo.addMouseListener(this);
+        this.ElimProdu.btnNuevo.addMouseListener(this);
+        this.ElimProdu.btnAgregar.addMouseListener(this);
+        this.ElimProdu.btnModificar.addMouseListener(this);
+        this.ElimProdu.btnEliminar.addMouseListener(this);
+        this.ElimProdu.btnDepartamentos.addMouseListener(this);
+        this.ElimProdu.btnCatalogo.addMouseListener(this);
         
-        //Botones con funciones
-        this.Inv.btnBuscarCodigo.addMouseListener(this);
-        this.Inv.btnBuscarDepartamento.addMouseListener(this);
-        this.Inv.btnBuscarMinimo.addMouseListener(this);
+        //Botones con procesos
+        this.ElimProdu.btnEliminarProducto.addMouseListener(this);
+        this.ElimProdu.BtnBuscar.addMouseListener(this);
+        
     }
     
-    //Ventanas Inventario
+    //Ventanas Ventas
     public void ventanaVentas(){
         ventasInicial.setTitle("Ventas");
         ventasInicial.setLocationRelativeTo(null);
@@ -121,6 +119,15 @@ public class ControladorInventario implements ActionListener, MouseListener{
         Proveedor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         Proveedor.setLocationRelativeTo(null);
         Proveedor.setVisible(true); 
+    }
+    
+    public void ventanaInventario(){
+        Inv.setTitle("Inventario");
+        Inv.setLocationRelativeTo(null);
+        Inv.pack(); //Abre la ventana al tamaño preferido de los componentes
+        Inv.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        Inv.setLocationRelativeTo(null);
+        Inv.setVisible(true); 
     }
     
     public void ventanaProductos(){
@@ -186,7 +193,8 @@ public class ControladorInventario implements ActionListener, MouseListener{
         NewProdu.setLocationRelativeTo(null);
         NewProdu.setVisible(true);
     }
-
+    
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         
@@ -194,62 +202,59 @@ public class ControladorInventario implements ActionListener, MouseListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(Inv.BtnMenuVentas == e.getSource()){
-            Inv.setVisible(false); 
-            ventanaVentas();
-        }else if(Inv.BtnMenuProductos == e.getSource()){
-            Inv.setVisible(false);
+        if(ElimProdu.BtnMenuClientes == e.getSource()){
+            ElimProdu.setVisible(false); 
+            ventanaClientes();  
+        }else if(ElimProdu.BtnMenuProductos == e.getSource()){
+            ElimProdu.setVisible(false); 
             ventanaProductos();
-        }else if(Inv.BtnMenuProveedores == e.getSource()){
-            Inv.setVisible(false);
+        }else if(ElimProdu.BtnMenuProveedores == e.getSource()){
+            ElimProdu.setVisible(false);
             ventanaProveedores();
-        }else if(Inv.BtnMenuClientes == e.getSource()){
-            Inv.setVisible(false);
-            ventanaClientes();
-        }else if(Inv.BtnMenuConfiguracion == e.getSource()){
-            Inv.setVisible(false);
+        }else if(ElimProdu.BtnMenuInventario == e.getSource()){
+            ElimProdu.setVisible(false);
+            ventanaInventario();
+        }else if(ElimProdu.BtnMenuConfiguracion == e.getSource()){
+            ElimProdu.setVisible(false);
             ventanaConfiguracion();
-        }else if(Inv.btnNuevo == e.getSource()){
-            Inv.setVisible(false);
+        }else if(ElimProdu.btnNuevo == e.getSource()){
+            ElimProdu.setVisible(false);
             ventanaNuevoProducto();
-        }else if(Inv.btnAgregar == e.getSource()){
-            Inv.setVisible(false);
+        }else if(ElimProdu.btnAgregar == e.getSource()){
+            ElimProdu.setVisible(false);
             ventanaAgregarProducto();
-        }else if(Inv.btnModificar == e.getSource()){
-            Inv.setVisible(false);
+        }else if(ElimProdu.btnModificar == e.getSource()){
+            ElimProdu.setVisible(false);
             ventanaModificarProducto();
-        }else if(Inv.btnEliminar == e.getSource()){
-            Product.setVisible(false);
+        }else if(ElimProdu.btnEliminar == e.getSource()){
+            ElimProdu.setVisible(false);
             ventanaEliminarProducto();
-        }else if(Inv.btnDepartamentos == e.getSource()){
-            Inv.setVisible(false);
+        }else if(ElimProdu.btnDepartamentos == e.getSource()){
+            ElimProdu.setVisible(false);
             ventanaDepartamentos();
-        }else if(Inv.btnBuscarCodigo == e.getSource()){
+        }else if(ElimProdu.btnCatalogo == e.getSource()){
+            ElimProdu.setVisible(false);
+            ventanaInventario();
+        }else if(ElimProdu.btnEliminarProducto == e.getSource()){
             
-        }else if(Inv.btnBuscarDepartamento == e.getSource()){
-            
-        }else if(Inv.btnBuscarMinimo == e.getSource()){
+        }else if(ElimProdu.BtnBuscar == e.getSource()){
             
         }
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        
     }
 }

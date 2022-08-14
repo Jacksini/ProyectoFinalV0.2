@@ -45,7 +45,7 @@ public class modificarprovedor extends javax.swing.JFrame {
         BTTModificarProveedor = new javax.swing.JButton();
         BTTEliminarProveedor = new javax.swing.JButton();
         LBTelefonosPro = new javax.swing.JLabel();
-        BTTBuscar1 = new javax.swing.JButton();
+        BTTBuscar = new javax.swing.JButton();
         LBTipoTelefono = new javax.swing.JLabel();
         TXTMostrarTipoTelefonoProveedor = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -129,8 +129,8 @@ public class modificarprovedor extends javax.swing.JFrame {
         LBTelefonosPro.setText("Telefonos");
         getContentPane().add(LBTelefonosPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 70, -1));
 
-        BTTBuscar1.setText("Buscar");
-        getContentPane().add(BTTBuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 134, 90, 30));
+        BTTBuscar.setText("Buscar");
+        getContentPane().add(BTTBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 134, 90, 30));
 
         LBTipoTelefono.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         LBTipoTelefono.setText("Tipo");
@@ -267,7 +267,7 @@ public class modificarprovedor extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> BOXEstado;
     private javax.swing.JComboBox<String> BOXMunicipio;
     public javax.swing.JButton BTTAgregar;
-    public javax.swing.JButton BTTBuscar1;
+    public javax.swing.JButton BTTBuscar;
     public javax.swing.JButton BTTEliminarProveedor;
     public javax.swing.JButton BTTModificarProveedor;
     public javax.swing.JButton BTTNuevoProveedor;

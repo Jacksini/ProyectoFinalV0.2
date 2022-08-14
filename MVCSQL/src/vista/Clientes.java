@@ -397,13 +397,13 @@ public class Clientes extends javax.swing.JFrame {
     public javax.swing.JMenu BtnMenuVentas;
     public javax.swing.JMenuBar MenuBar;
     public javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEliminarCliente;
+    public javax.swing.JButton btnEliminarCliente;
     public javax.swing.JButton btnNuevoCliente;
     private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
-    private javax.swing.JComboBox jComboBox4;
-    private javax.swing.JComboBox jComboBox5;
+    public javax.swing.JComboBox jComboBox2;
+    public javax.swing.JComboBox jComboBox3;
+    public javax.swing.JComboBox jComboBox4;
+    public javax.swing.JComboBox jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;

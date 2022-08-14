@@ -15,7 +15,6 @@ public class Modelo {
     Connection con;
     String usuario;
     String contraseña;
-    int boton;
 
     public String getUsuario() {
         return usuario;
@@ -33,13 +32,6 @@ public class Modelo {
         this.contraseña = contraseña;
     }
 
-    public int getBoton() {
-        return boton;
-    }
-
-    public void setBoton(int boton) {
-        this.boton = boton;
-    }
     
     public boolean conectar(){
         try{

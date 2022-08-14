@@ -90,6 +90,8 @@ public class ControladorProveedor implements ActionListener, MouseListener{
         this.Proveedor.BTTNuevoProveedor.addMouseListener(this);
         this.Proveedor.BTTModificarProveedor.addMouseListener(this);
         this.Proveedor.BTTEliminarProveedor.addMouseListener(this);
+        
+        //Botones con procesos
         this.Proveedor.BTTBuscar.addMouseListener(this);
     }
     
