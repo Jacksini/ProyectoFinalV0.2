@@ -43,7 +43,7 @@ public class NuevoProducto extends javax.swing.JFrame {
         txtDescripcion = new javax.swing.JTextField();
         etiquetaDescripcion = new javax.swing.JLabel();
         etiquetaSeVende = new javax.swing.JLabel();
-        cbKilo = new javax.swing.JCheckBox();
+        cbPerecedero = new javax.swing.JCheckBox();
         cbUnidades = new javax.swing.JCheckBox();
         etiquetaPrecioCosto = new javax.swing.JLabel();
         txtPrecioCosto = new javax.swing.JTextField();
@@ -60,15 +60,13 @@ public class NuevoProducto extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         etiquetaAtiende = new javax.swing.JLabel();
-        TxtGancia = new javax.swing.JTextField();
-        TxtDepartamento = new javax.swing.JTextField();
+        txtGanancia = new javax.swing.JTextField();
+        txtDepartamento = new javax.swing.JTextField();
         LblPrecioVenta = new javax.swing.JLabel();
         LblNombreProducto = new javax.swing.JLabel();
-        txtCodigoProducto1 = new javax.swing.JTextField();
-        LblIdProducto = new javax.swing.JLabel();
-        txtCodigoProducto2 = new javax.swing.JTextField();
-        cbKilo1 = new javax.swing.JCheckBox();
-        txtDescripcion1 = new javax.swing.JTextField();
+        txtNombreProd = new javax.swing.JTextField();
+        cbKilo = new javax.swing.JCheckBox();
+        txtProveedor = new javax.swing.JTextField();
         etiquetaDescripcion1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         BtnMenuVentas = new javax.swing.JMenu();
@@ -113,162 +111,147 @@ public class NuevoProducto extends javax.swing.JFrame {
         getContentPane().add(etiquetaProductos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, 91, 24));
 
         etiquetaCodigoProducto.setText("Codigo barras:");
-        getContentPane().add(etiquetaCodigoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
+        getContentPane().add(etiquetaCodigoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
         txtCodigoProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCodigoProductoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCodigoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 246, -1));
+        getContentPane().add(txtCodigoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 246, -1));
 
         txtDescripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDescripcionActionPerformed(evt);
             }
         });
-        getContentPane().add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 230, -1));
+        getContentPane().add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 230, -1));
 
         etiquetaDescripcion.setText("Descripcion:");
-        getContentPane().add(etiquetaDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
+        getContentPane().add(etiquetaDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
         etiquetaSeVende.setText("Se vende");
-        getContentPane().add(etiquetaSeVende, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
+        getContentPane().add(etiquetaSeVende, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
 
-        cbKilo.setText("Perecedero");
-        cbKilo.setAlignmentY(0.0F);
-        cbKilo.addActionListener(new java.awt.event.ActionListener() {
+        cbPerecedero.setText("Perecedero");
+        cbPerecedero.setAlignmentY(0.0F);
+        cbPerecedero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbKiloActionPerformed(evt);
+                cbPerecederoActionPerformed(evt);
             }
         });
-        getContentPane().add(cbKilo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, -1, -1));
+        getContentPane().add(cbPerecedero, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, -1, -1));
 
         cbUnidades.setText("Por unidades/pieza");
         cbUnidades.setAlignmentY(0.0F);
-        getContentPane().add(cbUnidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, -1, -1));
+        getContentPane().add(cbUnidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
 
         etiquetaPrecioCosto.setText("Precio compra:");
-        getContentPane().add(etiquetaPrecioCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
+        getContentPane().add(etiquetaPrecioCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
 
         txtPrecioCosto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPrecioCostoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtPrecioCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 230, -1));
+        getContentPane().add(txtPrecioCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 230, -1));
 
         etiquetaGanancia.setText("Ganancia:");
-        getContentPane().add(etiquetaGanancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
+        getContentPane().add(etiquetaGanancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, -1, -1));
 
         etiquetaPrecioVenta.setText("Precio venta:");
-        getContentPane().add(etiquetaPrecioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 130, -1, -1));
+        getContentPane().add(etiquetaPrecioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, -1, -1));
 
         etiquetaDepartamento.setText("Departamento:");
-        getContentPane().add(etiquetaDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
+        getContentPane().add(etiquetaDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, -1));
 
         etiquetaHay.setText("Hay:");
-        getContentPane().add(etiquetaHay, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, -1, -1));
+        getContentPane().add(etiquetaHay, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, -1, -1));
 
         txtHay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtHayActionPerformed(evt);
             }
         });
-        getContentPane().add(txtHay, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 450, 108, -1));
+        getContentPane().add(txtHay, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, 108, -1));
 
         txtMinimo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMinimoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtMinimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 490, 108, -1));
+        getContentPane().add(txtMinimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 460, 108, -1));
 
         etiquetaMinimo.setText("Minimo:");
-        getContentPane().add(etiquetaMinimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, -1, -1));
+        getContentPane().add(etiquetaMinimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, -1, -1));
 
         txtMaximo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMaximoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtMaximo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 520, 108, -1));
+        getContentPane().add(txtMaximo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 490, 108, -1));
 
         etiquetaMaximo.setText("Maximo:");
-        getContentPane().add(etiquetaMaximo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 530, -1, -1));
+        getContentPane().add(etiquetaMaximo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, -1, -1));
 
         btnGuardar.setText("Guardar");
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 520, -1, -1));
+        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 490, -1, -1));
 
         btnCancelar.setText("Cancelar");
-        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 520, -1, -1));
+        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 490, -1, -1));
 
         jLabel12.setText("%");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 380, -1, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, -1, -1));
 
         etiquetaAtiende.setText("Lo atiende");
         getContentPane().add(etiquetaAtiende, new org.netbeans.lib.awtextra.AbsoluteConstraints(589, 4, -1, -1));
 
-        TxtGancia.addActionListener(new java.awt.event.ActionListener() {
+        txtGanancia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtGanciaActionPerformed(evt);
+                txtGananciaActionPerformed(evt);
             }
         });
-        getContentPane().add(TxtGancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, -1, -1));
+        getContentPane().add(txtGanancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 70, -1));
 
-        TxtDepartamento.addActionListener(new java.awt.event.ActionListener() {
+        txtDepartamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtDepartamentoActionPerformed(evt);
+                txtDepartamentoActionPerformed(evt);
             }
         });
-        getContentPane().add(TxtDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 108, -1));
+        getContentPane().add(txtDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 108, -1));
 
         LblPrecioVenta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(LblPrecioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 51, 22));
+        getContentPane().add(LblPrecioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 120, 51, 22));
 
         LblNombreProducto.setText("Nombre producto:");
-        getContentPane().add(LblNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
+        getContentPane().add(LblNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
 
-        txtCodigoProducto1.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoProducto1ActionPerformed(evt);
+                txtNombreProdActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCodigoProducto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 250, -1));
+        getContentPane().add(txtNombreProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 250, -1));
 
-        LblIdProducto.setText("IdProducto:");
-        getContentPane().add(LblIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
-
-        txtCodigoProducto2.addActionListener(new java.awt.event.ActionListener() {
+        cbKilo.setText("Por kilogramos");
+        cbKilo.setAlignmentY(0.0F);
+        cbKilo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoProducto2ActionPerformed(evt);
+                cbKiloActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCodigoProducto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 246, -1));
+        getContentPane().add(cbKilo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, -1, -1));
 
-        cbKilo1.setText("Por kilogramos");
-        cbKilo1.setAlignmentY(0.0F);
-        cbKilo1.addActionListener(new java.awt.event.ActionListener() {
+        txtProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbKilo1ActionPerformed(evt);
+                txtProveedorActionPerformed(evt);
             }
         });
-        getContentPane().add(cbKilo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, -1, -1));
-
-        txtDescripcion1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDescripcion1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtDescripcion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 230, -1));
+        getContentPane().add(txtProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 230, -1));
 
         etiquetaDescripcion1.setText("Proveedor:");
-        getContentPane().add(etiquetaDescripcion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
+        getContentPane().add(etiquetaDescripcion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
 
         BtnMenuVentas.setText("Ventas");
         jMenuBar1.add(BtnMenuVentas);
@@ -301,9 +284,9 @@ public class NuevoProducto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDescripcionActionPerformed
 
-    private void cbKiloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbKiloActionPerformed
+    private void cbPerecederoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPerecederoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbKiloActionPerformed
+    }//GEN-LAST:event_cbPerecederoActionPerformed
 
     private void txtPrecioCostoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioCostoActionPerformed
         // TODO add your handling code here:
@@ -321,68 +304,61 @@ public class NuevoProducto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMaximoActionPerformed
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+    private void txtGananciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGananciaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnGuardarActionPerformed
+    }//GEN-LAST:event_txtGananciaActionPerformed
 
-    private void TxtGanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtGanciaActionPerformed
+    private void txtDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDepartamentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TxtGanciaActionPerformed
+    }//GEN-LAST:event_txtDepartamentoActionPerformed
 
-    private void TxtDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtDepartamentoActionPerformed
+    private void txtNombreProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreProdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TxtDepartamentoActionPerformed
+    }//GEN-LAST:event_txtNombreProdActionPerformed
 
-    private void txtCodigoProducto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoProducto1ActionPerformed
+    private void cbKiloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbKiloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoProducto1ActionPerformed
+    }//GEN-LAST:event_cbKiloActionPerformed
 
-    private void txtCodigoProducto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoProducto2ActionPerformed
+    private void txtProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProveedorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoProducto2ActionPerformed
-
-    private void cbKilo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbKilo1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbKilo1ActionPerformed
-
-    private void txtDescripcion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcion1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDescripcion1ActionPerformed
+    }//GEN-LAST:event_txtProveedorActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NuevoProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NuevoProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NuevoProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NuevoProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new NuevoProducto().setVisible(true);
-            }
-        });
-    }
+    
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(NuevoProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(NuevoProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(NuevoProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(NuevoProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new NuevoProducto().setVisible(true);
+//            }
+//        });
+//    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JMenu BtnMenuClientes;
     public javax.swing.JMenu BtnMenuConfiguracion;
@@ -390,11 +366,8 @@ public class NuevoProducto extends javax.swing.JFrame {
     public javax.swing.JMenu BtnMenuProductos;
     public javax.swing.JMenu BtnMenuProveedores;
     public javax.swing.JMenu BtnMenuVentas;
-    private javax.swing.JLabel LblIdProducto;
     private javax.swing.JLabel LblNombreProducto;
-    private javax.swing.JLabel LblPrecioVenta;
-    private javax.swing.JTextField TxtDepartamento;
-    private javax.swing.JTextField TxtGancia;
+    public javax.swing.JLabel LblPrecioVenta;
     public javax.swing.JButton btnAgregar;
     public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnCatalogo;
@@ -403,9 +376,9 @@ public class NuevoProducto extends javax.swing.JFrame {
     public javax.swing.JButton btnGuardar;
     public javax.swing.JButton btnModificar;
     public javax.swing.JButton btnNuevo;
-    private javax.swing.JCheckBox cbKilo;
-    private javax.swing.JCheckBox cbKilo1;
-    private javax.swing.JCheckBox cbUnidades;
+    public javax.swing.JCheckBox cbKilo;
+    public javax.swing.JCheckBox cbPerecedero;
+    public javax.swing.JCheckBox cbUnidades;
     private javax.swing.JLabel etiquetaAtiende;
     private javax.swing.JLabel etiquetaCodigoProducto;
     private javax.swing.JLabel etiquetaDepartamento;
@@ -424,14 +397,15 @@ public class NuevoProducto extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField txtCodigoProducto;
-    private javax.swing.JTextField txtCodigoProducto1;
-    private javax.swing.JTextField txtCodigoProducto2;
-    private javax.swing.JTextField txtDescripcion;
-    private javax.swing.JTextField txtDescripcion1;
-    private javax.swing.JTextField txtHay;
-    private javax.swing.JTextField txtMaximo;
-    private javax.swing.JTextField txtMinimo;
-    private javax.swing.JTextField txtPrecioCosto;
+    public javax.swing.JTextField txtCodigoProducto;
+    public javax.swing.JTextField txtDepartamento;
+    public javax.swing.JTextField txtDescripcion;
+    public javax.swing.JTextField txtGanancia;
+    public javax.swing.JTextField txtHay;
+    public javax.swing.JTextField txtMaximo;
+    public javax.swing.JTextField txtMinimo;
+    public javax.swing.JTextField txtNombreProd;
+    public javax.swing.JTextField txtPrecioCosto;
+    public javax.swing.JTextField txtProveedor;
     // End of variables declaration//GEN-END:variables
 }

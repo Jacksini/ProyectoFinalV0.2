@@ -12,7 +12,7 @@ import modelo.Modelo;
 import vista.Clientes;
 import vista.Configuracion;
 import vista.Inventario;
-import vista.Productos;
+import vista.NuevoProducto;
 import vista.VentaBuscador;
 import vista.VentaVerificador;
 import vista.VentanaCobro;
@@ -28,7 +28,7 @@ public class ControladorVentas implements ActionListener, MouseListener{
     private sesion vistaInicioSesion;
     private VentanaVentas ventasInicial;
     private Clientes ventanaClientes;
-    private Productos Product;
+    private NuevoProducto Product;
     private proveedores Proveedor;
     private Inventario Inv;
     private Configuracion Config;
@@ -47,7 +47,7 @@ public class ControladorVentas implements ActionListener, MouseListener{
            sesion vistaInicioSesion, 
            VentanaVentas ventasInicial, 
            Clientes ventanaClientes, 
-           Productos Product, 
+           NuevoProducto Product, 
            proveedores Proveedor, 
            Inventario Inv, 
            Configuracion Config,
@@ -142,7 +142,7 @@ public class ControladorVentas implements ActionListener, MouseListener{
     }
     
     public void ventanaProductos(){
-        Product.setTitle("Productos");
+        Product.setTitle("Nuevo Producto");
         Product.setLocationRelativeTo(null);
         Product.pack(); //Abre la ventana al tamaño preferido de los componentes
         Product.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 

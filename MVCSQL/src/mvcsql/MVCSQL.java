@@ -27,7 +27,6 @@ import vista.EliminarProducto;
 import vista.Inventario;
 import vista.ModificarProducto;
 import vista.NuevoProducto;
-import vista.Productos;
 import vista.VentaBuscador;
 import vista.VentaVerificador;
 import vista.VentanaCobro;
@@ -54,7 +53,7 @@ public class MVCSQL{
         //Ventanas de ventas
         VentanaVentas Ventas = new VentanaVentas();
         Clientes cliente = new Clientes();
-        Productos Prod = new Productos();
+        NuevoProducto Prod = new NuevoProducto();
         proveedores Prov = new proveedores();
         Inventario Inv = new Inventario();
         Configuracion Config = new Configuracion();
@@ -76,7 +75,6 @@ public class MVCSQL{
         Departamentos  Dep = new Departamentos();
         EliminarProducto ElimProd = new EliminarProducto();
         ModificarProducto ModProd = new ModificarProducto();
-        NuevoProducto NewProd = new NuevoProducto();
         
         //Ventanas emergentes Configuracion
         Ticket ticket = new Ticket();
@@ -88,17 +86,17 @@ public class MVCSQL{
         //Controladores de ventanas principales
         ControladorVentas CtrlVen = new ControladorVentas(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config, Entra, Sali, Busc, Veri, Cob);
         ControladorClientes CtrlCli = new ControladorClientes(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config);
-        ControladorInventario CtrlInv = new ControladorInventario(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config,addProdu ,Dep ,ElimProd ,ModProd ,NewProd);
+        ControladorInventario CtrlInv = new ControladorInventario(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config,addProdu ,Dep ,ElimProd ,ModProd);
         ControladorProveedor CtrlProv = new ControladorProveedor(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config, nuevoProv ,modProv, elimin);
         ControladorNuevoProveedor CtrlNProv = new ControladorNuevoProveedor(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config, nuevoProv ,modProv, elimin);
         ControladorModificarProveedor CtrlMProv = new ControladorModificarProveedor(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config, nuevoProv ,modProv, elimin);
         ControladorEliminar CtrlEProv = new ControladorEliminar(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config, nuevoProv ,modProv, elimin);
-        ControladorProductos CtrlProd = new ControladorProductos(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config,addProdu ,Dep ,ElimProd ,ModProd ,NewProd);
-        ControladorAgregarProducto CtrlAddProd = new ControladorAgregarProducto(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config,addProdu ,Dep ,ElimProd ,ModProd ,NewProd);
-        ControladorNuevoProducto CtrlNewProd = new ControladorNuevoProducto(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config,addProdu ,Dep ,ElimProd ,ModProd ,NewProd);
-        ControladorDepartamentos CtrlDep = new ControladorDepartamentos(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config,addProdu ,Dep ,ElimProd ,ModProd ,NewProd);
-        ControladorEliminarProducto CtrlElimProd = new ControladorEliminarProducto(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config,addProdu ,Dep ,ElimProd ,ModProd ,NewProd);
-        ControladorModificarProducto CtrlModProd = new ControladorModificarProducto(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config,addProdu ,Dep ,ElimProd ,ModProd ,NewProd);
+        ControladorProductos CtrlProd = new ControladorProductos(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config,addProdu ,Dep ,ElimProd ,ModProd);
+        ControladorAgregarProducto CtrlAddProd = new ControladorAgregarProducto(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config,addProdu ,Dep ,ElimProd ,ModProd);
+        ControladorNuevoProducto CtrlNewProd = new ControladorNuevoProducto(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config,addProdu ,Dep ,ElimProd ,ModProd);
+        ControladorDepartamentos CtrlDep = new ControladorDepartamentos(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config,addProdu ,Dep ,ElimProd ,ModProd);
+        ControladorEliminarProducto CtrlElimProd = new ControladorEliminarProducto(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config,addProdu ,Dep ,ElimProd ,ModProd);
+        ControladorModificarProducto CtrlModProd = new ControladorModificarProducto(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config,addProdu ,Dep ,ElimProd ,ModProd);
         ControladorConfiguracion CtrlConf = new ControladorConfiguracion(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config, archivos, ticket, impuestos, simb);
         CtrlVen.inicioDeSesion();
         inicioSesion.setVisible(true);
