@@ -32,10 +32,8 @@ public class Configuracion extends javax.swing.JFrame {
         lblGeneral = new javax.swing.JLabel();
         btnOpciones = new javax.swing.JButton();
         btnCajeros = new javax.swing.JButton();
-        btnDataBases = new javax.swing.JButton();
         lblGeneral1 = new javax.swing.JLabel();
         btnImpuestos = new javax.swing.JButton();
-        btnCorte = new javax.swing.JButton();
         btnTicket = new javax.swing.JButton();
         btnMoneda = new javax.swing.JButton();
         btnConfHome = new javax.swing.JButton();
@@ -62,17 +60,11 @@ public class Configuracion extends javax.swing.JFrame {
         btnCajeros.setText("Cajeros");
         btnCajeros.setToolTipText("");
 
-        btnDataBases.setText("Base de datos");
-        btnDataBases.setToolTipText("");
-
         lblGeneral1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblGeneral1.setText("Personalización");
 
         btnImpuestos.setText("Impuestos");
         btnImpuestos.setToolTipText("");
-
-        btnCorte.setText("Corte");
-        btnCorte.setToolTipText("");
 
         btnTicket.setText("Ticket");
         btnTicket.setToolTipText("");
@@ -116,20 +108,16 @@ public class Configuracion extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnOpciones)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCajeros)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDataBases))
+                        .addComponent(btnCajeros))
                     .addComponent(lblGeneral1)
+                    .addComponent(btnConfHome)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCorte)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnTicket)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnImpuestos)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnMoneda))
-                    .addComponent(btnConfHome))
-                .addContainerGap(823, Short.MAX_VALUE))
+                        .addComponent(btnMoneda)))
+                .addContainerGap(901, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,13 +133,11 @@ public class Configuracion extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOpciones)
-                    .addComponent(btnCajeros)
-                    .addComponent(btnDataBases))
+                    .addComponent(btnCajeros))
                 .addGap(18, 18, 18)
                 .addComponent(lblGeneral1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCorte)
                     .addComponent(btnTicket)
                     .addComponent(btnImpuestos)
                     .addComponent(btnMoneda))
@@ -161,60 +147,24 @@ public class Configuracion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Configuracion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Configuracion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Configuracion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Configuracion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Configuracion().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCajeros;
-    private javax.swing.JButton btnConfHome;
-    private javax.swing.JButton btnCorte;
-    private javax.swing.JButton btnDataBases;
-    private javax.swing.JButton btnImpuestos;
-    private javax.swing.JButton btnMoneda;
-    private javax.swing.JButton btnOpciones;
-    private javax.swing.JButton btnTicket;
+    public javax.swing.JButton btnCajeros;
+    public javax.swing.JButton btnConfHome;
+    public javax.swing.JButton btnImpuestos;
+    public javax.swing.JButton btnMoneda;
+    public javax.swing.JButton btnOpciones;
+    public javax.swing.JButton btnTicket;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblConfiguracion;
     private javax.swing.JLabel lblGeneral;
     private javax.swing.JLabel lblGeneral1;
-    private javax.swing.JMenu menuClientes;
-    private javax.swing.JMenu menuConfiguracion;
-    private javax.swing.JMenu menuInventario;
-    private javax.swing.JMenu menuProductos;
-    private javax.swing.JMenu menuProveedores;
-    private javax.swing.JMenu menuVentas;
+    public javax.swing.JMenu menuClientes;
+    public javax.swing.JMenu menuConfiguracion;
+    public javax.swing.JMenu menuInventario;
+    public javax.swing.JMenu menuProductos;
+    public javax.swing.JMenu menuProveedores;
+    public javax.swing.JMenu menuVentas;
     // End of variables declaration//GEN-END:variables
 }

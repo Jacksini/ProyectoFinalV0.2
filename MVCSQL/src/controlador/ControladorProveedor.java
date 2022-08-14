@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
 
 //Packages Locales
 import modelo.Modelo;
@@ -65,6 +66,18 @@ public class ControladorProveedor implements ActionListener, MouseListener{
         
         //Modelo
         this.model = model;
+        //String consulta= "call proyectobasepoo.MostrarProveedores();";    INCONCLUSO
+        //DefaultTableModel datos = consultar(consulta);                    INCONCLUSO
+        //TablaProveedores.setModel(datos);                                 INCONCLUSO
+        
+        //Tabla proveedores
+        //this.model.consultar("select idProveedores ,proveedores.Nombre as Nombre,RFC,CorreoPro as Correo,CalleYNumero as calle,NombreColonia as colonia,NombreMunicipio as Municipio ,NombreEstado as Estado,TelefonoPro as Telefono,Tipo "
+        //            + "                     from proveedores inner join estado on Estado_idEstado=idEstado inner join colonia on idColonia=Colonia_idColonia"
+        //            + "                     inner join Municipio on idMunicipio=Municipio_idMunicipio inner join telefonospro on "
+        //            + "                     Proveedores_idProveedores=idProveedores inner join tipotelefono on idTipoTelefono= TipoTelefono_idTipoTelefono inner join Correospro on correospro.Proveedores_idProveedores "
+        //            + "                     where idProveedores=telefonospro.Proveedores_idProveedores and idProveedores=correospro.Proveedores_idProveedores;");
+        //INCONCLUSO
+        
         
         //Botones para cambiar entre ventanas sourse: Proveedores
         this.Proveedor.BtnMenuVentas.addMouseListener(this);
@@ -77,6 +90,8 @@ public class ControladorProveedor implements ActionListener, MouseListener{
         this.Proveedor.BTTNuevoProveedor.addMouseListener(this);
         this.Proveedor.BTTModificarProveedor.addMouseListener(this);
         this.Proveedor.BTTEliminarProveedor.addMouseListener(this);
+        
+        //Botones con procesos
         this.Proveedor.BTTBuscar.addMouseListener(this);
     }
     

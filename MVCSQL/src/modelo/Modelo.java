@@ -5,13 +5,16 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import com.mysql.jdbc.Driver;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
 
 public class Modelo {
     
     Connection con;
     String usuario;
     String contraseña;
-    int boton;
 
     public String getUsuario() {
         return usuario;
@@ -29,13 +32,6 @@ public class Modelo {
         this.contraseña = contraseña;
     }
 
-    public int getBoton() {
-        return boton;
-    }
-
-    public void setBoton(int boton) {
-        this.boton = boton;
-    }
     
     public boolean conectar(){
         try{
@@ -50,6 +46,31 @@ public class Modelo {
             System.out.println("Error: " + e);
             System.out.println("No concte");
             return false;
+        }
+    }
+    //TABLA DE PROVEEDORES
+    public DefaultTableModel consultar(String query){
+        try{
+            Statement s = con.createStatement();            
+            ResultSet rs = s.executeQuery(query); // Ejecuta la consulta
+            DefaultTableModel dtm = new DefaultTableModel();
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int columnas = rsMd.getColumnCount(); // Regresa el número de columnas
+            // ciclo para las columnas
+            for(int i = 1; i <= columnas; i++) { // Sirve para obtener los nombres de cada columna (encabezado)
+                dtm.addColumn(rsMd.getColumnName(i));
+            }
+            // ciclo para las filas
+            while(rs.next()) {
+                Object[] fila = new Object[columnas];
+                for(int i = 0; i < columnas; i++) {
+                    fila[i] = rs.getObject(i + 1);
+                }
+                dtm.addRow(fila);
+            }
+            return dtm;
+        }catch(SQLException e){        
+            return null;
         }
     }
 }

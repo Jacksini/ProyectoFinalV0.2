@@ -9,9 +9,14 @@ import javax.swing.JFrame;
 
 //Packages Locales
 import modelo.Modelo;
+import vista.Agregarproducto;
 import vista.Clientes;
 import vista.Configuracion;
+import vista.Departamentos;
+import vista.EliminarProducto;
 import vista.Inventario;
+import vista.ModificarProducto;
+import vista.NuevoProducto;
 import vista.Productos;
 import vista.VentanaVentas;
 import vista.proveedores;
@@ -27,7 +32,14 @@ public class ControladorInventario implements ActionListener, MouseListener{
     private Inventario Inv;
     private Configuracion Config;
     
-    //Modelo
+    //Vista Ventanas secundarias
+    private Agregarproducto Agregarproduct;
+    private Departamentos Depart;
+    private EliminarProducto ElimProdu;
+    private ModificarProducto ModProdu;
+    private NuevoProducto NewProdu;
+    
+    //Conexion a BD y consultas de SQL
     private Modelo model;
     
     public ControladorInventario(Modelo model, 
@@ -37,7 +49,12 @@ public class ControladorInventario implements ActionListener, MouseListener{
            Productos Product, 
            proveedores Proveedor, 
            Inventario Inv, 
-           Configuracion Config){
+           Configuracion Config,
+           Agregarproducto Agregarproduct,
+           Departamentos Depart,
+           EliminarProducto ElimProdu,
+           ModificarProducto ModProdu,
+           NuevoProducto NewProdu){
         
         //Ventana Clientes
         this.ventasInicial = ventasInicial;
@@ -46,6 +63,13 @@ public class ControladorInventario implements ActionListener, MouseListener{
         this.Proveedor = Proveedor;
         this.Inv = Inv;
         this.Config = Config;
+        
+        //Ventanas emergentes
+        this.Agregarproduct = Agregarproduct;
+        this.Depart = Depart;
+        this.ElimProdu = ElimProdu;
+        this.ModProdu = ModProdu;
+        this.NewProdu = NewProdu;
         
         //Modelo
         this.model = model;
@@ -56,6 +80,19 @@ public class ControladorInventario implements ActionListener, MouseListener{
         this.Inv.BtnMenuProductos.addMouseListener(this);
         this.Inv.BtnMenuProveedores.addMouseListener(this);
         this.Inv.BtnMenuConfiguracion.addMouseListener(this);
+        
+        //Botones para abrir ventanas emergentes
+        this.Inv.btnNuevo.addMouseListener(this);
+        this.Inv.btnAgregar.addMouseListener(this);
+        this.Inv.btnModificar.addMouseListener(this);
+        this.Inv.btnEliminar.addMouseListener(this);
+        this.Inv.btnDepartamentos.addMouseListener(this);
+        this.Inv.btnCatalogo.addMouseListener(this);
+        
+        //Botones con funciones
+        this.Inv.btnBuscarCodigo.addMouseListener(this);
+        this.Inv.btnBuscarDepartamento.addMouseListener(this);
+        this.Inv.btnBuscarMinimo.addMouseListener(this);
     }
     
     //Ventanas Inventario
@@ -103,6 +140,52 @@ public class ControladorInventario implements ActionListener, MouseListener{
         Config.setLocationRelativeTo(null);
         Config.setVisible(true);
     }
+    
+    //ventanas emergentes
+    public void ventanaAgregarProducto(){
+        Agregarproduct.setTitle("Agregar Producto");
+        Agregarproduct.setLocationRelativeTo(null);
+        Agregarproduct.pack(); //Abre la ventana al tamaño preferido de los componentes
+        Agregarproduct.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        Agregarproduct.setLocationRelativeTo(null);
+        Agregarproduct.setVisible(true);
+    }
+    
+    public void ventanaDepartamentos(){
+        Depart.setTitle("Departamentos");
+        Depart.setLocationRelativeTo(null);
+        Depart.pack(); //Abre la ventana al tamaño preferido de los componentes
+        Depart.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        Depart.setLocationRelativeTo(null);
+        Depart.setVisible(true);
+    }
+    
+    public void ventanaEliminarProducto(){
+        ElimProdu.setTitle("Eliminar Producto");
+        ElimProdu.setLocationRelativeTo(null);
+        ElimProdu.pack(); //Abre la ventana al tamaño preferido de los componentes
+        ElimProdu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        ElimProdu.setLocationRelativeTo(null);
+        ElimProdu.setVisible(true);
+    }
+    
+    public void ventanaModificarProducto(){
+        ModProdu.setTitle("Modificar Producto");
+        ModProdu.setLocationRelativeTo(null);
+        ModProdu.pack(); //Abre la ventana al tamaño preferido de los componentes
+        ModProdu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        ModProdu.setLocationRelativeTo(null);
+        ModProdu.setVisible(true);
+    }
+    
+    public void ventanaNuevoProducto(){
+        NewProdu.setTitle("Nuevo Producto");
+        NewProdu.setLocationRelativeTo(null);
+        NewProdu.pack(); //Abre la ventana al tamaño preferido de los componentes
+        NewProdu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        NewProdu.setLocationRelativeTo(null);
+        NewProdu.setVisible(true);
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -126,6 +209,27 @@ public class ControladorInventario implements ActionListener, MouseListener{
         }else if(Inv.BtnMenuConfiguracion == e.getSource()){
             Inv.setVisible(false);
             ventanaConfiguracion();
+        }else if(Inv.btnNuevo == e.getSource()){
+            Inv.setVisible(false);
+            ventanaNuevoProducto();
+        }else if(Inv.btnAgregar == e.getSource()){
+            Inv.setVisible(false);
+            ventanaAgregarProducto();
+        }else if(Inv.btnModificar == e.getSource()){
+            Inv.setVisible(false);
+            ventanaModificarProducto();
+        }else if(Inv.btnEliminar == e.getSource()){
+            Product.setVisible(false);
+            ventanaEliminarProducto();
+        }else if(Inv.btnDepartamentos == e.getSource()){
+            Inv.setVisible(false);
+            ventanaDepartamentos();
+        }else if(Inv.btnBuscarCodigo == e.getSource()){
+            
+        }else if(Inv.btnBuscarDepartamento == e.getSource()){
+            
+        }else if(Inv.btnBuscarMinimo == e.getSource()){
+            
         }
     }
 

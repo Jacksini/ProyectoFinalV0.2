@@ -74,8 +74,10 @@ public class ControladorModificarProveedor implements ActionListener, MouseListe
         this.modProv.BTTNuevoProveedor.addMouseListener(this);
         this.modProv.BTTModificarProveedor.addMouseListener(this);
         this.modProv.BTTEliminarProveedor.addMouseListener(this);
-        this.modProv.BTTBuscar1.addMouseListener(this);
         
+        //Botones con procesos
+        this.modProv.BTTBuscar.addMouseListener(this);
+        this.modProv.BTTAgregar.addMouseListener(this);
     }
     
     public void ventanaVentas(){
@@ -191,7 +193,9 @@ public class ControladorModificarProveedor implements ActionListener, MouseListe
         }else if(modProv.BTTEliminarProveedor == e.getSource()){
             modProv.setVisible(false); 
             ventanaEliminarProveedor();
-        }else if(modProv.BTTBuscar1 == e.getSource()){
+        }else if(modProv.BTTBuscar == e.getSource()){
+            
+        }else if(modProv.BTTAgregar == e.getSource()){
             
         }
     }

@@ -122,7 +122,7 @@ public class Inventario extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblCatalogo);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 177, 844, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 844, -1));
 
         etiquetaAtiende.setText("Lo atiende");
         getContentPane().add(etiquetaAtiende, new org.netbeans.lib.awtextra.AbsoluteConstraints(769, 5, -1, -1));
@@ -192,51 +192,7 @@ public class Inventario extends javax.swing.JFrame {
     private void btnBuscarMinimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarMinimoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarMinimoActionPerformed
-    
-    public boolean conectar(){
-        try{
-            Driver driver =  new com.mysql.jdbc.Driver();
-            DriverManager.registerDriver(driver);
-            String cadenaDeConexion = "jdbc:mysql://" + "localhost" + ":3306/" + "facturasupsin2022" ;
-            String usuario = "root";
-            String contraseña = "";
-            con = DriverManager.getConnection(cadenaDeConexion, usuario, contraseña);
-            return true;
-            
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Error:" + e);
-            return false;
-        }
-    }
-    
-    public DefaultTableModel consultar(String query){
-        try{
-            Statement s= con.createStatement();
-            ResultSet rs = s.executeQuery(query);
-            DefaultTableModel dtm = new DefaultTableModel();
-            ResultSetMetaData rsMd = rs.getMetaData(); //Aun no se sabew cuantas columnas hay
-            int columnas = rsMd.getColumnCount(); // Regresa el número de columnas
-            //Cliclo para columnas
-            for(int i = 1; i <= columnas; i++) { // Sirve para obtener los nombres de cada columna (encabezado)
-                dtm.addColumn(rsMd.getColumnName(i));
-            }
-            //Ciclo para filas o datos de la tabla
-            while(rs.next()) {
-                Object[] fila = new Object[columnas];
-                for(int i = 0; i < columnas; i++) {
-                    fila[i] = rs.getObject(i + 1);
-                }
-                dtm.addRow(fila);
-            }
-            return dtm;
-        }catch(SQLException e){
-            
-            return null;
-        }
-        
-    }
-    
-    /**
+        /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -277,15 +233,15 @@ public class Inventario extends javax.swing.JFrame {
     public javax.swing.JMenu BtnMenuProductos;
     public javax.swing.JMenu BtnMenuProveedores;
     public javax.swing.JMenu BtnMenuVentas;
-    private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnBuscarCodigo;
-    private javax.swing.JButton btnBuscarDepartamento;
-    private javax.swing.JButton btnBuscarMinimo;
-    private javax.swing.JButton btnCatalogo;
-    private javax.swing.JButton btnDepartamentos;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnNuevo;
+    public javax.swing.JButton btnAgregar;
+    public javax.swing.JButton btnBuscarCodigo;
+    public javax.swing.JButton btnBuscarDepartamento;
+    public javax.swing.JButton btnBuscarMinimo;
+    public javax.swing.JButton btnCatalogo;
+    public javax.swing.JButton btnDepartamentos;
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnModificar;
+    public javax.swing.JButton btnNuevo;
     private javax.swing.JLabel etiquetaAtiende;
     private javax.swing.JLabel etiquetaCatalogo;
     private javax.swing.JLabel etiquetaProductos1;

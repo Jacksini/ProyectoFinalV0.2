@@ -75,6 +75,10 @@ public class ControladorEliminar implements ActionListener, MouseListener{
         this.elim.BTTModificarProveedor.addMouseListener(this);
         this.elim.BTTEliminarProveedor.addMouseListener(this);
         this.elim.BtnBuscar.addMouseListener(this);
+        
+        //botones con procesos
+        this.elim.BtnBuscar.addMouseListener(this);
+        this.elim.btnEliminarProducto.addMouseListener(this);
     }
     
     public void ventanaVentas(){
@@ -191,6 +195,8 @@ public class ControladorEliminar implements ActionListener, MouseListener{
             elim.setVisible(false);
             ventanaEliminarProveedor();
         }else if(elim.BtnBuscar == e.getSource()){
+            
+        }else if(elim.btnEliminarProducto == e.getSource()){
             
         }
     }

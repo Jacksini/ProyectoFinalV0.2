@@ -74,6 +74,8 @@ public class ControladorNuevoProveedor implements ActionListener, MouseListener{
         this.nuevoProv.BTTNuevoProveedor.addMouseListener(this);
         this.nuevoProv.BTTModificarProveedor.addMouseListener(this);
         this.nuevoProv.BTTEliminarProveedor.addMouseListener(this);
+        
+        //Botones con pocesos
         this.nuevoProv.BTTAgregar.addMouseListener(this);
     }
     
