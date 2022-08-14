@@ -197,7 +197,7 @@ public class proveedores extends javax.swing.JFrame {
     private javax.swing.JLabel LBProveedores;
     private javax.swing.JLabel LBproveedor;
     private javax.swing.JTextField TXTNombreProveedor;
-    public static javax.swing.JTable TablaProveedores;
+    public javax.swing.JTable TablaProveedores;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;

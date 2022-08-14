@@ -49,7 +49,6 @@ public class MVCSQL{
         
         //Inicio de sesion
         sesion inicioSesion = new sesion();
-        mod.MostrarProveedores();
         
         //Controladores:
         //Ventanas de ventas

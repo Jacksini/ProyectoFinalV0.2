@@ -51,6 +51,8 @@ public class ControladorProveedor implements ActionListener, MouseListener{
            modificarprovedor modProv,
            eliminar elim){
         
+        
+
         //Ventana Inventario
         this.ventasInicial = ventasInicial;
         this.ventanaClientes = ventanaClientes;
