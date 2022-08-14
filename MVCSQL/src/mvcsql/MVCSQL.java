@@ -32,6 +32,7 @@ public class MVCSQL{
         
         //Inicio de sesion
         sesion inicioSesion = new sesion();
+        mod.MostrarProveedores();
         
         //Ventanas de ventas
         VentanaVentas Ventas = new VentanaVentas();
