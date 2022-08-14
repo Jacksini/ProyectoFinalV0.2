@@ -123,7 +123,6 @@ public class ControladorProductos implements ActionListener, MouseListener{
         Proveedor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         Proveedor.setLocationRelativeTo(null);
         Proveedor.setVisible(true); 
-        model.MostrarProveedores();
     }
     
     public void ventanaInventario(){

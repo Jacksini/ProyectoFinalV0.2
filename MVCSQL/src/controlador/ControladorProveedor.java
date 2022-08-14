@@ -93,8 +93,13 @@ public class ControladorProveedor implements ActionListener, MouseListener{
         this.Proveedor.BTTModificarProveedor.addMouseListener(this);
         this.Proveedor.BTTEliminarProveedor.addMouseListener(this);
         
-        //Botones con procesos
+        //BOTONES PARA MOSTRAR EN TABLA
+        this.Proveedor.BTTActualizar.addMouseListener(this);
         this.Proveedor.BTTBuscar.addMouseListener(this);
+        
+        //Textfield proveedores
+        this.Proveedor.TXTNombreProveedor.addMouseListener(this);
+
     }
     
     //Ventanas Inventario
@@ -202,10 +207,17 @@ public class ControladorProveedor implements ActionListener, MouseListener{
         }else if(Proveedor.BTTEliminarProveedor == e.getSource()){
             Proveedor.setVisible(false);
             ventanaEliminarProveedor();
+        }else if(Proveedor.BTTActualizar == e.getSource()){
+            String consulta = "call MostrarProveedores();";
+            DefaultTableModel tabla = model.MostrarProveedores(consulta);
+            Proveedor.TablaProveedores.setModel(tabla);
         }else if(Proveedor.BTTBuscar == e.getSource()){
-            
+            String buscar = "call BuscarProveedor('"+ Proveedor.TXTNombreProveedor.getText() +"')";
+            DefaultTableModel tabla = model.MostrarProveedores(buscar);
+            Proveedor.TablaProveedores.setModel(tabla);            
         }
     }
+
 
     @Override
     public void mousePressed(MouseEvent e) {

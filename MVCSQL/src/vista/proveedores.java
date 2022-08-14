@@ -38,7 +38,8 @@ public class proveedores extends javax.swing.JFrame {
         LBProveedores = new javax.swing.JLabel();
         LBNombreProveedor = new javax.swing.JLabel();
         TXTNombreProveedor = new javax.swing.JTextField();
-        BTTBuscar = new javax.swing.JToggleButton();
+        BTTActualizar = new javax.swing.JButton();
+        BTTBuscar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         BtnMenuVentas = new javax.swing.JMenu();
         BtnMenuClientes = new javax.swing.JMenu();
@@ -57,23 +58,31 @@ public class proveedores extends javax.swing.JFrame {
 
             },
             new String [] {
-                "IdProveedores", "Nombre Proveedor", "RFC", "Telefonos", "Correo", "Calle Y Numero", "Colonia", "Municipio", "Estado"
+                "IdProveedores", "Nombre Proveedor", "RFC", "Correo", "Calle Y Numero", "Colonia", "Municipio", "Estado", "Telefonos", "Tipo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        TablaProveedores.getTableHeader().setResizingAllowed(false);
+        TablaProveedores.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(TablaProveedores);
         if (TablaProveedores.getColumnModel().getColumnCount() > 0) {
             TablaProveedores.getColumnModel().getColumn(0).setResizable(false);
             TablaProveedores.getColumnModel().getColumn(1).setResizable(false);
             TablaProveedores.getColumnModel().getColumn(2).setResizable(false);
             TablaProveedores.getColumnModel().getColumn(3).setResizable(false);
+            TablaProveedores.getColumnModel().getColumn(4).setResizable(false);
+            TablaProveedores.getColumnModel().getColumn(5).setResizable(false);
+            TablaProveedores.getColumnModel().getColumn(6).setResizable(false);
+            TablaProveedores.getColumnModel().getColumn(7).setResizable(false);
+            TablaProveedores.getColumnModel().getColumn(8).setResizable(false);
+            TablaProveedores.getColumnModel().getColumn(9).setResizable(false);
         }
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 1020, 430));
@@ -104,17 +113,20 @@ public class proveedores extends javax.swing.JFrame {
         getContentPane().add(LBProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, -1, -1));
 
         LBNombreProveedor.setText("Nombre del Proveedor");
-        getContentPane().add(LBNombreProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        getContentPane().add(LBNombreProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 116, -1, 30));
 
         TXTNombreProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TXTNombreProveedorActionPerformed(evt);
             }
         });
-        getContentPane().add(TXTNombreProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 200, -1));
+        getContentPane().add(TXTNombreProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 200, -1));
+
+        BTTActualizar.setText("Mostrar Todo");
+        getContentPane().add(BTTActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 100, 270, 60));
 
         BTTBuscar.setText("Buscar");
-        getContentPane().add(BTTBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 80, -1));
+        getContentPane().add(BTTBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, 110, 30));
 
         BtnMenuVentas.setText("Ventas");
         jMenuBar1.add(BtnMenuVentas);
@@ -183,7 +195,8 @@ public class proveedores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JToggleButton BTTBuscar;
+    public javax.swing.JButton BTTActualizar;
+    public javax.swing.JButton BTTBuscar;
     public javax.swing.JButton BTTEliminarProveedor;
     public javax.swing.JButton BTTModificarProveedor;
     public javax.swing.JButton BTTNuevoProveedor;
@@ -196,7 +209,7 @@ public class proveedores extends javax.swing.JFrame {
     private javax.swing.JLabel LBNombreProveedor;
     private javax.swing.JLabel LBProveedores;
     private javax.swing.JLabel LBproveedor;
-    private javax.swing.JTextField TXTNombreProveedor;
+    public javax.swing.JTextField TXTNombreProveedor;
     public javax.swing.JTable TablaProveedores;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;

@@ -52,16 +52,11 @@ public class Modelo {
             return false;
         }
     }
-    //TABLA DE PROVEEDORES
-    public void asignarproveedores(){
-        DefaultTableModel tabla = MostrarProveedores();
-        p.TablaProveedores.setModel(tabla);
-    }
-    
-    public DefaultTableModel MostrarProveedores(){
+    //TABLA DE PROVEEDORES    
+    public DefaultTableModel MostrarProveedores(String query){
         try{
             Statement s= con.createStatement();
-            ResultSet rs = s.executeQuery("call proyectobasepoo.MostrarProveedores();");
+            ResultSet rs = s.executeQuery(query);
             DefaultTableModel dtm = new DefaultTableModel();
             ResultSetMetaData rsMd = rs.getMetaData(); //Aun no se sabew cuantas columnas hay
             int columnas = rsMd.getColumnCount(); // Regresa el número de columnas

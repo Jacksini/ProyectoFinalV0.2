@@ -35,11 +35,12 @@ public class eliminar extends javax.swing.JFrame {
         BTTModificarProveedor = new javax.swing.JButton();
         BTTEliminarProveedor = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaproveedores = new javax.swing.JTable();
-        btnEliminarProducto = new javax.swing.JButton();
-        etiquetaCodigoProducto = new javax.swing.JLabel();
-        txtCodigoProducto = new javax.swing.JTextField();
-        BtnBuscar = new javax.swing.JToggleButton();
+        tablaprov = new javax.swing.JTable();
+        BTTEliminarBuscado = new javax.swing.JButton();
+        BTTMostrarPro = new javax.swing.JButton();
+        LBNombreProveedor = new javax.swing.JLabel();
+        TXTNombreProveedor = new javax.swing.JTextField();
+        BTTBuscar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         BtnMenuVentas = new javax.swing.JMenu();
         BtnMenuClientes = new javax.swing.JMenu();
@@ -53,8 +54,9 @@ public class eliminar extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        LBModificarProveedor.setBackground(new java.awt.Color(255, 153, 51));
         LBModificarProveedor.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        LBModificarProveedor.setForeground(new java.awt.Color(255, 153, 102));
+        LBModificarProveedor.setForeground(new java.awt.Color(255, 153, 51));
         LBModificarProveedor.setText("ELIMINAR PROVEEDOR");
         getContentPane().add(LBModificarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, -1, -1));
 
@@ -77,47 +79,64 @@ public class eliminar extends javax.swing.JFrame {
         BTTEliminarProveedor.setText("Eliminar");
         getContentPane().add(BTTEliminarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
 
-        tablaproveedores.setModel(new javax.swing.table.DefaultTableModel(
+        tablaprov.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "IdProveedores", "Nombre Proveedor", "RFC", "Telefonos", "Correo", "Calle Y Numero", "Colonia", "Municipio", "Estado"
+                "IdProveedores", "Nombre Proveedor", "RFC", "Telefonos", "Correo", "Calle Y Numero", "Colonia", "Municipio", "Estado", "Tipo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tablaproveedores);
+        jScrollPane1.setViewportView(tablaprov);
+        if (tablaprov.getColumnModel().getColumnCount() > 0) {
+            tablaprov.getColumnModel().getColumn(0).setResizable(false);
+            tablaprov.getColumnModel().getColumn(1).setResizable(false);
+            tablaprov.getColumnModel().getColumn(2).setResizable(false);
+            tablaprov.getColumnModel().getColumn(3).setResizable(false);
+            tablaprov.getColumnModel().getColumn(4).setResizable(false);
+            tablaprov.getColumnModel().getColumn(5).setResizable(false);
+            tablaprov.getColumnModel().getColumn(6).setResizable(false);
+            tablaprov.getColumnModel().getColumn(7).setResizable(false);
+            tablaprov.getColumnModel().getColumn(8).setResizable(false);
+            tablaprov.getColumnModel().getColumn(9).setResizable(false);
+        }
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 1020, 400));
 
-        btnEliminarProducto.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        btnEliminarProducto.setText("Eliminar este producto");
-        btnEliminarProducto.addActionListener(new java.awt.event.ActionListener() {
+        BTTEliminarBuscado.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        BTTEliminarBuscado.setText("Eliminar proveedor");
+        BTTEliminarBuscado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarProductoActionPerformed(evt);
+                BTTEliminarBuscadoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 590, -1, -1));
+        getContentPane().add(BTTEliminarBuscado, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 590, -1, -1));
 
-        etiquetaCodigoProducto.setText("Codigo del proveedor:");
-        getContentPane().add(etiquetaCodigoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        BTTMostrarPro.setText("Mostar Todo");
+        BTTMostrarPro.setMaximumSize(new java.awt.Dimension(101, 22));
+        BTTMostrarPro.setMinimumSize(new java.awt.Dimension(101, 22));
+        getContentPane().add(BTTMostrarPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 90, 240, 60));
 
-        txtCodigoProducto.addActionListener(new java.awt.event.ActionListener() {
+        LBNombreProveedor.setText("Nombre del Proveedor");
+        getContentPane().add(LBNombreProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 116, -1, 30));
+
+        TXTNombreProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoProductoActionPerformed(evt);
+                TXTNombreProveedorActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCodigoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 70, -1));
+        getContentPane().add(TXTNombreProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 200, -1));
 
-        BtnBuscar.setText("Buscar");
-        getContentPane().add(BtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, -1, -1));
+        BTTBuscar.setText("Buscar");
+        getContentPane().add(BTTBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, 110, 30));
 
         BtnMenuVentas.setText("Ventas");
         jMenuBar1.add(BtnMenuVentas);
@@ -146,13 +165,13 @@ public class eliminar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BTTModificarProveedorActionPerformed
 
-    private void btnEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarProductoActionPerformed
+    private void BTTEliminarBuscadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTTEliminarBuscadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnEliminarProductoActionPerformed
+    }//GEN-LAST:event_BTTEliminarBuscadoActionPerformed
 
-    private void txtCodigoProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoProductoActionPerformed
+    private void TXTNombreProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TXTNombreProveedorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoProductoActionPerformed
+    }//GEN-LAST:event_TXTNombreProveedorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,10 +209,12 @@ public class eliminar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton BTTBuscar;
+    public javax.swing.JButton BTTEliminarBuscado;
     public javax.swing.JButton BTTEliminarProveedor;
     public javax.swing.JButton BTTModificarProveedor;
+    public javax.swing.JButton BTTMostrarPro;
     public javax.swing.JButton BTTNuevoProveedor;
-    public javax.swing.JToggleButton BtnBuscar;
     public javax.swing.JMenu BtnMenuClientes;
     public javax.swing.JMenu BtnMenuConfiguracion;
     public javax.swing.JMenu BtnMenuInventario;
@@ -201,14 +222,13 @@ public class eliminar extends javax.swing.JFrame {
     public javax.swing.JMenu BtnMenuProveedores;
     public javax.swing.JMenu BtnMenuVentas;
     private javax.swing.JLabel LBModificarProveedor;
+    private javax.swing.JLabel LBNombreProveedor;
     private javax.swing.JLabel LBproveedor;
-    public javax.swing.JButton btnEliminarProducto;
-    private javax.swing.JLabel etiquetaCodigoProducto;
+    public javax.swing.JTextField TXTNombreProveedor;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable tablaproveedores;
-    private javax.swing.JTextField txtCodigoProducto;
+    public javax.swing.JTable tablaprov;
     // End of variables declaration//GEN-END:variables
 }

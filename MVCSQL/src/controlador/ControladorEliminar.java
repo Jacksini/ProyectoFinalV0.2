@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
 import modelo.Modelo;
 import vista.Clientes;
 import vista.Configuracion;
@@ -74,11 +75,12 @@ public class ControladorEliminar implements ActionListener, MouseListener{
         this.elim.BTTNuevoProveedor.addMouseListener(this);
         this.elim.BTTModificarProveedor.addMouseListener(this);
         this.elim.BTTEliminarProveedor.addMouseListener(this);
-        this.elim.BtnBuscar.addMouseListener(this);
         
-        //botones con procesos
-        this.elim.BtnBuscar.addMouseListener(this);
-        this.elim.btnEliminarProducto.addMouseListener(this);
+        //BOTONES PARA MOSTRAR EN TABLA
+        this.elim.BTTMostrarPro.addMouseListener(this);
+        this.elim.BTTBuscar.addMouseListener(this);
+        this.elim.BTTEliminarBuscado.addMouseListener(this);
+
     }
     
     public void ventanaVentas(){
@@ -194,11 +196,21 @@ public class ControladorEliminar implements ActionListener, MouseListener{
         }else if(elim.BTTEliminarProveedor == e.getSource()){
             elim.setVisible(false);
             ventanaEliminarProveedor();
-        }else if(elim.BtnBuscar == e.getSource()){
-            
-        }else if(elim.btnEliminarProducto == e.getSource()){
-            
+        }else if(elim.BTTMostrarPro == e.getSource()){
+            String mostrar = "call MostrarProveedores();";
+            DefaultTableModel tabla = model.MostrarProveedores(mostrar);
+            elim.tablaprov.setModel(tabla);
+        }else if(elim.BTTBuscar == e.getSource()){
+            String buscar = "call BuscarProveedor('"+ elim.TXTNombreProveedor.getText() +"')";
+            DefaultTableModel tabla = model.MostrarProveedores(buscar);
+            elim.tablaprov.setModel(tabla); 
+        }else if(elim.BTTEliminarBuscado == e.getSource()){
+            String eliminar = "call EliminarProveedor('"+ elim.TXTNombreProveedor.getText() +"')";
+            DefaultTableModel tabla = model.MostrarProveedores(eliminar);
+            elim.tablaprov.setModel(tabla); 
         }
+        //"call BuscarProveedor('"+ elim.TXTNombreProveedor.getText() +"')";
+        
     }
 
     @Override
