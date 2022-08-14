@@ -198,15 +198,15 @@ public class ControladorEliminar implements ActionListener, MouseListener{
             ventanaEliminarProveedor();
         }else if(elim.BTTMostrarPro == e.getSource()){
             String mostrar = "call MostrarProveedores();";
-            DefaultTableModel tabla = model.MostrarProveedores(mostrar);
+            DefaultTableModel tabla = model.MostrarTablas(mostrar);
             elim.tablaprov.setModel(tabla);
         }else if(elim.BTTBuscar == e.getSource()){
             String buscar = "call BuscarProveedor('"+ elim.TXTNombreProveedor.getText() +"')";
-            DefaultTableModel tabla = model.MostrarProveedores(buscar);
+            DefaultTableModel tabla = model.MostrarTablas(buscar);
             elim.tablaprov.setModel(tabla); 
         }else if(elim.BTTEliminarBuscado == e.getSource()){
             String eliminar = "call EliminarProveedor('"+ elim.TXTNombreProveedor.getText() +"')";
-            DefaultTableModel tabla = model.MostrarProveedores(eliminar);
+            DefaultTableModel tabla = model.MostrarTablas(eliminar);
             elim.tablaprov.setModel(tabla); 
         }
         //"call BuscarProveedor('"+ elim.TXTNombreProveedor.getText() +"')";

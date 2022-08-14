@@ -209,11 +209,11 @@ public class ControladorProveedor implements ActionListener, MouseListener{
             ventanaEliminarProveedor();
         }else if(Proveedor.BTTActualizar == e.getSource()){
             String consulta = "call MostrarProveedores();";
-            DefaultTableModel tabla = model.MostrarProveedores(consulta);
+            DefaultTableModel tabla = model.MostrarTablas(consulta);
             Proveedor.TablaProveedores.setModel(tabla);
         }else if(Proveedor.BTTBuscar == e.getSource()){
             String buscar = "call BuscarProveedor('"+ Proveedor.TXTNombreProveedor.getText() +"')";
-            DefaultTableModel tabla = model.MostrarProveedores(buscar);
+            DefaultTableModel tabla = model.MostrarTablas(buscar);
             Proveedor.TablaProveedores.setModel(tabla);            
         }
     }

@@ -91,6 +91,9 @@ public class ControladorVentas implements ActionListener, MouseListener{
         this.ventasInicial.BtnBuscar.addMouseListener(this);
         this.ventasInicial.BtnVerificador.addMouseListener(this);
         this.ventasInicial.BtnCobrar.addMouseListener(this);
+        
+        //Cajas de texto
+        this.ventasInicial.TFCodigoProducto.addMouseListener(this);
     }
     
     //Ventana Inicio de sesion

@@ -77,7 +77,7 @@ public class Modelo {
         }
     }
     //TABLA DE PROVEEDORES    
-    public DefaultTableModel MostrarProveedores(String query){
+    public DefaultTableModel MostrarTablas(String query){
         try{
             Statement s= con.createStatement();
             ResultSet rs = s.executeQuery(query);
