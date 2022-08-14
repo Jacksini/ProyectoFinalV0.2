@@ -3,10 +3,11 @@ Descripción: Ventana Ticket del Proyecto
 Fecha: 26/Junio/2022
 Nombre: David Enrique Garcia Olvera
  */
-package Vista;
+package vista;
 
 import Modelo.Settings;
 import Modelo.ConsultaArchivos;
+import controlador.ControladorConfiguracion;
 import javax.swing.JOptionPane;
 
 public class Ticket extends javax.swing.JFrame implements Settings{
@@ -219,13 +220,15 @@ public class Ticket extends javax.swing.JFrame implements Settings{
     }//GEN-LAST:event_btnChangesActionPerformed
 
     private void btnConfHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfHomeActionPerformed
-        Controlador.SesionControlador.iniciarConfiguracion();
+        Configuracion Config = new Configuracion();
+        ControladorConfiguracion CtrlConf = new ControladorConfiguracion(Config, settings);
+        CtrlConf.iniciarVista();
         this.dispose();
     }//GEN-LAST:event_btnConfHomeActionPerformed
 
     
     public void crearEjemplo(){
-        Modelo.ConsultaConfiguracion query = new Modelo.ConsultaConfiguracion();
+        modelo.ConsultaConfiguracion query = new modelo.ConsultaConfiguracion();
         settings.updateSettings("Configuracion");
         String dialog = "Se imprimio un ticket en la carpeta de configuracion";
         //Obtiene el resultado en una variable para poder evitar errores

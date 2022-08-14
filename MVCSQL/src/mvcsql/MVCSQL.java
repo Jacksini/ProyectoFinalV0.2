@@ -1,6 +1,11 @@
 package mvcsql;
 
-import Vista.Configuracion;
+import controlador.ControladorConfiguracion;
+import Modelo.ConsultaArchivos;
+import vista.Configuracion;
+import vista.Impuestos;
+import vista.SimbolosDeMoneda;
+import vista.Ticket;
 import controlador.ControladorAgregarProducto;
 import controlador.ControladorClientes;
 import controlador.ControladorDepartamentos;
@@ -38,12 +43,14 @@ import vista.sesion;
 public class MVCSQL{
 
     public static void main(String[] args) {
-        //Modelo
+        //Modelos
         Modelo mod = new Modelo();
+        ConsultaArchivos archivos = new ConsultaArchivos();
         
         //Inicio de sesion
         sesion inicioSesion = new sesion();
         
+        //Controladores:
         //Ventanas de ventas
         VentanaVentas Ventas = new VentanaVentas();
         Clientes cliente = new Clientes();
@@ -71,6 +78,13 @@ public class MVCSQL{
         ModificarProducto ModProd = new ModificarProducto();
         NuevoProducto NewProd = new NuevoProducto();
         
+        //Ventanas emergentes Configuracion
+        Ticket ticket = new Ticket();
+        Impuestos impuestos = new Impuestos();
+        SimbolosDeMoneda simb = new SimbolosDeMoneda();
+        
+        
+        
         //Controladores de ventanas principales
         ControladorVentas CtrlVen = new ControladorVentas(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config, Entra, Sali, Busc, Veri, Cob);
         ControladorClientes CtrlCli = new ControladorClientes(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config);
@@ -85,6 +99,7 @@ public class MVCSQL{
         ControladorDepartamentos CtrlDep = new ControladorDepartamentos(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config,addProdu ,Dep ,ElimProd ,ModProd ,NewProd);
         ControladorEliminarProducto CtrlElimProd = new ControladorEliminarProducto(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config,addProdu ,Dep ,ElimProd ,ModProd ,NewProd);
         ControladorModificarProducto CtrlModProd = new ControladorModificarProducto(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config,addProdu ,Dep ,ElimProd ,ModProd ,NewProd);
+        ControladorConfiguracion CtrlConf = new ControladorConfiguracion(Config, archivos);
         CtrlVen.inicioDeSesion();
         inicioSesion.setVisible(true);
         
