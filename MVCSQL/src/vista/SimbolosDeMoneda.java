@@ -5,14 +5,8 @@ Nombre: David Enrique Garcia Olvera
  */
 package vista;
 
-import Modelo.ConsultaArchivos;
-import Modelo.Settings;
-import controlador.ControladorConfiguracion;
-import javax.swing.JOptionPane;
 
-public class SimbolosDeMoneda extends javax.swing.JFrame implements Settings{
-    
-    private ConsultaArchivos settings = new ConsultaArchivos();
+public class SimbolosDeMoneda extends javax.swing.JFrame{
     
     public SimbolosDeMoneda(){
         initComponents();
@@ -52,11 +46,6 @@ public class SimbolosDeMoneda extends javax.swing.JFrame implements Settings{
 
         btnConfHome.setText("Mostrar todas las opciones");
         btnConfHome.setToolTipText("");
-        btnConfHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConfHomeActionPerformed(evt);
-            }
-        });
 
         lblSimboloMoneda.setText("Símbolo de Moneda:");
 
@@ -71,11 +60,6 @@ public class SimbolosDeMoneda extends javax.swing.JFrame implements Settings{
         txtSimboloDecimal.setText(".");
 
         btnChanges.setText("Guardar Cambios");
-        btnChanges.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnChangesActionPerformed(evt);
-            }
-        });
 
         menuVentas.setText("Ventas");
         jMenuBar1.add(menuVentas);
@@ -156,35 +140,10 @@ public class SimbolosDeMoneda extends javax.swing.JFrame implements Settings{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangesActionPerformed
-        //Guardar datos de los txt fields
-        settings.setMoneda(txtSimboloMoneda.getText());
-        settings.setMiles(txtSimboloMiles.getText());
-        settings.setDecimal(txtSimboloDecimal.getText());
-        settings.writeDocument("Configuracion", "simbolos", settings.settingsSimbolos());
-        JOptionPane.showMessageDialog(null, "Se guardo exitosamente");
-    }//GEN-LAST:event_btnChangesActionPerformed
-
-    private void btnConfHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfHomeActionPerformed
-        Configuracion Config = new Configuracion();
-        ControladorConfiguracion CtrlConf = new ControladorConfiguracion(Config, settings);
-        CtrlConf.iniciarVista();
-        this.dispose();
-    }//GEN-LAST:event_btnConfHomeActionPerformed
-
-    @Override
-    public void updateSettings(){
-        //Actualizacion de los datos
-        settings.setSimbols("Configuracion", "simbolos" );
-        txtSimboloMoneda.setText(settings.getMoneda());
-        txtSimboloMiles.setText(settings.getMiles());
-        txtSimboloDecimal.setText(settings.getDecimal());
-    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnChanges;
-    private javax.swing.JButton btnConfHome;
+    public javax.swing.JButton btnConfHome;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblConfiguracion;
@@ -192,12 +151,12 @@ public class SimbolosDeMoneda extends javax.swing.JFrame implements Settings{
     private javax.swing.JLabel lblSeparadorMiles;
     private javax.swing.JLabel lblSimbolo;
     private javax.swing.JLabel lblSimboloMoneda;
-    private javax.swing.JMenu menuClientes;
-    private javax.swing.JMenu menuConfiguracion;
-    private javax.swing.JMenu menuInventario;
-    private javax.swing.JMenu menuProductos;
-    private javax.swing.JMenu menuProveedores;
-    private javax.swing.JMenu menuVentas;
+    public javax.swing.JMenu menuClientes;
+    public javax.swing.JMenu menuConfiguracion;
+    public javax.swing.JMenu menuInventario;
+    public javax.swing.JMenu menuProductos;
+    public javax.swing.JMenu menuProveedores;
+    public javax.swing.JMenu menuVentas;
     public javax.swing.JTextField txtSimboloDecimal;
     public javax.swing.JTextField txtSimboloMiles;
     public javax.swing.JTextField txtSimboloMoneda;
