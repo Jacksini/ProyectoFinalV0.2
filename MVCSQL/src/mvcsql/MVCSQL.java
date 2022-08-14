@@ -63,6 +63,7 @@ public class MVCSQL{
         ControladorEliminar CtrlEProv = new ControladorEliminar(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config, nuevoProv ,modProv, elimin);
         CtrlVen.inicioDeSesion();
         inicioSesion.setVisible(true);
+        
     }
     
 }
