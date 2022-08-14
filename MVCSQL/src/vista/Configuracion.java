@@ -3,7 +3,7 @@ Descripción: Ventana Configuración del Proyecto
 Fecha: 26/Junio/2022
 Nombre: David Enrique Garcia Olvera
  */
-package Vista;
+package vista;
 
 /**
  *

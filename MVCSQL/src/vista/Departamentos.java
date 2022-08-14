@@ -52,14 +52,14 @@ public class Departamentos extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         etiquetaIdDepartamento1 = new javax.swing.JLabel();
         txtIdDepartamento2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnMostrarDepartamentos = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        OpcionVentas = new javax.swing.JMenu();
-        OpcionClientes = new javax.swing.JMenu();
-        OpcionProductos = new javax.swing.JMenu();
-        OpcionProveedores = new javax.swing.JMenu();
-        OpcionInventario = new javax.swing.JMenu();
-        OpcionConfiguracion = new javax.swing.JMenu();
+        BtnMenuVentas = new javax.swing.JMenu();
+        BtnMenuClientes = new javax.swing.JMenu();
+        BtnMenuProductos = new javax.swing.JMenu();
+        BtnMenuProveedores = new javax.swing.JMenu();
+        BtnMenuInventario = new javax.swing.JMenu();
+        BtnMenuConfiguracion = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -139,26 +139,26 @@ public class Departamentos extends javax.swing.JFrame {
         getContentPane().add(etiquetaIdDepartamento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, -1, -1));
         getContentPane().add(txtIdDepartamento2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 110, -1));
 
-        jButton1.setText("Mostrar todos los departamentos");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, -1, -1));
+        btnMostrarDepartamentos.setText("Mostrar todos los departamentos");
+        getContentPane().add(btnMostrarDepartamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, -1, -1));
 
-        OpcionVentas.setText("Ventas");
-        jMenuBar1.add(OpcionVentas);
+        BtnMenuVentas.setText("Ventas");
+        jMenuBar1.add(BtnMenuVentas);
 
-        OpcionClientes.setText("Clientes");
-        jMenuBar1.add(OpcionClientes);
+        BtnMenuClientes.setText("Clientes");
+        jMenuBar1.add(BtnMenuClientes);
 
-        OpcionProductos.setText("Productos");
-        jMenuBar1.add(OpcionProductos);
+        BtnMenuProductos.setText("Productos");
+        jMenuBar1.add(BtnMenuProductos);
 
-        OpcionProveedores.setText("Proveedores");
-        jMenuBar1.add(OpcionProveedores);
+        BtnMenuProveedores.setText("Proveedores");
+        jMenuBar1.add(BtnMenuProveedores);
 
-        OpcionInventario.setText("Inventario");
-        jMenuBar1.add(OpcionInventario);
+        BtnMenuInventario.setText("Inventario");
+        jMenuBar1.add(BtnMenuInventario);
 
-        OpcionConfiguracion.setText("Configuracion");
-        jMenuBar1.add(OpcionConfiguracion);
+        BtnMenuConfiguracion.setText("Configuracion");
+        jMenuBar1.add(BtnMenuConfiguracion);
 
         setJMenuBar(jMenuBar1);
 
@@ -200,22 +200,23 @@ public class Departamentos extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu OpcionClientes;
-    private javax.swing.JMenu OpcionConfiguracion;
-    private javax.swing.JMenu OpcionInventario;
-    private javax.swing.JMenu OpcionProductos;
-    private javax.swing.JMenu OpcionProveedores;
-    private javax.swing.JMenu OpcionVentas;
-    private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnCatalogo;
-    private javax.swing.JButton btnDepartamentos;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnEliminarDepartamento;
-    private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnNuevo;
+    public javax.swing.JMenu BtnMenuClientes;
+    public javax.swing.JMenu BtnMenuConfiguracion;
+    public javax.swing.JMenu BtnMenuInventario;
+    public javax.swing.JMenu BtnMenuProductos;
+    public javax.swing.JMenu BtnMenuProveedores;
+    public javax.swing.JMenu BtnMenuVentas;
+    public javax.swing.JButton btnAgregar;
+    public javax.swing.JButton btnBuscar;
+    public javax.swing.JButton btnCancelar;
+    public javax.swing.JButton btnCatalogo;
+    public javax.swing.JButton btnDepartamentos;
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnEliminarDepartamento;
+    public javax.swing.JButton btnGuardar;
+    public javax.swing.JButton btnModificar;
+    public javax.swing.JButton btnMostrarDepartamentos;
+    public javax.swing.JButton btnNuevo;
     private javax.swing.JLabel etiquetaAtiende;
     private javax.swing.JLabel etiquetaDepartamento;
     private javax.swing.JLabel etiquetaDepartamentos;
@@ -223,7 +224,6 @@ public class Departamentos extends javax.swing.JFrame {
     private javax.swing.JLabel etiquetaIdDepartamento1;
     private javax.swing.JLabel etiquetaNombre;
     private javax.swing.JLabel etiquetaProductos1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;

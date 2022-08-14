@@ -56,6 +56,7 @@ public class ControladorVentas implements ActionListener, MouseListener{
            VentaBuscador Buscador,
            VentaVerificador Verificador,
            VentanaCobro Cobro){
+        
         //Ventana Ventas
         this.vistaInicioSesion = vistaInicioSesion;
         this.ventasInicial = ventasInicial;

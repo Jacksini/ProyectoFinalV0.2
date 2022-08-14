@@ -3,10 +3,10 @@ Descripción: Clase controlador para configuracion
 Fecha: 12-agosto-2022
 Nombre: David Enrique Garcia Olvera
  */
-package Controlador;
+package controlador;
 
 import Modelo.ConsultaArchivos;
-import Vista.Configuracion;
+import vista.Configuracion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -18,7 +18,7 @@ public class ControladorConfiguracion implements ActionListener, MouseListener{
     private Configuracion vista;
     private ConsultaArchivos modelo;
 
-    @SuppressWarnings("LeakingThisInConstructor")
+    
     public ControladorConfiguracion(Configuracion vista, ConsultaArchivos modelo) {
         this.vista = vista;
         this.modelo = modelo;
@@ -71,7 +71,7 @@ public class ControladorConfiguracion implements ActionListener, MouseListener{
     }
     
     public void iniciarSimbolos() {
-        Vista.SimbolosDeMoneda simbolos = new Vista.SimbolosDeMoneda();
+        vista.SimbolosDeMoneda simbolos = new vista.SimbolosDeMoneda();
         simbolos.setTitle("Simbolos");
         simbolos.pack(); 
         simbolos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
@@ -81,7 +81,7 @@ public class ControladorConfiguracion implements ActionListener, MouseListener{
     }
     
     public void iniciarTicket() {
-        Vista.Ticket ticket = new Vista.Ticket();
+        vista.Ticket ticket = new vista.Ticket();
         ticket.setTitle("Ticket");
         ticket.pack();
         ticket.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
@@ -91,7 +91,7 @@ public class ControladorConfiguracion implements ActionListener, MouseListener{
     }
     
     public void iniciarImpuestos() {
-        Vista.Impuestos impuestos = new Vista.Impuestos();
+        vista.Impuestos impuestos = new vista.Impuestos();
         impuestos.setTitle("Impuestos");
         impuestos.pack(); 
         impuestos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
