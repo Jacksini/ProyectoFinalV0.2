@@ -31,7 +31,6 @@ public class nuevoproveedor extends javax.swing.JFrame {
         LBNombreProveedor = new javax.swing.JLabel();
         TXTnombreProveedor = new javax.swing.JTextField();
         TXTTelefonoProveedor = new javax.swing.JTextField();
-        LBEstado = new javax.swing.JLabel();
         TXTCorreoProveedor = new javax.swing.JTextField();
         LBCorreoPro = new javax.swing.JLabel();
         BTTAgregar = new javax.swing.JButton();
@@ -46,21 +45,19 @@ public class nuevoproveedor extends javax.swing.JFrame {
         BTTModificarProveedor = new javax.swing.JButton();
         BTTEliminarProveedor = new javax.swing.JButton();
         LBTelefono = new javax.swing.JLabel();
-        TXTEstado = new javax.swing.JTextField();
-        LBMunicipio = new javax.swing.JLabel();
-        TXTMunicipio = new javax.swing.JTextField();
-        LBColonia = new javax.swing.JLabel();
-        TXTColonia = new javax.swing.JTextField();
         LBTipoTelefono = new javax.swing.JLabel();
-        TXTMostrarTipoTelefonoProveedor = new javax.swing.JTextField();
-        BOXColonia = new javax.swing.JComboBox<>();
-        BOXTipoTelefono = new javax.swing.JComboBox<>();
-        BOXEstado = new javax.swing.JComboBox<>();
-        BOXMunicipio = new javax.swing.JComboBox<>();
         TXTDepartamentoTelefono = new javax.swing.JTextField();
         LBDepartamento = new javax.swing.JLabel();
         TXTNombrePersonal = new javax.swing.JTextField();
         LBPersonalDepartamento = new javax.swing.JLabel();
+        BTTActualizar = new javax.swing.JButton();
+        BOXTipoTelefono = new javax.swing.JComboBox<>();
+        LBEstado = new javax.swing.JLabel();
+        LBMunicipio = new javax.swing.JLabel();
+        LBColonia = new javax.swing.JLabel();
+        BOXColonia = new javax.swing.JComboBox<>();
+        BOXEstado = new javax.swing.JComboBox<>();
+        BOXMunicipio = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         BtnMenuVentas = new javax.swing.JMenu();
         BtnMenuClientes = new javax.swing.JMenu();
@@ -84,10 +81,6 @@ public class nuevoproveedor extends javax.swing.JFrame {
         getContentPane().add(LBNombreProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 61, -1));
         getContentPane().add(TXTnombreProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 256, -1));
         getContentPane().add(TXTTelefonoProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 180, -1));
-
-        LBEstado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        LBEstado.setText("Estado");
-        getContentPane().add(LBEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 70, -1));
         getContentPane().add(TXTCorreoProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, 256, -1));
 
         LBCorreoPro.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -130,46 +123,9 @@ public class nuevoproveedor extends javax.swing.JFrame {
         LBTelefono.setText("Telefono");
         getContentPane().add(LBTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 70, -1));
 
-        TXTEstado.setEnabled(false);
-        getContentPane().add(TXTEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, 120, -1));
-
-        LBMunicipio.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        LBMunicipio.setText("Municipio");
-        getContentPane().add(LBMunicipio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, 70, -1));
-
-        TXTMunicipio.setEnabled(false);
-        getContentPane().add(TXTMunicipio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 490, 120, -1));
-
-        LBColonia.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        LBColonia.setText("Colonia");
-        getContentPane().add(LBColonia, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, 70, -1));
-
-        TXTColonia.setEnabled(false);
-        getContentPane().add(TXTColonia, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 490, 120, -1));
-
         LBTipoTelefono.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         LBTipoTelefono.setText("Tipo");
         getContentPane().add(LBTipoTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, 40, 20));
-
-        TXTMostrarTipoTelefonoProveedor.setEnabled(false);
-        TXTMostrarTipoTelefonoProveedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TXTMostrarTipoTelefonoProveedorActionPerformed(evt);
-            }
-        });
-        getContentPane().add(TXTMostrarTipoTelefonoProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, 100, -1));
-
-        BOXColonia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2" }));
-        getContentPane().add(BOXColonia, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, -1, -1));
-
-        BOXTipoTelefono.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2" }));
-        getContentPane().add(BOXTipoTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, -1, -1));
-
-        BOXEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2" }));
-        getContentPane().add(BOXEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, -1, -1));
-
-        BOXMunicipio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2" }));
-        getContentPane().add(BOXMunicipio, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 450, -1, -1));
         getContentPane().add(TXTDepartamentoTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 260, -1));
 
         LBDepartamento.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -180,6 +136,33 @@ public class nuevoproveedor extends javax.swing.JFrame {
         LBPersonalDepartamento.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         LBPersonalDepartamento.setText("Personal Departamento");
         getContentPane().add(LBPersonalDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 130, 40));
+
+        BTTActualizar.setText("Actualizar");
+        getContentPane().add(BTTActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 120, 120));
+
+        BOXTipoTelefono.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+        getContentPane().add(BOXTipoTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 80, -1));
+
+        LBEstado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        LBEstado.setText("Estado");
+        getContentPane().add(LBEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 70, -1));
+
+        LBMunicipio.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        LBMunicipio.setText("Municipio");
+        getContentPane().add(LBMunicipio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 470, 70, -1));
+
+        LBColonia.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        LBColonia.setText("Colonia");
+        getContentPane().add(LBColonia, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 470, 70, -1));
+
+        BOXColonia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        getContentPane().add(BOXColonia, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 470, 70, -1));
+
+        BOXEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        getContentPane().add(BOXEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 470, 50, -1));
+
+        BOXMunicipio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        getContentPane().add(BOXMunicipio, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 470, 60, -1));
 
         BtnMenuVentas.setText("Ventas");
         jMenuBar1.add(BtnMenuVentas);
@@ -207,10 +190,6 @@ public class nuevoproveedor extends javax.swing.JFrame {
     private void BTTModificarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTTModificarProveedorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BTTModificarProveedorActionPerformed
-
-    private void TXTMostrarTipoTelefonoProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TXTMostrarTipoTelefonoProveedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TXTMostrarTipoTelefonoProveedorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -251,10 +230,11 @@ public class nuevoproveedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> BOXColonia;
-    private javax.swing.JComboBox<String> BOXEstado;
-    private javax.swing.JComboBox<String> BOXMunicipio;
-    private javax.swing.JComboBox<String> BOXTipoTelefono;
+    public javax.swing.JComboBox<String> BOXColonia;
+    public javax.swing.JComboBox<String> BOXEstado;
+    public javax.swing.JComboBox<String> BOXMunicipio;
+    public javax.swing.JComboBox<String> BOXTipoTelefono;
+    public javax.swing.JButton BTTActualizar;
     public javax.swing.JButton BTTAgregar;
     public javax.swing.JButton BTTEliminarProveedor;
     public javax.swing.JButton BTTModificarProveedor;
@@ -278,17 +258,13 @@ public class nuevoproveedor extends javax.swing.JFrame {
     private javax.swing.JLabel LBTelefono;
     private javax.swing.JLabel LBTipoTelefono;
     private javax.swing.JLabel LBproveedor;
-    private javax.swing.JTextField TXTCalleNumeroProveedor;
-    private javax.swing.JTextField TXTColonia;
-    private javax.swing.JTextField TXTCorreoProveedor;
-    private javax.swing.JTextField TXTDepartamentoTelefono;
-    private javax.swing.JTextField TXTEstado;
-    private javax.swing.JTextField TXTMostrarTipoTelefonoProveedor;
-    private javax.swing.JTextField TXTMunicipio;
-    private javax.swing.JTextField TXTNombrePersonal;
-    private javax.swing.JTextField TXTRFCproveedor;
-    private javax.swing.JTextField TXTTelefonoProveedor;
-    private javax.swing.JTextField TXTnombreProveedor;
+    public javax.swing.JTextField TXTCalleNumeroProveedor;
+    public javax.swing.JTextField TXTCorreoProveedor;
+    public javax.swing.JTextField TXTDepartamentoTelefono;
+    public javax.swing.JTextField TXTNombrePersonal;
+    public javax.swing.JTextField TXTRFCproveedor;
+    public javax.swing.JTextField TXTTelefonoProveedor;
+    public javax.swing.JTextField TXTnombreProveedor;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;

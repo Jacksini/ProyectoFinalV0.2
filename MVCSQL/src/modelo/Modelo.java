@@ -11,6 +11,7 @@ import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 /////////////////////////////////////////////////
 import vista.proveedores;
+import vista.nuevoproveedor;
 import controlador.ControladorProveedor;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -18,10 +19,11 @@ import java.util.logging.Logger;
 import modelo.Modelo;
 
 public class Modelo {
-    proveedores p = new proveedores();
-    Connection con;
+    nuevoproveedor nuev = new nuevoproveedor();
+    public Connection con;
     String usuario;
     String contraseña;
+    int tipo = nuev.BOXTipoTelefono.getSelectedIndex();
 
     public String getUsuario() {
         return usuario;
@@ -104,7 +106,7 @@ public class Modelo {
         }
 
     }
-
+    
     //Nuevo Producto
     public boolean nuevoProducto(String codigo, String nombreProducto, String Descripcion,
                                     int perecedero, int proveedor, int tipo, float precioCompra,
@@ -120,8 +122,8 @@ public class Modelo {
             return false;
         }
     }
-    
-    // <editor-fold defaultstate="collapsed" desc="Consultas de Departamentos"> 
+
+    // <editor-fold defaultstate="collapsed" desc="Consultas de Departamentos">
     public DefaultTableModel mostrarDepartamentos(){
         DefaultTableModel depas = new DefaultTableModel();
         depas.addColumn("id");
@@ -145,7 +147,7 @@ public class Modelo {
             return depas;
         }
     }
-    
+
     public DefaultTableModel mostrarDepartamentos(int id){
         DefaultTableModel depas = new DefaultTableModel();
         depas.addColumn("id");
@@ -169,7 +171,7 @@ public class Modelo {
             return depas;
         }
     }
-    
+
     public boolean agregarDepartamentos(String nomDepa){
         try {
             Statement s = con.createStatement();
@@ -181,7 +183,7 @@ public class Modelo {
             return false;
         }
     }
-    
+
     public boolean eliminarDepartamentos(int Id){
         try {
             Statement s = con.createStatement();
@@ -193,8 +195,8 @@ public class Modelo {
             return false;
         }
     }
-    // </editor-fold>  
-    // <editor-fold defaultstate="collapsed" desc="Consultas de Catalogo"> 
+    // </editor-fold>
+    // <editor-fold defaultstate="collapsed" desc="Consultas de Catalogo">
     public DefaultTableModel defaultTablaCatalogo(){
         DefaultTableModel catalogo = new DefaultTableModel();
         catalogo.addColumn("IdProducto");
@@ -211,7 +213,7 @@ public class Modelo {
         catalogo.addColumn("Proveedor");
         return catalogo;
     }
-    
+
     public DefaultTableModel catalogoMinimo(){
         try {
             DefaultTableModel catalogo = defaultTablaCatalogo();
@@ -232,7 +234,7 @@ public class Modelo {
             return defaultTablaCatalogo();
         }
     }
-    
+
     public DefaultTableModel catalogoDepartamento(String nombre){
         try {
             DefaultTableModel catalogo = new DefaultTableModel();
@@ -257,7 +259,7 @@ public class Modelo {
             return defaultTablaCatalogo();
         }
     }
-    
+
     public DefaultTableModel catalogoCodigo(int id){
         try {
             DefaultTableModel catalogo = new DefaultTableModel();
@@ -281,14 +283,14 @@ public class Modelo {
             return defaultTablaCatalogo();
         }
     }
-    // </editor-fold>  
-    
+    // </editor-fold>
+
     public boolean actualizarProducto(int id, String codigo, String nombreProducto, String Descripcion,
                                     int perecedero, int proveedor, int tipo, float precioCompra,
                                     float ganancia, int departamento, int hay, int minimo, int maximo, float precioFinal){
         try {
             Statement s = con.createStatement();
-            String query = "call ActualizarProducto(\"" +id +",\""+codigo +"\",\"" +nombreProducto +"\",\"" +Descripcion +"\"," +proveedor 
+            String query = "call ActualizarProducto(\"" +id +",\""+codigo +"\",\"" +nombreProducto +"\",\"" +Descripcion +"\"," +proveedor
                            +"," +tipo +"," +precioCompra +"," +ganancia +"," +departamento +"," +hay +"," +minimo +"," +maximo +"," +perecedero +"," + +precioFinal +");";
             System.out.println(query);
             s.executeUpdate(query);
@@ -298,7 +300,7 @@ public class Modelo {
             return false;
         }
     }
-    
+
     public String[] buscarProducto(int id){
         try {
             Statement s = con.createStatement();
@@ -317,7 +319,7 @@ public class Modelo {
             }else{
                 return null;
             }
-            
+
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
             return null;
@@ -345,17 +347,17 @@ public class Modelo {
             return null;
         }
     }
-    
+
     public DefaultTableModel consultarProductos(int id){
         DefaultTableModel producto = defaultTablaAgregar();
         try {
             Statement s = con.createStatement();
             String query = "call AgregarProductbsq(" +id +");";
             ResultSet rs = s.executeQuery(query);
-            
+
             ResultSetMetaData rsMd = rs.getMetaData();
             int columnas = rsMd.getColumnCount();
-            
+
             while(rs.next()) {
                 Object[] fila = new Object[columnas];
                 for(int i = 0; i < columnas; i++) {
@@ -369,7 +371,7 @@ public class Modelo {
             return null;
         }
     }
-    
+
     public DefaultTableModel defaultTablaAgregar(){
         DefaultTableModel tabla = new DefaultTableModel();
         tabla.addColumn("NomProducto");
@@ -378,7 +380,7 @@ public class Modelo {
         tabla.addColumn("Minimo");
         return tabla;
     }
-    
+
     public boolean agregarProducto(int id, int cant){
         try {
             Statement s = con.createStatement();
@@ -390,7 +392,7 @@ public class Modelo {
             return false;
         }
     }
-    
+
     public boolean eliminarProducto(int id){
         try{
             Statement s = con.createStatement();
@@ -402,7 +404,7 @@ public class Modelo {
             return false;
         }
     }
-    
+
     public DefaultTableModel defaultTablaEliminar(){
         DefaultTableModel producto = new DefaultTableModel();
         producto.addColumn("Nombre Producto");
@@ -413,7 +415,7 @@ public class Modelo {
         producto.addColumn("Existencia");
         return producto;
     }
-    
+
     public DefaultTableModel buscarEliminarProducto(int id){
         DefaultTableModel producto = new DefaultTableModel();
         producto.addColumn("Nombre Producto");
@@ -426,10 +428,10 @@ public class Modelo {
             Statement s = con.createStatement();
             String query = "call BuscaEliminarProducto(" +id +");";
             ResultSet rs = s.executeQuery(query);
-            
+
             ResultSetMetaData rsMd = rs.getMetaData();
             int columnas = rsMd.getColumnCount();
-            
+
             while(rs.next()) {
                 Object[] fila = new Object[columnas];
                 for(int i = 0; i < columnas; i++) {
