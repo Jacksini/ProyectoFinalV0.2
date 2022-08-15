@@ -199,29 +199,55 @@ public class ControladorModificarProveedor implements ActionListener, MouseListe
             modProv.setVisible(false); 
             ventanaEliminarProveedor();
         }else if(modProv.BTTBuscar == e.getSource()){
+            //String col = "select *from colonia;"; //MOSTRAR ID Y NOMBRE DE COLONIAS
+//                    modProv.TXTNombrePersonal.setText("PERSONAL DEPARTAMENTO");//NOMBRE DEL PERSONAL
+//                    modProv.TXTnombreProveedor.setText("NOMBRE PROVEEDOR");//NOMBRE DEL PROVEEDOR
+//                    modProv.TXTRFCproveedor.setText("RFC PROVEEDOR");//RFC DEL PROVEEDOR
+//                    modProv.TXTCorreoProveedor.setText("CORREO PROVEEDOR");//CORREO DEL PROVEEDOR
+//                    modProv.TXTCalleNumeroProveedor.setText("DIRECCION");//CALLE Y NUMERO DEL PROVEEDOR
+//                    modProv.TXTTelefonoProveedor.setText("TELEFONO");//TELEFONO DEL PROVEEDOR
             String buscar = "call buscarProveedorid(" + modProv.TXTIDproveedor.getText() + ");";
             try {
+                //PROVEEDORES ID
                 Statement st = model.con.createStatement();
+                //Statement Col = model.con.createStatement();
+
+                //COLONIA
+                //ResultSet mostrarCol = Col.executeQuery(col);
                 ResultSet mostrar = st.executeQuery(buscar);
-                //ResultSet Col = 
-                while(mostrar.next()){
-                    String nombreProv = mostrar.getString("Nombre");
-                    String Rfcc = mostrar.getString("RFC");
-                    String Correo = mostrar.getString("Correo");
-                    String Call = mostrar.getString("Calle");
-                    String col = mostrar.getString("Colonia");
-                    String muni = mostrar.getString("Minicipio");
-                    String estado = mostrar.getString("Estado");
-                    String teled = mostrar.getString("Telefono");
-                    String nombredepaa = mostrar.getString("NombreTPro");
-                    String depa = mostrar.getString("Departamento");
-                    String tipotel = mostrar.getString("Tipo");
+                System.out.println(buscar);
+
+                if (modProv.TXTIDproveedor != null){
+                    System.out.println(buscar);
+
+                    String nombreProv = mostrar.getString("proveedores.Nombre"); //NOMBRE DEL PROVEEDOR
+                    String Rfcc = mostrar.getString("RFC");         //RFC DEL PROVEEDOR
+                    String Correo = mostrar.getString("CorreoPro"); //CORREO DEL PROVEEDOR
+                    String Call = mostrar.getString("CalleYNumero"); //CALLE Y NUM DEL PROVEEDOR
+                    //String col2 = mostrar.getString("NombreColonia"); //NOMBRE COLONIA
+                    //String muni = mostrar.getString("NombreMunicipio"); //NOMBRE DEL MUNICIPO
+                    //String estado = mostrar.getString("NombreEstado"); //NOMBRE DEL ESTADO
+                    String teled = mostrar.getString("TelefonoPro"); //TELEFONO DEL PROVEEDOR
+                    String nombredepaa = mostrar.getString("NombreTPro");//NOMBRE DEL PERSONAL DEL DEPARTAMENTO
+                    String depa = mostrar.getString("Departamento"); //NOMBRE DEL DEPARTAMENTO
+                    //String tipotel = mostrar.getString("Tipo"); //TIPO DE TELEFONO
+                    
+                    //int IDCOL = mostrarCol.getInt("idColonia"); //EXTRAE EL INT ID DE COLONIA
+                    //modProv.BOXColonia.addItem(mostrarCol.getString("NombreEstado"));
+                    System.out.println(buscar);
+
+                    modProv.TXTNombrePersonal.setText(nombredepaa);//NOMBRE DEL PERSONAL
+                    modProv.TXTnombreProveedor.setText(nombreProv);//NOMBRE DEL PROVEEDOR
+                    modProv.TXTRFCproveedor.setText(Rfcc);//RFC DEL PROVEEDOR
+                    modProv.TXTCorreoProveedor.setText(Correo);//CORREO DEL PROVEEDOR
+                    modProv.TXTCalleNumeroProveedor.setText(Call);//CALLE Y NUMERO DEL PROVEEDOR
+                    modProv.TXTTelefonoProveedor.setText(teled);//TELEFONO DEL PROVEEDOR
+                    modProv.TXTDepartamentoTelefono.setText(depa);//DEPARTAMENTO
+                    System.out.println(buscar);
+
+                    System.out.println(modProv.TXTnombreProveedor.getText()+" : HOLA SOY PROVEEDOR");
 
                     
-                    //String IDCOL = mostrar.getString("idColonia");
-                    
-                    modProv.TXTNombrePersonal.setText(nombredepaa);
-                    modProv.TXTnombreProveedor.setText(nombreProv);
                     //modProv.BOXColonia.setSelectedIndex(IDCOL);
                                         
                 }
