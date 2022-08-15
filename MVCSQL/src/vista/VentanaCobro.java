@@ -31,7 +31,6 @@ public class VentanaCobro extends javax.swing.JFrame {
         LblTotalCambio = new javax.swing.JLabel();
         BtnCobrar = new javax.swing.JButton();
         BtnCancelar = new javax.swing.JButton();
-        BtnNotas = new javax.swing.JButton();
         LblTotalArticulos = new javax.swing.JLabel();
         LblTotal = new javax.swing.JLabel();
         LblPago = new javax.swing.JLabel();
@@ -42,7 +41,8 @@ public class VentanaCobro extends javax.swing.JFrame {
         txtIdEmpleado = new javax.swing.JTextField();
         txtIdCliente = new javax.swing.JTextField();
         txtDescripcion = new javax.swing.JTextField();
-        txtGenerarFactura = new javax.swing.JButton();
+        btnGenerarFactura = new javax.swing.JButton();
+        lblTotalArticulos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ventana de cobro");
@@ -61,8 +61,6 @@ public class VentanaCobro extends javax.swing.JFrame {
                 BtnCancelarActionPerformed(evt);
             }
         });
-
-        BtnNotas.setText("F4 Notas");
 
         LblTotalArticulos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         LblTotalArticulos.setText("Total de artículos:");
@@ -85,8 +83,11 @@ public class VentanaCobro extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setText("ID Empleado");
 
-        txtGenerarFactura.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        txtGenerarFactura.setText("Generar Factura");
+        btnGenerarFactura.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnGenerarFactura.setText("Generar Factura");
+
+        lblTotalArticulos.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblTotalArticulos.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,43 +101,43 @@ public class VentanaCobro extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(TFPago, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LblTotal)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnGenerarFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LblTotal)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(LblCambio)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(LblTotalCambio, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(txtDescripcion))
-                                        .addGap(40, 40, 40)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtIdCliente)
-                                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(LblCambio)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(LblTotalCambio, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(txtDescripcion))
+                                                .addGap(40, 40, 40)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(txtIdCliente)
+                                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                         .addGap(38, 38, 38)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(txtIdEmpleado)
-                                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(170, 170, 170)
-                                        .addComponent(LblTotalArticulos)))
-                                .addGap(97, 97, 97)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(BtnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BtnCobrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BtnNotas, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(BtnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                                        .addComponent(BtnCobrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(LblTotalArticulos)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lblTotalArticulos)
+                                        .addGap(21, 21, 21)))))
                         .addGap(22, 22, 22))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtGenerarFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(121, 121, 121))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,10 +148,9 @@ public class VentanaCobro extends javax.swing.JFrame {
                         .addComponent(BtnCobrar)
                         .addGap(33, 33, 33)
                         .addComponent(BtnCancelar)
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(BtnNotas))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 28, Short.MAX_VALUE)
+                        .addGap(0, 46, Short.MAX_VALUE)
                         .addComponent(LblTotal)
                         .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -170,9 +170,9 @@ public class VentanaCobro extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(LblCambio)
                             .addComponent(LblTotalCambio)
-                            .addComponent(LblTotalArticulos, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addComponent(txtGenerarFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LblTotalArticulos, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTotalArticulos))))
+                .addComponent(btnGenerarFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
         );
 
@@ -219,20 +219,20 @@ public class VentanaCobro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnCancelar;
-    private javax.swing.JButton BtnCobrar;
-    private javax.swing.JButton BtnNotas;
+    public javax.swing.JButton BtnCancelar;
+    public javax.swing.JButton BtnCobrar;
     private javax.swing.JLabel LblCambio;
     private javax.swing.JLabel LblPago;
     private javax.swing.JLabel LblTotal;
     private javax.swing.JLabel LblTotalArticulos;
     private javax.swing.JLabel LblTotalCambio;
     private javax.swing.JTextField TFPago;
+    public javax.swing.JButton btnGenerarFactura;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    public javax.swing.JLabel lblTotalArticulos;
     public javax.swing.JTextField txtDescripcion;
-    public javax.swing.JButton txtGenerarFactura;
     public javax.swing.JTextField txtIdCliente;
     public javax.swing.JTextField txtIdEmpleado;
     // End of variables declaration//GEN-END:variables

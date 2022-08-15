@@ -37,7 +37,7 @@ public class VentaBuscador extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        TfCantidad = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
 
@@ -83,7 +83,7 @@ public class VentaBuscador extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel4.setText("Cantidad");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(502, 112, -1, -1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 100, 40));
+        getContentPane().add(TfCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 100, 40));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel5.setText("Existencia");
@@ -138,10 +138,11 @@ public class VentaBuscador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnAceptar;
+    public javax.swing.JButton BtnAceptar;
     public javax.swing.JButton BtnCancelar;
     private javax.swing.JLabel LblBusqueda;
     public javax.swing.JTextField TFBuscador;
+    public javax.swing.JTextField TfCantidad;
     public javax.swing.JButton btnBuscar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -149,7 +150,6 @@ public class VentaBuscador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }
