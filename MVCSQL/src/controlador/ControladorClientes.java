@@ -5,7 +5,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 //Packages Locales
 import modelo.Modelo;
@@ -135,12 +137,58 @@ public class ControladorClientes implements ActionListener, MouseListener{
             ventanaClientes.setVisible(false);
             ventanaConfiguracion();
         }else if(ventanaClientes.btnNuevoCliente == e.getSource()){
-            
+            //Nuevo CLiente
+            setComboBox();
         }else if(ventanaClientes.btnEliminarCliente == e.getSource()){
-            
+            //Eliminar cliente
+            int x = JOptionPane.showConfirmDialog(null, "Esta seguro que quiere eliminar el producto seleccionado?", "Eliminacion de Producto", 0);
+            switch(x){
+                case 0 -> {
+                    try{
+                        int id = Integer.parseInt(ventanaClientes.txtFolio.getText());
+                        if(model.consultaClientes(id).getRowCount() == model.defaultTablaClientes().getRowCount()){
+                            JOptionPane.showMessageDialog(null, "No se encontro el cliente");
+                        }else{
+                            //Se elimina el cliente
+                            if(!model.eliminarCliente(id)){
+                                JOptionPane.showMessageDialog(null, "No se pudo eliminar el archivo");
+                            }else{
+                                JOptionPane.showMessageDialog(null, "Se elimino correctamente");
+                                ventanaClientes.tbClientes.setModel(model.consultaClientes());
+                            }
+                        }
+                    }catch(NumberFormatException ex){
+                        JOptionPane.showMessageDialog(null, "Verifique que el codigo sea numerico.");
+                    }
+                }
+                case 1 -> JOptionPane.showMessageDialog(null, "Enterado. No se eliminara");
+                default -> {
+                }
+            }
         }else if(ventanaClientes.btnBuscar == e.getSource()){
-            
+            //Buscar cliente
+            try{
+                int id = Integer.parseInt(ventanaClientes.txtFolio.getText());
+                if(model.consultaClientes(id).getRowCount() == model.defaultTablaClientes().getRowCount()){
+                    JOptionPane.showMessageDialog(null, "No se encontro el cliente");
+                }else{
+                    ventanaClientes.tbClientes.setModel(model.consultaClientes(id));
+                }
+            }catch(NumberFormatException ex){
+                JOptionPane.showMessageDialog(null, "Verifique que el codigo sea numerico.");
+            }
         }
+    }
+    
+    public void setComboBox(){
+        DefaultComboBoxModel<String> tipotelefono = new javax.swing.DefaultComboBoxModel<>(model.consultaTipoTelefono());
+        DefaultComboBoxModel<String> colonia = new javax.swing.DefaultComboBoxModel<>(model.consultaColonia());
+        DefaultComboBoxModel<String> municipio = new javax.swing.DefaultComboBoxModel<>(model.consultaMunicipio());
+        DefaultComboBoxModel<String> estado = new javax.swing.DefaultComboBoxModel<>(model.consultaEstado());
+        this.ventanaClientes.cbTipoTel.setModel(tipotelefono);
+        this.ventanaClientes.cbColonia.setModel(colonia);
+        this.ventanaClientes.cbMunicipio.setModel(municipio);
+        this.ventanaClientes.cbEstado.setModel(estado);
     }
 
     @Override

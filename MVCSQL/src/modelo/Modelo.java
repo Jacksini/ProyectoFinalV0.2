@@ -12,6 +12,7 @@ import javax.swing.table.DefaultTableModel;
 /////////////////////////////////////////////////
 import vista.proveedores;
 import controlador.ControladorProveedor;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Modelo;
@@ -437,6 +438,165 @@ public class Modelo {
                 producto.addRow(fila);
             }
                 return producto;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
+    
+    public DefaultTableModel defaultTablaClientes(){
+        DefaultTableModel cliente = new DefaultTableModel();
+        cliente.addColumn("Folio");
+        cliente.addColumn("Nombre");
+        return cliente;
+    }
+    
+    public DefaultTableModel consultaClientes(){
+        DefaultTableModel cliente = defaultTablaClientes();
+        try {
+            Statement s = con.createStatement();
+            String query = "select idClientes,Nombres from clientes";
+            ResultSet rs = s.executeQuery(query);
+            
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int columnas = rsMd.getColumnCount();
+            
+            while(rs.next()) {
+                Object[] fila = new Object[columnas];
+                for(int i = 0; i < columnas; i++) {
+                    fila[i] = rs.getObject(i + 1);
+                }
+                cliente.addRow(fila);
+            }
+                return cliente;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
+    
+    public DefaultTableModel consultaClientes(int id){
+        DefaultTableModel cliente = defaultTablaClientes();
+        try {
+            Statement s = con.createStatement();
+            String query = "call buscarClientes(" +id +");";
+            ResultSet rs = s.executeQuery(query);
+            
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int columnas = rsMd.getColumnCount();
+            
+            while(rs.next()) {
+                Object[] fila = new Object[columnas];
+                for(int i = 0; i < columnas; i++) {
+                    fila[i] = rs.getObject(i + 1);
+                }
+                cliente.addRow(fila);
+            }
+                return cliente;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
+    
+    public boolean eliminarCliente(int id){
+        try{
+            Statement s = con.createStatement();
+            String query = "call EliminarCliente(" +id +");";
+            s.executeUpdate(query);
+            return true;
+        } catch (SQLException ex){
+            System.out.println(ex.getMessage());
+            return false;
+        }
+    }
+    
+    public String[] consultaColonia(){
+        try {
+            Statement s = con.createStatement();
+            String query = "select NombreColonia from colonia";
+            System.out.println(query);
+            ResultSet rs = s.executeQuery(query);
+            ArrayList<String> List = new ArrayList<String>();
+            int i=0;
+            while(rs.next()){
+                List.add(rs.getString("NombreColonia"));
+            }
+            String[] consulta = new String[List.size()];
+            for(int x = 0; x < List.size(); x++){
+                consulta[x] = List.get(x);
+            }
+            System.out.println("exito");
+            return consulta;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
+    
+    public String[] consultaTipoTelefono(){
+        try {
+            Statement s = con.createStatement();
+            String query = "select tipo from tipotelefono";
+            System.out.println(query);
+            ResultSet rs = s.executeQuery(query);
+            ArrayList<String> List = new ArrayList<String>();
+            int i=0;
+            while(rs.next()){
+                List.add(rs.getString("tipo"));
+            }
+            String[] consulta = new String[List.size()];
+            for(int x = 0; x < List.size(); x++){
+                consulta[x] = List.get(x);
+            }
+            System.out.println("exito");
+            return consulta;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
+    
+    public String[] consultaMunicipio(){
+        try {
+            Statement s = con.createStatement();
+            String query = "select NombreMunicipio from municipio";
+            System.out.println(query);
+            ResultSet rs = s.executeQuery(query);
+            ArrayList<String> List = new ArrayList<String>();
+            int i=0;
+            while(rs.next()){
+                List.add(rs.getString("NombreMunicipio"));
+            }
+            String[] consulta = new String[List.size()];
+            for(int x = 0; x < List.size(); x++){
+                consulta[x] = List.get(x);
+            }
+            System.out.println("exito");
+            return consulta;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
+    
+    public String[] consultaEstado(){
+        try {
+            Statement s = con.createStatement();
+            String query = "select NombreEstado from estado";
+            System.out.println(query);
+            ResultSet rs = s.executeQuery(query);
+            ArrayList<String> List = new ArrayList<String>();
+            int i=0;
+            while(rs.next()){
+                List.add(rs.getString("NombreEstado"));
+            }
+            String[] producto = new String[List.size()];
+            for(int x = 0; x < List.size(); x++){
+                producto[x] = List.get(x);
+            }
+            System.out.println("exito");
+            return producto;
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
             return null;
