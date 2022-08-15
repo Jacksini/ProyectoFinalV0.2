@@ -9,7 +9,7 @@ import modelo.Modelo;
 import vista.Clientes;
 import vista.Configuracion;
 import vista.Inventario;
-import vista.Productos;
+import vista.NuevoProducto;
 import vista.VentanaVentas;
 import vista.eliminar;
 import vista.modificarprovedor;
@@ -22,7 +22,7 @@ public class ControladorNuevoProveedor implements ActionListener, MouseListener{
     //Vistas Inventario
     private VentanaVentas ventasInicial;
     private Clientes ventanaClientes;
-    private Productos Product;
+    private NuevoProducto Product;
     private proveedores Proveedor;
     private Inventario Inv;
     private Configuracion Config;
@@ -39,7 +39,7 @@ public class ControladorNuevoProveedor implements ActionListener, MouseListener{
            sesion vistaInicioSesion, 
            VentanaVentas ventasInicial, 
            Clientes ventanaClientes, 
-           Productos Product, 
+           NuevoProducto Product, 
            proveedores Proveedor, 
            Inventario Inv, 
            Configuracion Config,

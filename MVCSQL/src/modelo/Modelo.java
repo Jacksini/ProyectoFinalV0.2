@@ -11,6 +11,10 @@ import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 /////////////////////////////////////////////////
 import vista.proveedores;
+import controlador.ControladorProveedor;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import modelo.Modelo;
 
 public class Modelo {
     proveedores p = new proveedores();
@@ -72,7 +76,7 @@ public class Modelo {
             return null;
         }
     }
-    //MOSTAR TABLAS  
+    //MOSTAR TABLAS
     public DefaultTableModel MostrarTablas(String query){
         try{
             Statement s= con.createStatement();
@@ -99,7 +103,26 @@ public class Modelo {
         }
 
     }
-    
+
+    //Nuevo Producto
+    public boolean nuevoProducto(String codigo, String nombreProducto, String Descripcion,
+                                    int perecedero, int proveedor, int tipo, float precioCompra,
+                                    float ganancia, int departamento, int hay, int minimo, int maximo, float precioFinal){
+        try {
+            Statement s = con.createStatement();
+            String query = "call ingresarproductos(\"" +codigo +"\",\"" +nombreProducto +"\",\"" +Descripcion +"\"," +perecedero +"," +proveedor
+                           +"," +tipo +"," +precioCompra +"," +ganancia +"," +departamento +"," +hay +"," +minimo +"," +maximo +"," +precioFinal +");";
+            System.out.println(query);
+            s.execute(query);
+            return true;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
+
+
+    }
+
     public String[] MostrarProductos(int IDProducto ){
         try{
             Statement N = con.createStatement();
@@ -107,14 +130,14 @@ public class Modelo {
             ResultSet rs = N.executeQuery(query);
             String[] Verificador = {"NombreProducto", "preciofinal"};
             String[] values = new String[2];
-                
+
                 int i=0;
                 rs.first();
                 for(String column : Verificador){
                     System.out.println("Error 1");
                     values [i] = rs.getString(column);
                     i++;
-                }            
+                }
                 return values;
         }catch (SQLException ex){
             System.out.println("Error 2");

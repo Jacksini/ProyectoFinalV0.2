@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import modelo.Modelo;
 import vista.Agregarproducto;
 import vista.Clientes;
@@ -14,7 +15,6 @@ import vista.EliminarProducto;
 import vista.Inventario;
 import vista.ModificarProducto;
 import vista.NuevoProducto;
-import vista.Productos;
 import vista.VentanaVentas;
 import vista.proveedores;
 import vista.sesion;
@@ -24,7 +24,7 @@ public class ControladorNuevoProducto implements ActionListener, MouseListener{
     private sesion vistaInicioSesion;
     private VentanaVentas ventasInicial;
     private Clientes ventanaClientes;
-    private Productos Product;
+    private NuevoProducto NewProdu;
     private proveedores Proveedor;
     private Inventario Inv;
     private Configuracion Config;
@@ -34,7 +34,6 @@ public class ControladorNuevoProducto implements ActionListener, MouseListener{
     private Departamentos Depart;
     private EliminarProducto ElimProdu;
     private ModificarProducto ModProdu;
-    private NuevoProducto NewProdu;
     
     //Conexion a BD y consultas de SQL
     private Modelo model;
@@ -43,21 +42,20 @@ public class ControladorNuevoProducto implements ActionListener, MouseListener{
            sesion vistaInicioSesion, 
            VentanaVentas ventasInicial, 
            Clientes ventanaClientes, 
-           Productos Product, 
+           NuevoProducto NewProdu, 
            proveedores Proveedor, 
            Inventario Inv, 
            Configuracion Config,
            Agregarproducto Agregarproduct,
            Departamentos Depart,
            EliminarProducto ElimProdu,
-           ModificarProducto ModProdu,
-           NuevoProducto NewProdu){
+           ModificarProducto ModProdu){
         
         //Ventanas Productos
         this.vistaInicioSesion = vistaInicioSesion;
         this.ventasInicial = ventasInicial;
         this.ventanaClientes = ventanaClientes;
-        this.Product = Product;
+        this.NewProdu = NewProdu;
         this.Proveedor = Proveedor;
         this.Inv = Inv;
         this.Config = Config;
@@ -67,7 +65,6 @@ public class ControladorNuevoProducto implements ActionListener, MouseListener{
         this.Depart = Depart;
         this.ElimProdu = ElimProdu;
         this.ModProdu = ModProdu;
-        this.NewProdu = NewProdu;
         
         //Modelo
         this.model = model;
@@ -88,8 +85,8 @@ public class ControladorNuevoProducto implements ActionListener, MouseListener{
         this.NewProdu.btnCatalogo.addMouseListener(this);
         
         //Botones con procesos
-        this.NewProdu.btnGuardar.addMouseListener(this);
-        this.NewProdu.btnCancelar.addMouseListener(this);
+        this.NewProdu.btnGuardar.addActionListener(this);
+        this.NewProdu.btnCancelar.addActionListener(this);
     }
     
     //Ventanas Ventas
@@ -130,12 +127,12 @@ public class ControladorNuevoProducto implements ActionListener, MouseListener{
     }
     
     public void ventanaProductos(){
-        Product.setTitle("Productos");
-        Product.setLocationRelativeTo(null);
-        Product.pack(); //Abre la ventana al tamaño preferido de los componentes
-        Product.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-        Product.setLocationRelativeTo(null);
-        Product.setVisible(true); 
+        NewProdu.setTitle("Nuevo Productos");
+        NewProdu.setLocationRelativeTo(null);
+        NewProdu.pack(); //Abre la ventana al tamaño preferido de los componentes
+        NewProdu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        NewProdu.setLocationRelativeTo(null);
+        NewProdu.setVisible(true); 
     }
     
     public void ventanaConfiguracion(){
@@ -196,7 +193,20 @@ public class ControladorNuevoProducto implements ActionListener, MouseListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        if(NewProdu.btnGuardar == e.getSource()){
+            //Accion guardar
+            System.out.println("Action save");
+            
+            if(crearProducto()){
+                JOptionPane.showMessageDialog(null, "Se agrego exitosamente");
+            }else{
+                JOptionPane.showMessageDialog(null, "No se pudo agregar correctamente el producto");
+            }
+        }else if(NewProdu.btnCancelar == e.getSource()){
+            //Accion cancelar
+            System.out.println("Action clean");
+            limpiarInformacion();
+        }
     }
 
     @Override
@@ -233,14 +243,72 @@ public class ControladorNuevoProducto implements ActionListener, MouseListener{
             ventanaDepartamentos();
         }else if(NewProdu.btnCatalogo == e.getSource()){
             NewProdu.setVisible(false);
-            ventanaInventario();
-        }else if(NewProdu.btnGuardar == e.getSource()){
-            
-        }else if(NewProdu.btnCancelar == e.getSource()){
-            
+            ventanaInventario();   
         }
     }
 
+    public void limpiarInformacion(){
+        NewProdu.txtCodigoProducto.setText("");
+        NewProdu.txtDepartamento.setText("");
+        NewProdu.txtDescripcion.setText("");
+        NewProdu.txtGanancia.setText("");
+        NewProdu.txtHay.setText("");
+        NewProdu.txtMaximo.setText("");
+        NewProdu.txtMinimo.setText("");
+        NewProdu.txtNombreProd.setText("");
+        NewProdu.txtPrecioCosto.setText("");
+        NewProdu.txtProveedor.setText("");
+        NewProdu.txtCodigoProducto.setText("");
+        NewProdu.cbKilo.setSelected(false);
+        NewProdu.cbPerecedero.setSelected(false);
+        NewProdu.cbUnidades.setSelected(false);
+    }
+    
+    public int determinarPerecedero(boolean perecedero){
+        if(perecedero){
+            return 1;
+        }else{
+            return 2;
+        }
+    }
+    
+    public int determinarTipo(boolean kilo, boolean unidades){
+        if(kilo == unidades){
+            return -1;
+        }else{
+            if(kilo){
+                return 1;
+            }else if(unidades){
+                return 2;
+            }
+            else{
+                return -1;
+            }
+        }
+    }
+    
+    public boolean crearProducto(){
+        try{
+            int tipo = determinarTipo(NewProdu.cbKilo.isSelected(), NewProdu.cbUnidades.isSelected());
+            int perecedero = determinarPerecedero(NewProdu.cbPerecedero.isSelected());
+            int proveedor = Integer.parseInt(NewProdu.txtProveedor.getText());
+            float precioCosto = Float.parseFloat(NewProdu.txtPrecioCosto.getText());
+            float ganancia = (Float.parseFloat(NewProdu.txtGanancia.getText()) / 100);
+            int departamento = Integer.parseInt(NewProdu.txtDepartamento.getText());
+            int hay = Integer.parseInt(NewProdu.txtHay.getText());
+            int minimo = Integer.parseInt(NewProdu.txtMinimo.getText());
+            int maximo = Integer.parseInt(NewProdu.txtMaximo.getText());
+            float precioFinal = 0;
+            
+            return model.nuevoProducto(
+                    NewProdu.txtCodigoProducto.getText(), NewProdu.txtNombreProd.getText(), NewProdu.txtDescripcion.getText(), perecedero,
+                    proveedor, tipo, precioCosto, ganancia, departamento, hay, minimo, maximo, precioFinal);
+        }catch(NumberFormatException e){
+            return false;
+        }
+        
+    }
+    
     @Override
     public void mousePressed(MouseEvent e) {
     }

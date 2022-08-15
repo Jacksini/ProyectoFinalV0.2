@@ -17,7 +17,7 @@ import modelo.Modelo;
 import vista.Clientes;
 import vista.Impuestos;
 import vista.Inventario;
-import vista.Productos;
+import vista.NuevoProducto;
 import vista.SimbolosDeMoneda;
 import vista.Ticket;
 import vista.VentaBuscador;
@@ -35,7 +35,7 @@ public class ControladorConfiguracion implements ActionListener, MouseListener{
     private sesion vistaInicioSesion;
     private VentanaVentas ventasInicial;
     private Clientes ventanaClientes;
-    private Productos Product;
+    private NuevoProducto Product;
     private proveedores Proveedor;
     private Inventario Inv;
     private Configuracion vista;
@@ -53,7 +53,7 @@ public class ControladorConfiguracion implements ActionListener, MouseListener{
     
     //Constructor de parametros
     public ControladorConfiguracion(Modelo modelo, sesion vistaInicioSesion, VentanaVentas ventasInicial, //Ventanas principales
-                                    Clientes ventanaClientes, Productos Product, proveedores Proveedor, Inventario Inv,
+                                    Clientes ventanaClientes, NuevoProducto Product, proveedores Proveedor, Inventario Inv,
      /*Archivos de configuracion*/  Configuracion vista, ConsultaArchivos settings,
                                     Ticket ticket, Impuestos impuestos, SimbolosDeMoneda simbolos) {
         
@@ -238,8 +238,9 @@ public class ControladorConfiguracion implements ActionListener, MouseListener{
             //Ventana Simbolos de Moneda
             iniciarSimbolos();
             this.vista.dispose();
-        }else if(vista.btnConfHome == e.getSource()){
-            JOptionPane.showMessageDialog(null, "Ya esta aqui");
+        }else if(ticket.btnConfHome == e.getSource() || impuestos.btnConfHome == e.getSource() || simbolos.btnConfHome == e.getSource()){
+            ticket.setVisible(false); impuestos.setVisible(false); simbolos.setVisible(false);
+            ventanaConfiguracion();
         }
         // <editor-fold defaultstate="collapsed" desc="Acciones de Botones de ticket"> 
         else if(ticket.btnChanges == e.getSource()){

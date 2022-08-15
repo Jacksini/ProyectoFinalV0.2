@@ -14,7 +14,6 @@ import vista.EliminarProducto;
 import vista.Inventario;
 import vista.ModificarProducto;
 import vista.NuevoProducto;
-import vista.Productos;
 import vista.VentanaVentas;
 import vista.proveedores;
 import vista.sesion;
@@ -24,7 +23,7 @@ public class ControladorEliminarProducto implements ActionListener, MouseListene
     private sesion vistaInicioSesion;
     private VentanaVentas ventasInicial;
     private Clientes ventanaClientes;
-    private Productos Product;
+    private NuevoProducto Product;
     private proveedores Proveedor;
     private Inventario Inv;
     private Configuracion Config;
@@ -34,7 +33,6 @@ public class ControladorEliminarProducto implements ActionListener, MouseListene
     private Departamentos Depart;
     private EliminarProducto ElimProdu;
     private ModificarProducto ModProdu;
-    private NuevoProducto NewProdu;
     
     //Conexion a BD y consultas de SQL
     private Modelo model;
@@ -43,15 +41,14 @@ public class ControladorEliminarProducto implements ActionListener, MouseListene
            sesion vistaInicioSesion, 
            VentanaVentas ventasInicial, 
            Clientes ventanaClientes, 
-           Productos Product, 
+           NuevoProducto Product, 
            proveedores Proveedor, 
            Inventario Inv, 
            Configuracion Config,
            Agregarproducto Agregarproduct,
            Departamentos Depart,
            EliminarProducto ElimProdu,
-           ModificarProducto ModProdu,
-           NuevoProducto NewProdu){
+           ModificarProducto ModProdu){
         
         //Ventanas Productos
         this.vistaInicioSesion = vistaInicioSesion;
@@ -67,7 +64,6 @@ public class ControladorEliminarProducto implements ActionListener, MouseListene
         this.Depart = Depart;
         this.ElimProdu = ElimProdu;
         this.ModProdu = ModProdu;
-        this.NewProdu = NewProdu;
         
         //Modelo
         this.model = model;
@@ -131,7 +127,7 @@ public class ControladorEliminarProducto implements ActionListener, MouseListene
     }
     
     public void ventanaProductos(){
-        Product.setTitle("Productos");
+        Product.setTitle("Nuevo Producto");
         Product.setLocationRelativeTo(null);
         Product.pack(); //Abre la ventana al tamaño preferido de los componentes
         Product.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
@@ -186,12 +182,7 @@ public class ControladorEliminarProducto implements ActionListener, MouseListene
     }
     
     public void ventanaNuevoProducto(){
-        NewProdu.setTitle("Nuevo Producto");
-        NewProdu.setLocationRelativeTo(null);
-        NewProdu.pack(); //Abre la ventana al tamaño preferido de los componentes
-        NewProdu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-        NewProdu.setLocationRelativeTo(null);
-        NewProdu.setVisible(true);
+        ventanaProductos();
     }
     
     
