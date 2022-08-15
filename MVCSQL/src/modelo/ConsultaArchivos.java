@@ -3,7 +3,7 @@ Descripción: Clase modelo para i/o de archivos
 Fecha: 12-Agosto-2022
 Nombre: David Enrique Garcia Olvera
 */
-package Modelo;
+package modelo;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -32,6 +32,9 @@ public class ConsultaArchivos{
     public boolean usaImpuestos;
     // </editor-fold>  
     
+    public ConsultaArchivos(String folder){
+        updateSettings("Configuracion");
+    }
     
     // <editor-fold defaultstate="collapsed" desc="Encapsulacion">
 
@@ -245,7 +248,7 @@ public class ConsultaArchivos{
         escrito += url;
         escrito += "\n=============-----------==============";
         return escrito; 
-    }
+    }String[] nombre = new String[0];
     
     public String exampleTicket(){
         //Honestamente, ni yo se porque hice esto. Pero lo hice :p
@@ -403,7 +406,7 @@ public class ConsultaArchivos{
                 if(check.contains("Impuesto#")){
                     String [] dividido = check.split("Impuesto#");
                     //System.out.println("Este es el #" +Integer.parseInt(dividido[1]));
-                    taxes.add(datos.get(itList.nextIndex())); 
+                    taxes.add(datos.get(itList.nextIndex()));
                     itList.next();//Sigguiente linea
                     //System.out.println(taxes.get(test));test++;
                     taxes.add(datos.get(itList.nextIndex()));

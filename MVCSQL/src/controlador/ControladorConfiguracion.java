@@ -5,7 +5,7 @@ Nombre: David Enrique Garcia Olvera
  */
 package controlador;
 
-import Modelo.ConsultaArchivos;
+import modelo.ConsultaArchivos;
 import vista.Configuracion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

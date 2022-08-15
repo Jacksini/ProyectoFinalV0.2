@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import modelo.Modelo;
 import vista.Agregarproducto;
 import vista.Clientes;
@@ -226,9 +227,31 @@ public class ControladorAgregarProducto implements ActionListener, MouseListener
             Agregarproduct.setVisible(false);
             ventanaInventario();
         }else if(Agregarproduct.btnBuscar == e.getSource()){
-            
+            //Buscar
+            try{
+                int id = Integer.parseInt(Agregarproduct.txtCodigoProducto.getText());
+                if(model.consultarProductos(id) == model.defaultTablaAgregar()){
+                    JOptionPane.showMessageDialog(null, "Surgio un error al consultar el producto.");
+                }else{
+                    Agregarproduct.tblProducto.setModel(model.consultarProductos(id));
+                }
+            }catch(NumberFormatException ex){
+                JOptionPane.showMessageDialog(null, "Verifique que el codigo sea numerico.");
+            }
         }else if(Agregarproduct.btnAgregarInventario == e.getSource()){
-            
+            //Agregar
+            try{
+                int id = Integer.parseInt(Agregarproduct.txtCodigoProducto.getText());
+                int cant = Integer.parseInt(Agregarproduct.txtAgregar.getText());
+                if(!model.agregarProducto(id, cant)){
+                    JOptionPane.showMessageDialog(null, "No se pudo agregar los productos.");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Se agregaron con exito.");
+                    Agregarproduct.tblProducto.setModel(model.consultarProductos(id));
+                }
+            }catch(NumberFormatException ex){
+                JOptionPane.showMessageDialog(null, "Verifique que sus datos sean numericos.");
+            }
         }
     }
 

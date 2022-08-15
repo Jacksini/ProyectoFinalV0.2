@@ -96,9 +96,9 @@ public class Inventario extends javax.swing.JFrame {
         getContentPane().add(btnCatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(485, 41, -1, -1));
 
         lbCodigoProducto.setText("Codigo producto:");
-        getContentPane().add(lbCodigoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 123, -1, -1));
+        getContentPane().add(lbCodigoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 75, 844, 10));
-        getContentPane().add(txtCodigoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 120, 148, -1));
+        getContentPane().add(txtCodigoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 148, -1));
 
         etiquetaProductos1.setBackground(new java.awt.Color(255, 153, 51));
         etiquetaProductos1.setText("PRODUCTOS");
@@ -126,7 +126,7 @@ public class Inventario extends javax.swing.JFrame {
 
         etiquetaAtiende.setText("Lo atiende");
         getContentPane().add(etiquetaAtiende, new org.netbeans.lib.awtextra.AbsoluteConstraints(769, 5, -1, -1));
-        getContentPane().add(txtDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 149, 148, -1));
+        getContentPane().add(txtDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 148, -1));
 
         btnBuscarDepartamento.setText("Buscar por departamento");
         btnBuscarDepartamento.addActionListener(new java.awt.event.ActionListener() {
@@ -134,10 +134,10 @@ public class Inventario extends javax.swing.JFrame {
                 btnBuscarDepartamentoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBuscarDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 148, -1, -1));
+        getContentPane().add(btnBuscarDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, -1, -1));
 
         lbDepartamento.setText("Departamento:");
-        getContentPane().add(lbDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 152, -1, -1));
+        getContentPane().add(lbDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
 
         btnBuscarCodigo.setText("Buscar por codigo");
         btnBuscarCodigo.addActionListener(new java.awt.event.ActionListener() {
@@ -145,7 +145,7 @@ public class Inventario extends javax.swing.JFrame {
                 btnBuscarCodigoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBuscarCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 119, -1, -1));
+        getContentPane().add(btnBuscarCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, -1, -1));
 
         btnBuscarMinimo.setText("Buscar");
         btnBuscarMinimo.addActionListener(new java.awt.event.ActionListener() {
@@ -252,8 +252,8 @@ public class Inventario extends javax.swing.JFrame {
     private javax.swing.JLabel lbCodigoProducto;
     private javax.swing.JLabel lbDepartamento;
     private javax.swing.JLabel lbMinimo;
-    private javax.swing.JTable tblCatalogo;
-    private javax.swing.JTextField txtCodigoProducto;
-    private javax.swing.JTextField txtDepartamento;
+    public javax.swing.JTable tblCatalogo;
+    public javax.swing.JTextField txtCodigoProducto;
+    public javax.swing.JTextField txtDepartamento;
     // End of variables declaration//GEN-END:variables
 }

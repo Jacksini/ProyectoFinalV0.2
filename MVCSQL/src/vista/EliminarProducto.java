@@ -264,7 +264,7 @@ public class EliminarProducto extends javax.swing.JFrame {
     public javax.swing.JMenu BtnMenuProductos;
     public javax.swing.JMenu BtnMenuProveedores;
     public javax.swing.JMenu BtnMenuVentas;
-    private javax.swing.JTable TablaElimiarProducto;
+    public javax.swing.JTable TablaElimiarProducto;
     public javax.swing.JButton btnAgregar;
     public javax.swing.JButton btnCatalogo;
     public javax.swing.JButton btnDepartamentos;
@@ -280,6 +280,6 @@ public class EliminarProducto extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField txtCodigoProducto;
+    public javax.swing.JTextField txtCodigoProducto;
     // End of variables declaration//GEN-END:variables
 }

@@ -44,7 +44,7 @@ public class ModificarProducto extends javax.swing.JFrame {
         txtDescripcion = new javax.swing.JTextField();
         etiquetaDescripcion = new javax.swing.JLabel();
         etiquetaSeVende = new javax.swing.JLabel();
-        cbKilo = new javax.swing.JCheckBox();
+        cbPerecedero = new javax.swing.JCheckBox();
         cbUnidades = new javax.swing.JCheckBox();
         etiquetaPrecioCosto = new javax.swing.JLabel();
         txtPrecioCosto = new javax.swing.JTextField();
@@ -59,15 +59,16 @@ public class ModificarProducto extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
-        TxtGancia = new javax.swing.JTextField();
-        TxtDepartamento = new javax.swing.JTextField();
+        txtGanancia = new javax.swing.JTextField();
+        txtDepartamento = new javax.swing.JTextField();
         LblNombreProducto = new javax.swing.JLabel();
-        txtCodigoProducto1 = new javax.swing.JTextField();
+        txtNombreProd = new javax.swing.JTextField();
         LblIdProducto = new javax.swing.JLabel();
-        txtCodigoProducto2 = new javax.swing.JTextField();
-        cbKilo1 = new javax.swing.JCheckBox();
-        txtDescripcion1 = new javax.swing.JTextField();
+        txtIdProd = new javax.swing.JTextField();
+        cbKilo = new javax.swing.JCheckBox();
+        txtProveedor = new javax.swing.JTextField();
         etiquetaDescripcion1 = new javax.swing.JLabel();
+        btnBuscar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         BtnMenuVentas = new javax.swing.JMenu();
         BtnMenuClientes = new javax.swing.JMenu();
@@ -118,11 +119,11 @@ public class ModificarProducto extends javax.swing.JFrame {
 
         etiquetaSeVende.setText("Se vende");
 
-        cbKilo.setText("Perecedero");
-        cbKilo.setAlignmentY(0.0F);
-        cbKilo.addActionListener(new java.awt.event.ActionListener() {
+        cbPerecedero.setText("Perecedero");
+        cbPerecedero.setAlignmentY(0.0F);
+        cbPerecedero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbKiloActionPerformed(evt);
+                cbPerecederoActionPerformed(evt);
             }
         });
 
@@ -176,49 +177,56 @@ public class ModificarProducto extends javax.swing.JFrame {
 
         jLabel12.setText("%");
 
-        TxtGancia.addActionListener(new java.awt.event.ActionListener() {
+        txtGanancia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtGanciaActionPerformed(evt);
+                txtGananciaActionPerformed(evt);
             }
         });
 
-        TxtDepartamento.addActionListener(new java.awt.event.ActionListener() {
+        txtDepartamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtDepartamentoActionPerformed(evt);
+                txtDepartamentoActionPerformed(evt);
             }
         });
 
         LblNombreProducto.setText("Nombre producto:");
 
-        txtCodigoProducto1.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoProducto1ActionPerformed(evt);
+                txtNombreProdActionPerformed(evt);
             }
         });
 
         LblIdProducto.setText("IdProducto:");
 
-        txtCodigoProducto2.addActionListener(new java.awt.event.ActionListener() {
+        txtIdProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoProducto2ActionPerformed(evt);
+                txtIdProdActionPerformed(evt);
             }
         });
 
-        cbKilo1.setText("Por kilogramos");
-        cbKilo1.setAlignmentY(0.0F);
-        cbKilo1.addActionListener(new java.awt.event.ActionListener() {
+        cbKilo.setText("Por kilogramos");
+        cbKilo.setAlignmentY(0.0F);
+        cbKilo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbKilo1ActionPerformed(evt);
+                cbKiloActionPerformed(evt);
             }
         });
 
-        txtDescripcion1.addActionListener(new java.awt.event.ActionListener() {
+        txtProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDescripcion1ActionPerformed(evt);
+                txtProveedorActionPerformed(evt);
             }
         });
 
         etiquetaDescripcion1.setText("Proveedor:");
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         BtnMenuVentas.setText("Ventas");
         jMenuBar1.add(BtnMenuVentas);
@@ -276,7 +284,9 @@ public class ModificarProducto extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(LblIdProducto)
                         .addGap(23, 23, 23)
-                        .addComponent(txtCodigoProducto2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtIdProd, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(etiquetaCodigoProducto)
@@ -285,42 +295,31 @@ public class ModificarProducto extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(LblNombreProducto)
                         .addGap(23, 23, 23)
-                        .addComponent(txtCodigoProducto1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtNombreProd, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(etiquetaDescripcion)
                         .addGap(22, 22, 22)
                         .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
-                        .addComponent(cbKilo))
+                        .addComponent(cbPerecedero))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(etiquetaDescripcion1)
                         .addGap(26, 26, 26)
-                        .addComponent(txtDescripcion1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(etiquetaSeVende)
                         .addGap(15, 15, 15)
                         .addComponent(cbUnidades)
                         .addGap(33, 33, 33)
-                        .addComponent(cbKilo1))
+                        .addComponent(cbKilo))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(etiquetaPrecioCosto)
                         .addGap(19, 19, 19)
                         .addComponent(txtPrecioCosto, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(etiquetaGanancia)
-                        .addGap(22, 22, 22)
-                        .addComponent(TxtGancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64)
-                        .addComponent(jLabel12))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(etiquetaDepartamento)
-                        .addGap(27, 27, 27)
-                        .addComponent(TxtDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(60, 60, 60)
                         .addComponent(etiquetaHay)
@@ -339,7 +338,22 @@ public class ModificarProducto extends javax.swing.JFrame {
                         .addGap(212, 212, 212)
                         .addComponent(btnGuardar)
                         .addGap(59, 59, 59)
-                        .addComponent(btnCancelar)))
+                        .addComponent(btnCancelar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(etiquetaGanancia)
+                                .addGap(24, 24, 24))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(etiquetaDepartamento)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtDepartamento, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                            .addComponent(txtGanancia))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel12)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -365,7 +379,9 @@ public class ModificarProducto extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LblIdProducto)
-                    .addComponent(txtCodigoProducto2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtIdProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBuscar)))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(etiquetaCodigoProducto)
@@ -373,37 +389,35 @@ public class ModificarProducto extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LblNombreProducto)
-                    .addComponent(txtCodigoProducto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombreProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(etiquetaDescripcion)
                     .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbKilo))
+                    .addComponent(cbPerecedero))
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(etiquetaDescripcion1)
-                    .addComponent(txtDescripcion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(etiquetaSeVende)
                     .addComponent(cbUnidades)
-                    .addComponent(cbKilo1))
+                    .addComponent(cbKilo))
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(etiquetaPrecioCosto)
                     .addComponent(txtPrecioCosto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TxtGancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(etiquetaGanancia)
-                            .addComponent(jLabel12))))
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(etiquetaDepartamento)
-                    .addComponent(TxtDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(etiquetaGanancia)
+                        .addComponent(txtGanancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel12))
+                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etiquetaDepartamento))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(etiquetaHay)
@@ -434,9 +448,9 @@ public class ModificarProducto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDescripcionActionPerformed
 
-    private void cbKiloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbKiloActionPerformed
+    private void cbPerecederoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPerecederoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbKiloActionPerformed
+    }//GEN-LAST:event_cbPerecederoActionPerformed
 
     private void txtPrecioCostoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioCostoActionPerformed
         // TODO add your handling code here:
@@ -458,29 +472,33 @@ public class ModificarProducto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void TxtGanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtGanciaActionPerformed
+    private void txtGananciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGananciaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TxtGanciaActionPerformed
+    }//GEN-LAST:event_txtGananciaActionPerformed
 
-    private void TxtDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtDepartamentoActionPerformed
+    private void txtDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDepartamentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TxtDepartamentoActionPerformed
+    }//GEN-LAST:event_txtDepartamentoActionPerformed
 
-    private void txtCodigoProducto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoProducto1ActionPerformed
+    private void txtNombreProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreProdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoProducto1ActionPerformed
+    }//GEN-LAST:event_txtNombreProdActionPerformed
 
-    private void txtCodigoProducto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoProducto2ActionPerformed
+    private void txtIdProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdProdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoProducto2ActionPerformed
+    }//GEN-LAST:event_txtIdProdActionPerformed
 
-    private void cbKilo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbKilo1ActionPerformed
+    private void cbKiloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbKiloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbKilo1ActionPerformed
+    }//GEN-LAST:event_cbKiloActionPerformed
 
-    private void txtDescripcion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcion1ActionPerformed
+    private void txtProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProveedorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDescripcion1ActionPerformed
+    }//GEN-LAST:event_txtProveedorActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -525,9 +543,8 @@ public class ModificarProducto extends javax.swing.JFrame {
     public javax.swing.JMenu BtnMenuVentas;
     private javax.swing.JLabel LblIdProducto;
     private javax.swing.JLabel LblNombreProducto;
-    private javax.swing.JTextField TxtDepartamento;
-    private javax.swing.JTextField TxtGancia;
     public javax.swing.JButton btnAgregar;
+    public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnCatalogo;
     public javax.swing.JButton btnDepartamentos;
@@ -535,9 +552,9 @@ public class ModificarProducto extends javax.swing.JFrame {
     public javax.swing.JButton btnGuardar;
     public javax.swing.JButton btnModificar;
     public javax.swing.JButton btnNuevo;
-    private javax.swing.JCheckBox cbKilo;
-    private javax.swing.JCheckBox cbKilo1;
-    private javax.swing.JCheckBox cbUnidades;
+    public javax.swing.JCheckBox cbKilo;
+    public javax.swing.JCheckBox cbPerecedero;
+    public javax.swing.JCheckBox cbUnidades;
     private javax.swing.JLabel etiquetaAtiende;
     private javax.swing.JLabel etiquetaCodigoProducto;
     private javax.swing.JLabel etiquetaDepartamento;
@@ -555,14 +572,16 @@ public class ModificarProducto extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField txtCodigoProducto;
-    private javax.swing.JTextField txtCodigoProducto1;
-    private javax.swing.JTextField txtCodigoProducto2;
-    private javax.swing.JTextField txtDescripcion;
-    private javax.swing.JTextField txtDescripcion1;
-    private javax.swing.JTextField txtHay;
-    private javax.swing.JTextField txtMaximo;
-    private javax.swing.JTextField txtMinimo;
-    private javax.swing.JTextField txtPrecioCosto;
+    public javax.swing.JTextField txtCodigoProducto;
+    public javax.swing.JTextField txtDepartamento;
+    public javax.swing.JTextField txtDescripcion;
+    public javax.swing.JTextField txtGanancia;
+    public javax.swing.JTextField txtHay;
+    public javax.swing.JTextField txtIdProd;
+    public javax.swing.JTextField txtMaximo;
+    public javax.swing.JTextField txtMinimo;
+    public javax.swing.JTextField txtNombreProd;
+    public javax.swing.JTextField txtPrecioCosto;
+    public javax.swing.JTextField txtProveedor;
     // End of variables declaration//GEN-END:variables
 }

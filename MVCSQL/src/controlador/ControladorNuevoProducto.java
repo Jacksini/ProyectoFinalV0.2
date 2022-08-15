@@ -272,9 +272,9 @@ public class ControladorNuevoProducto implements ActionListener, MouseListener{
         }
     }
     
-    public int determinarTipo(boolean kilo, boolean unidades){
+    public int determinarTipo(boolean kilo, boolean unidades) throws ArithmeticException{
         if(kilo == unidades){
-            return -1;
+            throw new ArithmeticException("Se seleccionaron dos tipos de producto (Por kilo & Por Unidad)");
         }else{
             if(kilo){
                 return 1;
@@ -304,6 +304,9 @@ public class ControladorNuevoProducto implements ActionListener, MouseListener{
                     NewProdu.txtCodigoProducto.getText(), NewProdu.txtNombreProd.getText(), NewProdu.txtDescripcion.getText(), perecedero,
                     proveedor, tipo, precioCosto, ganancia, departamento, hay, minimo, maximo, precioFinal);
         }catch(NumberFormatException e){
+            return false;
+        }catch(ArithmeticException e){
+            JOptionPane.showMessageDialog(null, e.getMessage()+". Por favor intente de Nuevo");
             return false;
         }
         

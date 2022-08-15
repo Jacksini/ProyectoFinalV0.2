@@ -43,15 +43,13 @@ public class Departamentos extends javax.swing.JFrame {
         etiquetaProductos1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDepartamentos = new javax.swing.JTable();
-        txtIdDepartamento1 = new javax.swing.JTextField();
+        txtAddName = new javax.swing.JTextField();
         btnGuardar = new javax.swing.JButton();
         etiquetaNombre = new javax.swing.JLabel();
         btnEliminarDepartamento = new javax.swing.JButton();
         etiquetaAtiende = new javax.swing.JLabel();
         etiquetaDepartamentos = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
-        etiquetaIdDepartamento1 = new javax.swing.JLabel();
-        txtIdDepartamento2 = new javax.swing.JTextField();
         btnMostrarDepartamentos = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         BtnMenuVentas = new javax.swing.JMenu();
@@ -112,7 +110,7 @@ public class Departamentos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblDepartamentos);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 220, 350));
-        getContentPane().add(txtIdDepartamento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 212, -1));
+        getContentPane().add(txtAddName, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 212, -1));
 
         btnGuardar.setText("Guardar");
         getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, -1, -1));
@@ -134,10 +132,6 @@ public class Departamentos extends javax.swing.JFrame {
 
         btnCancelar.setText("Cancelar");
         getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, -1, -1));
-
-        etiquetaIdDepartamento1.setText("Id departamento:");
-        getContentPane().add(etiquetaIdDepartamento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, -1, -1));
-        getContentPane().add(txtIdDepartamento2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 110, -1));
 
         btnMostrarDepartamentos.setText("Mostrar todos los departamentos");
         getContentPane().add(btnMostrarDepartamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, -1, -1));
@@ -221,16 +215,14 @@ public class Departamentos extends javax.swing.JFrame {
     private javax.swing.JLabel etiquetaDepartamento;
     private javax.swing.JLabel etiquetaDepartamentos;
     private javax.swing.JLabel etiquetaIdDepartamento;
-    private javax.swing.JLabel etiquetaIdDepartamento1;
     private javax.swing.JLabel etiquetaNombre;
     private javax.swing.JLabel etiquetaProductos1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable tblDepartamentos;
-    private javax.swing.JTextField txtIdDepartamento;
-    private javax.swing.JTextField txtIdDepartamento1;
-    private javax.swing.JTextField txtIdDepartamento2;
+    public javax.swing.JTable tblDepartamentos;
+    public javax.swing.JTextField txtAddName;
+    public javax.swing.JTextField txtIdDepartamento;
     // End of variables declaration//GEN-END:variables
 }

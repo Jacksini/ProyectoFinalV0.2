@@ -45,7 +45,7 @@ public class VentaVerificador extends javax.swing.JFrame {
         LblPrecioArticulo.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         LblPrecioArticulo.setText("$0.00");
 
-        BtnAgregar.setText("F1 - Agregar a venta");
+        BtnAgregar.setText("Buscar Producto");
         BtnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAgregarActionPerformed(evt);
@@ -140,11 +140,11 @@ public class VentaVerificador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnAgregar;
-    private javax.swing.JButton BtnCancelar;
-    private javax.swing.JLabel LblNombreArticulo;
-    private javax.swing.JLabel LblPrecioArticulo;
+    public javax.swing.JButton BtnAgregar;
+    public javax.swing.JButton BtnCancelar;
+    public javax.swing.JLabel LblNombreArticulo;
+    public javax.swing.JLabel LblPrecioArticulo;
     private javax.swing.JLabel LblVerificador;
-    private javax.swing.JTextField TFBuscador;
+    public javax.swing.JTextField TFBuscador;
     // End of variables declaration//GEN-END:variables
 }

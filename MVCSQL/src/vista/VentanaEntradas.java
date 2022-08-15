@@ -123,8 +123,8 @@ public class VentanaEntradas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnCancelar;
-    private javax.swing.JButton BtnGuardar;
+    public javax.swing.JButton BtnCancelar;
+    public javax.swing.JButton BtnGuardar;
     private javax.swing.JLabel LblCantidad;
     private javax.swing.JTextField TFTotal;
     // End of variables declaration//GEN-END:variables
