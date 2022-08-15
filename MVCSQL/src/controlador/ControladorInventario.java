@@ -219,23 +219,39 @@ public class ControladorInventario implements ActionListener, MouseListener{
         }else if(Inv.btnBuscarCodigo == e.getSource()){
             //Boton buscar por codigo
             try{
-                Inv.tblCatalogo.setModel(model.catalogoCodigo(Integer.parseInt(Inv.txtDepartamento.getText())));
+                int id = Integer.parseInt(Inv.txtCodigoProducto.getText());
+                if(model.catalogoCodigo(id).getRowCount() == model.defaultTablaCatalogo().getRowCount()){
+                    JOptionPane.showMessageDialog(null, "No se encontro");
+                    Inv.tblCatalogo.setModel(model.defaultTablaCatalogo());
+                }else{
+                    Inv.tblCatalogo.setModel(model.catalogoCodigo(id));
+                }
             }catch(NumberFormatException ex){
                 JOptionPane.showMessageDialog(null, "Por favor, cheque que el codigo tenga datos correctos");
             }
         }else if(Inv.btnBuscarDepartamento == e.getSource()){
             //Boton buscar por departamento
             try{
-                if(Inv.txtDepartamento.getText().isEmpty()){
+                if(Inv.txtDepartamento.getText().isBlank()){
                     throw new Exception("Por favor llene el campo de departamentos");
                 }
-                Inv.tblCatalogo.setModel(model.catalogoDepartamento(Inv.txtDepartamento.getText()));
+                if(model.catalogoDepartamento(Inv.txtDepartamento.getText()).getRowCount() == model.defaultTablaCatalogo().getRowCount()){
+                    JOptionPane.showMessageDialog(null, "No se encontro");
+                    Inv.tblCatalogo.setModel(model.defaultTablaCatalogo());
+                }else{
+                    Inv.tblCatalogo.setModel(model.catalogoDepartamento(Inv.txtDepartamento.getText()));
+                }
             }catch(Exception ex){
                 JOptionPane.showMessageDialog(null, "Hubo un error inesperado: "+ex.getMessage());
             }
         }else if(Inv.btnBuscarMinimo == e.getSource()){
             //Boton buscar minimo
-            Inv.tblCatalogo.setModel(model.catalogoMinimo());
+            if(model.catalogoMinimo().getRowCount() == model.defaultTablaCatalogo().getRowCount()){
+                JOptionPane.showMessageDialog(null, "No se encontro");
+                Inv.tblCatalogo.setModel(model.defaultTablaCatalogo());
+            }else{
+                Inv.tblCatalogo.setModel(model.catalogoMinimo());
+            }
         }
     }
 

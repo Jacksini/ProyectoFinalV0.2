@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 //Packages Locales
@@ -43,6 +44,7 @@ public class ControladorVentas implements ActionListener, MouseListener{
     
     //Conexion a BD y consultas de SQL
     private Modelo model;
+    modelo.ConsultaArchivos settings = new modelo.ConsultaArchivos("Configuracion");
     
     public ControladorVentas(Modelo model, 
            sesion vistaInicioSesion, 
@@ -76,6 +78,7 @@ public class ControladorVentas implements ActionListener, MouseListener{
         
         //Modelo
         this.model = model;
+        
         
         //Boton de Inicio de sesion
         this.vistaInicioSesion.btnIngresar.addActionListener(this);
@@ -275,51 +278,74 @@ public class ControladorVentas implements ActionListener, MouseListener{
             ventanaCobro();
         }else if(ventasInicial.btnActualizar == e.getSource()){
             String consulta = "call mostrarfacturasventa();";
-            DefaultTableModel tabla = model.MostrarTablas(consulta);
-            ventasInicial.TablaProductos.setModel(tabla);
+            try{
+                DefaultTableModel tabla = model.MostrarTablas(consulta);
+                ventasInicial.TablaProductos.setModel(tabla);
+            }catch(IllegalArgumentException ex){
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+            
         }else if(ventasInicial.BtnBorrar == e.getSource()){
             DefaultTableModel model = (DefaultTableModel) ventasInicial.TablaProductos.getModel(); 
             model.setRowCount(0);
-        }else if(Entradas.BtnGuardar == e.getSource()){ //Botones de ventnas emergentes
+        }
+        // <editor-fold defaultstate="collapsed" desc="Botones de ventnas emergentes">
+        else if(Entradas.BtnGuardar == e.getSource()){
             //Pendiente
+            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
         }else if(Entradas.BtnCancelar == e.getSource()){
             Entradas.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
             Entradas.setLocationRelativeTo(null);
             Entradas.setVisible(false);
         }else if(Salidas.BtnGuardar == e.getSource()){
             //Pendinete
+            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
         }else if(Salidas.BtnCancelar == e.getSource()){
             Salidas.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
             Salidas.setLocationRelativeTo(null);
             Salidas.setVisible(false);
         }else if(Verificador.BtnAgregar == e.getSource()){
-            String[] Valores = model.MostrarProductos(Integer.parseInt(Verificador.TFBuscador.getText()));
-            Verificador.LblNombreArticulo.setText(Valores[0]);
-            Verificador.LblPrecioArticulo.setText(Valores[1]);
+            //Pendiente
+            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
+//            String[] Valores = model.MostrarProductos(Integer.parseInt(Verificador.TFBuscador.getText()));
+//            Verificador.LblNombreArticulo.setText(Valores[0]);
+//            Verificador.LblPrecioArticulo.setText(putPrices(Valores[1]));
         }else if(Verificador.BtnCancelar == e.getSource()){
             Verificador.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
             Verificador.setLocationRelativeTo(null);
             Verificador.setVisible(false);
         }else if(Buscador.BtnAceptar == e.getSource()){
-            
+            //Pendiente
+            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
         }else if(Buscador.BtnCancelar == e.getSource()){
             Buscador.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
             Buscador.setLocationRelativeTo(null);
             Buscador.setVisible(false);
         }else if(Buscador.btnBuscar == e.getSource()){
-            
+            //Pendiente
+            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
         }else if(Cobro.BtnCobrar == e.getSource()){
-            
+            //Pendiente
+            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
         }else if(Cobro.BtnCancelar == e.getSource()){
             Cobro.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
             Cobro.setLocationRelativeTo(null);
             Cobro.setVisible(false);
         }else if(Cobro.btnGenerarFactura == e.getSource()){
-            
+            //Pendiente
+            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
         }
-        
+        // </editor-fold>  
     }
 
+    public String putPrices(String floatingNum){
+        //Metodo para asignar a los String de numero los simbolos customizados.
+        String[] valores = new String[2];
+        valores = floatingNum.split("\\.");
+        String end = settings.moneda + valores[0] +settings.decimal +valores[1];
+        return end;
+    }
+    
     @Override
     public void mousePressed(MouseEvent e) {
         

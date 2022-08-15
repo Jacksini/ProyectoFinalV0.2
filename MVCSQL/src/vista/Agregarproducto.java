@@ -320,8 +320,8 @@ public class Agregarproducto extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable tblProducto;
-    private javax.swing.JTextField txtAgregar;
-    private javax.swing.JTextField txtCodigoProducto;
+    public javax.swing.JTable tblProducto;
+    public javax.swing.JTextField txtAgregar;
+    public javax.swing.JTextField txtCodigoProducto;
     // End of variables declaration//GEN-END:variables
 }

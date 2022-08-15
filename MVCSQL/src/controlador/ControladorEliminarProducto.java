@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import modelo.Modelo;
 import vista.Agregarproducto;
 import vista.Clientes;
@@ -227,9 +228,36 @@ public class ControladorEliminarProducto implements ActionListener, MouseListene
             ElimProdu.setVisible(false);
             ventanaInventario();
         }else if(ElimProdu.btnEliminarProducto == e.getSource()){
-            
+            //Eliminar
+            int x = JOptionPane.showConfirmDialog(null, "Esta seguro que quiere eliminar el producto seleccionado?", "Eliminacion de Producto", 0);
+            switch(x){
+                case 0 -> {
+                    try{
+                        int id = Integer.parseInt(ElimProdu.txtCodigoProducto.getText());
+                        if(!model.eliminarProducto(id)){
+                            JOptionPane.showMessageDialog(null, "No se pudo eliminar");
+                        }else{
+                            ElimProdu.TablaElimiarProducto.setModel(model.defaultTablaEliminar());
+                        }
+                    }catch(NumberFormatException ex){
+                        JOptionPane.showMessageDialog(null, "Verifique que el codigo sea numerico.");
+                    }
+                }
+                case 1 -> JOptionPane.showMessageDialog(null, "Enterado. No se eliminara");
+                default -> {
+                }
+            }
         }else if(ElimProdu.BtnBuscar == e.getSource()){
-            
+            //Buscar
+            try{
+                int id = Integer.parseInt(ElimProdu.txtCodigoProducto.getText());
+                ElimProdu.TablaElimiarProducto.setModel(model.buscarEliminarProducto(id));
+                if(ElimProdu.TablaElimiarProducto.getModel().getRowCount() == model.defaultTablaEliminar().getRowCount()){
+                    JOptionPane.showMessageDialog(null, "No se pudo encontrar el producto");
+                }
+            }catch(NumberFormatException ex){
+                JOptionPane.showMessageDialog(null, "Verifique que el codigo sea numerico.");
+            }
         }
     }
 

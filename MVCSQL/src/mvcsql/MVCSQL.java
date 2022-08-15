@@ -1,7 +1,7 @@
 package mvcsql;
 
 import controlador.ControladorConfiguracion;
-import Modelo.ConsultaArchivos;
+import modelo.ConsultaArchivos;
 import vista.Configuracion;
 import vista.Impuestos;
 import vista.SimbolosDeMoneda;
@@ -44,7 +44,7 @@ public class MVCSQL{
     public static void main(String[] args) {
         //Modelos
         Modelo mod = new Modelo();
-        ConsultaArchivos archivos = new ConsultaArchivos();
+        ConsultaArchivos archivos = new ConsultaArchivos("Configuracion");
         
         //Inicio de sesion
         sesion inicioSesion = new sesion();
@@ -100,7 +100,6 @@ public class MVCSQL{
         ControladorConfiguracion CtrlConf = new ControladorConfiguracion(mod, inicioSesion, Ventas, cliente, Prod, Prov, Inv, Config, archivos, ticket, impuestos, simb);
         CtrlVen.inicioDeSesion();
         inicioSesion.setVisible(true);
-        
     }
     
 }

@@ -3,7 +3,7 @@ Descripción: Clase modelo para i/o de archivos
 Fecha: 12-Agosto-2022
 Nombre: David Enrique Garcia Olvera
 */
-package Modelo;
+package modelo;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -32,6 +32,9 @@ public class ConsultaArchivos{
     public boolean usaImpuestos;
     // </editor-fold>  
     
+    public ConsultaArchivos(String folder){
+        updateSettings("Configuracion");
+    }
     
     // <editor-fold defaultstate="collapsed" desc="Encapsulacion">
 
