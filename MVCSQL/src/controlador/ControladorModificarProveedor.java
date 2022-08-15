@@ -19,7 +19,6 @@ import vista.modificarprovedor;
 import vista.nuevoproveedor;
 import vista.proveedores;
 import vista.sesion;
-import javax.swing.DefaultComboBoxModel;
 
 public class ControladorModificarProveedor implements ActionListener, MouseListener{
     
@@ -259,19 +258,14 @@ public class ControladorModificarProveedor implements ActionListener, MouseListe
         }else if(modProv.BTTModificar == e.getSource()){
             try {
                 Statement s = model.con.createStatement();
-                String query = "call ModificarProveedor("+modProv.TXTIDproveedor.getText()+",'" + modProv.TXTnombreProveedor.getText() + "', '" + modProv.TXTRFCproveedor.getText() + "', '" + modProv.TXTCalleNumeroProveedor.getText() + "', '" + modProv.TXTTelefonoProveedor.getText() + "', '" + modProv.TXTDepartamentoTelefono.getText() + "', '" + nuevoProv.TXTNombrePersonal.getText() + "', '" + nuevoProv.TXTDepartamentoTelefono.getText() + "', '" + modProv.TXTNombrePersonal.getText() + "','" + modProv.TXTCorreoProveedor.getText() + "', "+ getCbTipo() + ", "+ getCbEstado() + ", "+ getCbMunicipios() + ", "+ getCbColonia() + ");";
+                String query = "call ModificarProveedor("+modProv.TXTIDproveedor.getText()+",'" + modProv.TXTnombreProveedor.getText() + "', '" + modProv.TXTRFCproveedor.getText() + "', '" + modProv.TXTCalleNumeroProveedor.getText() + "', '" + modProv.TXTTelefonoProveedor.getText() + "', '" + modProv.TXTDepartamentoTelefono.getText() + "', '" + nuevoProv.TXTNombrePersonal.getText() + "', '" + nuevoProv.TXTDepartamentoTelefono.getText() + "', '" + modProv.TXTNombrePersonal.getText() + "','" + modProv.TXTCorreoProveedor.getText() + "', "+ modProv.BOXTipoTelefono.getSelectedIndex() + ", "+ nuevoProv.BOXEstado.getSelectedIndex() + ", "+ nuevoProv.BOXMunicipio.getSelectedIndex() + ", "+ nuevoProv.BOXColonia.getSelectedIndex() + ");";
                 System.out.println(query);
                 s.execute(query);
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "No se pudo modificar, "+ex.getMessage());
                 System.out.println(ex.getMessage());
             }            
         }else if(modProv.BTTActualizar == e.getSource()){
-            setCbColonia(-1);
-            setCbEstado(-1);
-            setCbMunicipio(-1);
-            setCbTel(-1);
-            /*String consultaEstado = "Select *from estado";
+            String consultaEstado = "Select *from estado";
             String consultaMunicipio = "Select *from municipio";
             String consultaColonia = "Select *from colonia";
             String consultaTipoTelefono = "Select *from tipotelefono";
@@ -302,145 +296,8 @@ public class ControladorModificarProveedor implements ActionListener, MouseListe
                 }
             } catch (SQLException ex) {
 
-            }
-            */        
+            }        
         }
-    }
-
-    public void setCbMunicipio(int index){
-        int i = 0;
-        String[] ids = model.consultarMunicipio(1);
-        String[] datos = model.consultarMunicipio(2);
-        DefaultComboBoxModel<String> municipio = new javax.swing.DefaultComboBoxModel<>(datos);
-        modProv.BOXMunicipio.setModel(municipio);
-        if(index == -1){
-            modProv.BOXMunicipio.setSelectedIndex(-1);
-        }else{
-            try{
-                for(String id:ids){
-                    if(Integer.parseInt(ids[Integer.parseInt(id)]) == index){
-                        i = Integer.parseInt(id);
-                        break;
-                    }
-                }
-                Proveedor.BOXMunicipio.setSelectedIndex(i);
-            }catch(Exception ex){
-                JOptionPane.showMessageDialog(null, "Hubo un error en la consulta del municipio.")
-            }
-        }
-    }
-
-    public void setCbEstado(int index){
-        int i = 0;
-        String[] ids = model.consultarMunicipio(1);
-        String[] datos = model.consultarMunicipio(2);
-        DefaultComboBoxModel<String> estado = new javax.swing.DefaultComboBoxModel<>(datos);
-        modProv.BOXEstado.setModel(estado);
-        if(index == -1){
-            modProv.BOXEstado.setSelectedIndex(-1);
-        }else{
-            try{
-                for(String id:ids){
-                    if(Integer.parseInt(ids[Integer.parseInt(id)]) == index){
-                        i = Integer.parseInt(id);
-                        break;
-                    }
-                }
-                modProv.BOXEstado.setSelectedIndex(i);
-            }catch(Exception ex){
-                JOptionPane.showMessageDialog(null, "Hubo un error en la consulta del estado.")
-            }
-        }
-    }
-
-    public void setCbColonia(int index){
-        int i = 0;
-        String[] ids = model.consultarMunicipio(1);
-        String[] datos = model.consultarMunicipio(2);
-        DefaultComboBoxModel<String> colonia = new javax.swing.DefaultComboBoxModel<>(datos);
-        modProv.BOXColonia.setModel(colonia);
-        if(index == -1){
-            modProv.BOXColonia.setSelectedIndex(-1);
-        }else{
-            try{
-                for(String id:ids){
-                    if(Integer.parseInt(ids[Integer.parseInt(id)]) == index){
-                        i = Integer.parseInt(id);
-                        break;
-                    }
-                }
-                modProv.BOXColonia.setSelectedIndex(i);
-            }catch(Exception ex){
-                JOptionPane.showMessageDialog(null, "Hubo un error en la consulta de la colonia.")
-            }
-        }
-    }
-
-    public void setCbTel(int index){
-        int i = 0;
-        String[] ids = model.consultarMunicipio(1);
-        String[] datos = model.consultarMunicipio(2);
-        DefaultComboBoxModel<String> tel = new javax.swing.DefaultComboBoxModel<>(datos);
-        modProv.BOXTipoTelefono.setModel(tel);
-        if(index == -1){
-            modProv.BOXTipoTelefono.setSelectedIndex(-1);
-        }else{
-            try{
-                for(String id:ids){
-                    if(Integer.parseInt(ids[Integer.parseInt(id)]) == index){
-                        i = Integer.parseInt(id);
-                        break;
-                    }
-                }
-                modProv.boxEstado.setSelectedIndex(i);
-            }catch(Exception ex){
-                JOptionPane.showMessageDialog(null, "Hubo un error en la consulta del tipo telefono.")
-            }
-        }
-    }
-
-    public int getCbMunicipios(){
-        String[] ids = model.consultarMunicipio(1);
-        String[] datos = model.consultarMunicipio(2);
-        String dato = modProv.BOXColonia.getSelectedItem().toString();
-        int i = 0;
-        while(!dato.equals(datos[Integer.parseInt(ids[i])])){
-            i++;
-        }
-        return Integer.parseInt(ids[i]);
-    }
-
-    public int getCbEstado(){
-        String[] ids = model.consultarEstado(1);
-        String[] datos = model.consultarEstado(2);
-        String dato = modProv.BOXColonia.getSelectedItem().toString();
-        int i = 0;
-        while(!dato.equals(datos[Integer.parseInt(ids[i])])){
-            i++;
-        }
-        return Integer.parseInt(ids[i]);
-    }
-    
-    public int getCbColonia(){
-        String[] ids = model.consultarColonia(1);
-        String[] datos = model.consultarColonia(2);
-        String dato = modProv.BOXColonia.getSelectedItem().toString();
-        int i = 0;
-        while(!dato.equals(datos[Integer.parseInt(ids[i])])){
-            i++;
-        }
-        return Integer.parseInt(ids[i]);
-    }
-
-    public int getCbTipo(){
-        String[] ids = model.consultarTipoTelefono(1);
-        String[] datos = model.consultarTipoTelefono(2);
-        String dato = modProv.BOXColonia.getSelectedItem().toString();
-        int i = 0;
-        while(!dato.equals(datos[Integer.parseInt(ids[i])])){
-            i++;
-        }
-        return Integer.parseInt(ids[i]);
     }
 
     @Override

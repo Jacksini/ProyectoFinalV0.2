@@ -513,203 +513,95 @@ public class Modelo {
         }
     }
     
-    public String[] consultarColonia(int columna){
-        switch(columna){
-            case 1:
-            try {
-                Statement s = con.createStatement();
-                String query = "select idColonia from colonia";
-                System.out.println(query);
-                ResultSet rs = s.executeQuery(query);
-                ArrayList<String> List = new ArrayList<String>();
-                int i=0;
-                while(rs.next()){
-                    List.add(rs.getString("idColonia"));
-                }
-                String[] consulta = new String[List.size()];
-                for(int x = 0; x < List.size(); x++){
-                    consulta[x] = List.get(x);
-                }
-                System.out.println("exito");
-                return consulta;
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-                return null;
+    public String[] consultaColonia(){
+        try {
+            Statement s = con.createStatement();
+            String query = "select NombreColonia from colonia";
+            System.out.println(query);
+            ResultSet rs = s.executeQuery(query);
+            ArrayList<String> List = new ArrayList<String>();
+            int i=0;
+            while(rs.next()){
+                List.add(rs.getString("NombreColonia"));
             }
-            break;
-            case2:
-            try {
-                Statement s = con.createStatement();
-                String query = "select NombreColonia from colonia";
-                System.out.println(query);
-                ResultSet rs = s.executeQuery(query);
-                ArrayList<String> List = new ArrayList<String>();
-                int i=0;
-                while(rs.next()){
-                    List.add(rs.getString("NombreColonia"));
-                }
-                String[] consulta = new String[List.size()];
-                for(int x = 0; x < List.size(); x++){
-                    consulta[x] = List.get(x);
-                }
-                System.out.println("exito");
-                return consulta;
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-                return null;
+            String[] consulta = new String[List.size()];
+            for(int x = 0; x < List.size(); x++){
+                consulta[x] = List.get(x);
             }
-            break;
+            System.out.println("exito");
+            return consulta;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
         }
-        
     }
     
-    public String[] consultarTipoTelefono(int columna){
-        switch(columna){
-            case 1:
-            try {
-                Statement s = con.createStatement();
-                String query = "select idTipotelefono from tipotelefono";
-                System.out.println(query);
-                ResultSet rs = s.executeQuery(query);
-                ArrayList<String> List = new ArrayList<String>();
-                int i=0;
-                while(rs.next()){
-                    List.add(rs.getString("idTipotelefono"));
-                }
-                String[] consulta = new String[List.size()];
-                for(int x = 0; x < List.size(); x++){
-                    consulta[x] = List.get(x);
-                }
-                System.out.println("exito");
-                return consulta;
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-                return null;
+    public String[] consultaTipoTelefono(){
+        try {
+            Statement s = con.createStatement();
+            String query = "select tipo from tipotelefono";
+            System.out.println(query);
+            ResultSet rs = s.executeQuery(query);
+            ArrayList<String> List = new ArrayList<String>();
+            int i=0;
+            while(rs.next()){
+                List.add(rs.getString("tipo"));
             }
-            break;
-            case2:
-            try {
-                Statement s = con.createStatement();
-                String query = "select tipo from tipotelefono";
-                System.out.println(query);
-                ResultSet rs = s.executeQuery(query);
-                ArrayList<String> List = new ArrayList<String>();
-                int i=0;
-                while(rs.next()){
-                    List.add(rs.getString("tipo"));
-                }
-                String[] consulta = new String[List.size()];
-                for(int x = 0; x < List.size(); x++){
-                    consulta[x] = List.get(x);
-                }
-                System.out.println("exito");
-                return consulta;
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-                return null;
+            String[] consulta = new String[List.size()];
+            for(int x = 0; x < List.size(); x++){
+                consulta[x] = List.get(x);
             }
-            break;
+            System.out.println("exito");
+            return consulta;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
         }
-        
     }
     
-    public String[] consultarMunicipio(int columna){
-        switch(columna){
-            case 1:
-            try {
-                Statement s = con.createStatement();
-                String query = "select idMunicipio from municipio";
-                System.out.println(query);
-                ResultSet rs = s.executeQuery(query);
-                ArrayList<String> List = new ArrayList<String>();
-                int i=0;
-                while(rs.next()){
-                    List.add(rs.getString("idMunicipio"));
-                }
-                String[] consulta = new String[List.size()];
-                for(int x = 0; x < List.size(); x++){
-                    consulta[x] = List.get(x);
-                }
-                System.out.println("exito");
-                return consulta;
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-                return null;
+    public String[] consultaMunicipio(){
+        try {
+            Statement s = con.createStatement();
+            String query = "select NombreMunicipio from municipio";
+            System.out.println(query);
+            ResultSet rs = s.executeQuery(query);
+            ArrayList<String> List = new ArrayList<String>();
+            int i=0;
+            while(rs.next()){
+                List.add(rs.getString("NombreMunicipio"));
             }
-            break;
-            case2:
-            try {
-                Statement s = con.createStatement();
-                String query = "select NombreMunicipio from municipio";
-                System.out.println(query);
-                ResultSet rs = s.executeQuery(query);
-                ArrayList<String> List = new ArrayList<String>();
-                int i=0;
-                while(rs.next()){
-                    List.add(rs.getString("NombreMunicipio"));
-                }
-                String[] consulta = new String[List.size()];
-                for(int x = 0; x < List.size(); x++){
-                    consulta[x] = List.get(x);
-                }
-                System.out.println("exito");
-                return consulta;
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-                return null;
+            String[] consulta = new String[List.size()];
+            for(int x = 0; x < List.size(); x++){
+                consulta[x] = List.get(x);
             }
-            break;
+            System.out.println("exito");
+            return consulta;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
         }
-        
     }
     
-    public String[] consultarEstado(int columna){
-        switch(columna){
-            case 1:
-            try {
-                Statement s = con.createStatement();
-                String query = "select idEstado from estado";
-                System.out.println(query);
-                ResultSet rs = s.executeQuery(query);
-                ArrayList<String> List = new ArrayList<String>();
-                int i=0;
-                while(rs.next()){
-                    List.add(rs.getString("idEstado"));
-                }
-                String[] producto = new String[List.size()];
-                for(int x = 0; x < List.size(); x++){
-                    producto[x] = List.get(x);
-                }
-                System.out.println("exito");
-                return producto;
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-                return null;
+    public String[] consultaEstado(){
+        try {
+            Statement s = con.createStatement();
+            String query = "select NombreEstado from estado";
+            System.out.println(query);
+            ResultSet rs = s.executeQuery(query);
+            ArrayList<String> List = new ArrayList<String>();
+            int i=0;
+            while(rs.next()){
+                List.add(rs.getString("NombreEstado"));
             }
-            break;
-            case2:
-            try {
-                Statement s = con.createStatement();
-                String query = "select NombreEstado from estado";
-                System.out.println(query);
-                ResultSet rs = s.executeQuery(query);
-                ArrayList<String> List = new ArrayList<String>();
-                int i=0;
-                while(rs.next()){
-                    List.add(rs.getString("NombreEstado"));
-                }
-                String[] producto = new String[List.size()];
-                for(int x = 0; x < List.size(); x++){
-                    producto[x] = List.get(x);
-                }
-                System.out.println("exito");
-                return producto;
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-                return null;
+            String[] producto = new String[List.size()];
+            for(int x = 0; x < List.size(); x++){
+                producto[x] = List.get(x);
             }
-            break;
+            System.out.println("exito");
+            return producto;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
         }
-        
     }
 }
