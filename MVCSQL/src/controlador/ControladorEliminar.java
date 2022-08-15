@@ -201,16 +201,18 @@ public class ControladorEliminar implements ActionListener, MouseListener{
             DefaultTableModel tabla = model.MostrarTablas(mostrar);
             elim.tablaprov.setModel(tabla);
         }else if(elim.BTTBuscar == e.getSource()){
-            String buscar = "call BuscarProveedor('"+ elim.TXTNombreProveedor.getText() +"')";
+            String buscar = "call buscarProveedorid("+ elim.TXTNombreProveedor.getText() +");";
             DefaultTableModel tabla = model.MostrarTablas(buscar);
             elim.tablaprov.setModel(tabla); 
         }else if(elim.BTTEliminarBuscado == e.getSource()){
             String eliminar = "call EliminarProveedor('"+ elim.TXTNombreProveedor.getText() +"')";
             DefaultTableModel tabla = model.MostrarTablas(eliminar);
-            elim.tablaprov.setModel(tabla); 
+            try{
+                elim.tablaprov.setModel(tabla);
+            }catch(IllegalArgumentException exc){
+                
+            }
         }
-        //"call BuscarProveedor('"+ elim.TXTNombreProveedor.getText() +"')";
-        
     }
 
     @Override

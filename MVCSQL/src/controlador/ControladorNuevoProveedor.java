@@ -4,6 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JFrame;
 import modelo.Modelo;
 import vista.Clientes;
@@ -77,6 +80,7 @@ public class ControladorNuevoProveedor implements ActionListener, MouseListener{
         
         //Botones con pocesos
         this.nuevoProv.BTTAgregar.addMouseListener(this);
+        this.nuevoProv.BTTActualizar.addMouseListener(this);
     }
     
     public void ventanaVentas(){
@@ -193,7 +197,47 @@ public class ControladorNuevoProveedor implements ActionListener, MouseListener{
             nuevoProv.setVisible(false); 
             ventanaEliminarProveedor();
         }else if(nuevoProv.BTTAgregar == e.getSource()){
+            try {
+            Statement s = model.con.createStatement();
+            String query = "call NuevoProveedor('" + nuevoProv.TXTnombreProveedor.getText() + "', '" + nuevoProv.TXTRFCproveedor.getText() + "', '" + nuevoProv.TXTCalleNumeroProveedor.getText() + "', '" + nuevoProv.TXTTelefonoProveedor.getText() + "', " + nuevoProv.BOXTipoTelefono.getSelectedIndex() + ", '" + nuevoProv.TXTNombrePersonal.getText() + "', '" + nuevoProv.TXTDepartamentoTelefono.getText() + "', '" + nuevoProv.TXTCorreoProveedor.getText() + "'," + nuevoProv.BOXEstado.getSelectedIndex() + ", "+ nuevoProv.BOXMunicipio.getSelectedIndex() + ", "+ nuevoProv.BOXColonia.getSelectedIndex() + ");";
+            s.execute(query);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
             
+        }else if(nuevoProv.BTTActualizar == e.getSource()){
+            String consultaEstado = "Select *from estado";
+            String consultaMunicipio = "Select *from municipio";
+            String consultaColonia = "Select *from colonia";
+            String consultaTipoTelefono = "Select *from tipotelefono";
+
+            try {
+                Statement f = model.con.createStatement();
+                Statement m = model.con.createStatement();
+                Statement c = model.con.createStatement();
+                Statement t = model.con.createStatement();
+
+                ResultSet estado = f.executeQuery(consultaEstado);
+                ResultSet municipio = m.executeQuery(consultaMunicipio);
+                ResultSet colonia = c.executeQuery(consultaColonia);
+                ResultSet tipoTelefono = t.executeQuery(consultaTipoTelefono);
+
+
+                while (estado.next()){
+                    nuevoProv.BOXEstado.addItem(estado.getString("NombreEstado"));
+                }  
+                while (municipio.next()){
+                    nuevoProv.BOXMunicipio.addItem(municipio.getString("NombreMunicipio"));
+                } 
+               while (colonia.next()){
+                    nuevoProv.BOXColonia.addItem(colonia.getString("NombreColonia"));
+                } 
+                while (tipoTelefono.next()){
+                    nuevoProv.BOXTipoTelefono.addItem(tipoTelefono.getString("Tipo"));
+                }
+            } catch (SQLException ex) {
+
+            }        
         }
     }
 

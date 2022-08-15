@@ -11,16 +11,18 @@ import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 /////////////////////////////////////////////////
 import vista.proveedores;
+import vista.nuevoproveedor;
 import controlador.ControladorProveedor;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Modelo;
 
 public class Modelo {
-    proveedores p = new proveedores();
-    Connection con;
+    nuevoproveedor nuev = new nuevoproveedor();
+    public Connection con;
     String usuario;
     String contraseña;
+    int tipo = nuev.BOXTipoTelefono.getSelectedIndex();
 
     public String getUsuario() {
         return usuario;
@@ -103,6 +105,7 @@ public class Modelo {
         }
 
     }
+    //Nuevo Proveedor
     
     //Nuevo Producto
     public boolean nuevoProducto(String codigo, String nombreProducto, String Descripcion,
