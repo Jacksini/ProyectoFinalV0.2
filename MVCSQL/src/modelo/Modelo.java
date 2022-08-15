@@ -72,7 +72,7 @@ public class Modelo {
             return null;
         }
     }
-    //TABLA DE PROVEEDORES    
+    //MOSTAR TABLAS  
     public DefaultTableModel MostrarTablas(String query){
         try{
             Statement s= con.createStatement();
@@ -98,5 +98,28 @@ public class Modelo {
             return null;
         }
 
+    }
+    
+    public String[] MostrarProductos(int IDProducto ){
+        try{
+            Statement N = con.createStatement();
+            String query = "call VerificadorPrecio(" + (IDProducto) + ");";
+            ResultSet rs = N.executeQuery(query);
+            String[] Verificador = {"NombreProducto", "preciofinal"};
+            String[] values = new String[2];
+                
+                int i=0;
+                rs.first();
+                for(String column : Verificador){
+                    System.out.println("Error 1");
+                    values [i] = rs.getString(column);
+                    i++;
+                }            
+                return values;
+        }catch (SQLException ex){
+            System.out.println("Error 2");
+            System.out.println("hola: " + ex.getMessage());
+            return null;
+        }
     }
 }
