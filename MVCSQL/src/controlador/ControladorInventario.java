@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 //Packages Locales
 import modelo.Modelo;
@@ -210,17 +211,31 @@ public class ControladorInventario implements ActionListener, MouseListener{
             Inv.setVisible(false);
             ventanaModificarProducto();
         }else if(Inv.btnEliminar == e.getSource()){
-            Product.setVisible(false);
+            Inv.setVisible(false);
             ventanaEliminarProducto();
         }else if(Inv.btnDepartamentos == e.getSource()){
             Inv.setVisible(false);
             ventanaDepartamentos();
         }else if(Inv.btnBuscarCodigo == e.getSource()){
-            
+            //Boton buscar por codigo
+            try{
+                Inv.tblCatalogo.setModel(model.catalogoCodigo(Integer.parseInt(Inv.txtDepartamento.getText())));
+            }catch(NumberFormatException ex){
+                JOptionPane.showMessageDialog(null, "Por favor, cheque que el codigo tenga datos correctos");
+            }
         }else if(Inv.btnBuscarDepartamento == e.getSource()){
-            
+            //Boton buscar por departamento
+            try{
+                if(Inv.txtDepartamento.getText().isEmpty()){
+                    throw new Exception("Por favor llene el campo de departamentos");
+                }
+                Inv.tblCatalogo.setModel(model.catalogoDepartamento(Inv.txtDepartamento.getText()));
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(null, "Hubo un error inesperado: "+ex.getMessage());
+            }
         }else if(Inv.btnBuscarMinimo == e.getSource()){
-            
+            //Boton buscar minimo
+            Inv.tblCatalogo.setModel(model.catalogoMinimo());
         }
     }
 

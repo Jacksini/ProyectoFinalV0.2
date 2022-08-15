@@ -3,15 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/DavidGarcia/Documents/ProyectoFinalV0.2/MVCSQL/src/controlador/ControladorVentas.java</file>
-            <file>file:/D:/DavidGarcia/Documents/ProyectoFinalV0.2/MVCSQL/src/vista/Impuestos.java</file>
+            <file>file:/D:/DavidGarcia/Documents/ProyectoFinalV0.2/MVCSQL/src/controlador/ControladorEliminar.java</file>
+            <file>file:/D:/DavidGarcia/Documents/ProyectoFinalV0.2/MVCSQL/src/controlador/ControladorInventario.java</file>
             <file>file:/D:/DavidGarcia/Documents/ProyectoFinalV0.2/MVCSQL/src/controlador/ControladorDepartamentos.java</file>
             <file>file:/D:/DavidGarcia/Documents/ProyectoFinalV0.2/MVCSQL/src/controlador/ControladorNuevoProducto.java</file>
-            <file>file:/D:/DavidGarcia/Documents/ProyectoFinalV0.2/MVCSQL/src/vista/Ticket.java</file>
+            <file>file:/D:/DavidGarcia/Documents/ProyectoFinalV0.2/MVCSQL/src/modelo/ConsultaArchivos.java</file>
             <file>file:/D:/DavidGarcia/Documents/ProyectoFinalV0.2/MVCSQL/src/mvcsql/MVCSQL.java</file>
+            <file>file:/D:/DavidGarcia/Documents/ProyectoFinalV0.2/MVCSQL/src/vista/NuevoProducto.java</file>
+            <file>file:/D:/DavidGarcia/Documents/ProyectoFinalV0.2/MVCSQL/src/vista/Departamentos.java</file>
             <file>file:/D:/DavidGarcia/Documents/ProyectoFinalV0.2/MVCSQL/src/controlador/ControladorConfiguracion.java</file>
-            <file>file:/D:/DavidGarcia/Documents/ProyectoFinalV0.2/MVCSQL/src/vista/SimbolosDeMoneda.java</file>
-            <file>file:/D:/DavidGarcia/Documents/ProyectoFinalV0.2/MVCSQL/src/modelo/ConsultaConfiguracion.java</file>
+            <file>file:/D:/DavidGarcia/Documents/ProyectoFinalV0.2/MVCSQL/src/vista/Inventario.java</file>
             <file>file:/D:/DavidGarcia/Documents/ProyectoFinalV0.2/MVCSQL/src/modelo/Modelo.java</file>
             <file>file:/D:/DavidGarcia/Documents/ProyectoFinalV0.2/MVCSQL/src/vista/Configuracion.java</file>
         </group>

@@ -245,7 +245,7 @@ public class ConsultaArchivos{
         escrito += url;
         escrito += "\n=============-----------==============";
         return escrito; 
-    }
+    }String[] nombre = new String[0];
     
     public String exampleTicket(){
         //Honestamente, ni yo se porque hice esto. Pero lo hice :p
@@ -403,7 +403,7 @@ public class ConsultaArchivos{
                 if(check.contains("Impuesto#")){
                     String [] dividido = check.split("Impuesto#");
                     //System.out.println("Este es el #" +Integer.parseInt(dividido[1]));
-                    taxes.add(datos.get(itList.nextIndex())); 
+                    taxes.add(datos.get(itList.nextIndex()));
                     itList.next();//Sigguiente linea
                     //System.out.println(taxes.get(test));test++;
                     taxes.add(datos.get(itList.nextIndex()));

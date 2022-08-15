@@ -48,7 +48,6 @@ public class NuevoProducto extends javax.swing.JFrame {
         etiquetaPrecioCosto = new javax.swing.JLabel();
         txtPrecioCosto = new javax.swing.JTextField();
         etiquetaGanancia = new javax.swing.JLabel();
-        etiquetaPrecioVenta = new javax.swing.JLabel();
         etiquetaDepartamento = new javax.swing.JLabel();
         etiquetaHay = new javax.swing.JLabel();
         txtHay = new javax.swing.JTextField();
@@ -62,7 +61,6 @@ public class NuevoProducto extends javax.swing.JFrame {
         etiquetaAtiende = new javax.swing.JLabel();
         txtGanancia = new javax.swing.JTextField();
         txtDepartamento = new javax.swing.JTextField();
-        LblPrecioVenta = new javax.swing.JLabel();
         LblNombreProducto = new javax.swing.JLabel();
         txtNombreProd = new javax.swing.JTextField();
         cbKilo = new javax.swing.JCheckBox();
@@ -159,9 +157,6 @@ public class NuevoProducto extends javax.swing.JFrame {
         etiquetaGanancia.setText("Ganancia:");
         getContentPane().add(etiquetaGanancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, -1, -1));
 
-        etiquetaPrecioVenta.setText("Precio venta:");
-        getContentPane().add(etiquetaPrecioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, -1, -1));
-
         etiquetaDepartamento.setText("Departamento:");
         getContentPane().add(etiquetaDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, -1));
 
@@ -220,9 +215,6 @@ public class NuevoProducto extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 108, -1));
-
-        LblPrecioVenta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(LblPrecioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 120, 51, 22));
 
         LblNombreProducto.setText("Nombre producto:");
         getContentPane().add(LblNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
@@ -367,7 +359,6 @@ public class NuevoProducto extends javax.swing.JFrame {
     public javax.swing.JMenu BtnMenuProveedores;
     public javax.swing.JMenu BtnMenuVentas;
     private javax.swing.JLabel LblNombreProducto;
-    public javax.swing.JLabel LblPrecioVenta;
     public javax.swing.JButton btnAgregar;
     public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnCatalogo;
@@ -390,7 +381,6 @@ public class NuevoProducto extends javax.swing.JFrame {
     private javax.swing.JLabel etiquetaMinimo;
     private javax.swing.JLabel etiquetaNuevoProducto;
     private javax.swing.JLabel etiquetaPrecioCosto;
-    private javax.swing.JLabel etiquetaPrecioVenta;
     private javax.swing.JLabel etiquetaProductos1;
     private javax.swing.JLabel etiquetaSeVende;
     private javax.swing.JLabel jLabel12;

@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import modelo.Modelo;
 import vista.Agregarproducto;
 import vista.Clientes;
@@ -74,6 +75,8 @@ public class ControladorDepartamentos implements ActionListener, MouseListener{
         this.Depart.BtnMenuProveedores.addMouseListener(this);
         this.Depart.BtnMenuInventario.addMouseListener(this);
         this.Depart.BtnMenuConfiguracion.addMouseListener(this);
+        //Un regalo de parte mia -David
+        this.Depart.tblDepartamentos.addMouseListener(this);
         
         //Botones para abrir ventanas emergentes
         this.Depart.btnNuevo.addMouseListener(this);
@@ -228,19 +231,49 @@ public class ControladorDepartamentos implements ActionListener, MouseListener{
         }else if(Depart.btnCatalogo == e.getSource()){
             Depart.setVisible(false);
             ventanaInventario();
+        }else if(Depart.tblDepartamentos == e.getSource()){
+            int row = Depart.tblDepartamentos.rowAtPoint(e.getPoint());
+            Depart.txtIdDepartamento.setText(Depart.tblDepartamentos.getValueAt(row, 0).toString());
         }else if(Depart.btnBuscar == e.getSource()){
-            
+            //Boton Buscar
+            int id = Integer.parseInt(this.Depart.txtIdDepartamento.getText());
+            updateTabla(id);
         }else if(Depart.btnEliminarDepartamento == e.getSource()){
-            
+            //Boton Eliminar
+            if(!model.eliminarDepartamentos(Integer.parseInt(Depart.txtIdDepartamento.getText()))){
+                JOptionPane.showMessageDialog(null, "No se pudo eliminar");
+            }else{
+                JOptionPane.showMessageDialog(null, "Se elimino exitosamente");
+                updateTabla();
+            }
         }else if(Depart.btnGuardar == e.getSource()){
-            
+            //Boton Guardar depa
+            if(!model.agregarDepartamentos(Depart.txtAddName.getText())){
+                JOptionPane.showMessageDialog(null, "No se pudo guardaar");
+            }else{
+                updateTabla();
+            }
         }else if(Depart.btnCancelar == e.getSource()){
-            
+            //Boton cancelar
+            limpiarAgregar();
         }else if(Depart.btnMostrarDepartamentos == e.getSource()){
-            
+            //Boton Mostrar. Con tabla
+            updateTabla();
         }
     }
+    
+    public void limpiarAgregar(){
+        this.Depart.txtAddName.setText("");
+    }
 
+    public void updateTabla(){
+        Depart.tblDepartamentos.setModel(model.mostrarDepartamentos());
+    }
+    
+    public void updateTabla(int id){
+        Depart.tblDepartamentos.setModel(model.mostrarDepartamentos(id));
+    }
+    
     @Override
     public void mousePressed(MouseEvent e) {
     }

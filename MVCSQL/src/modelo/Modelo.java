@@ -112,14 +112,217 @@ public class Modelo {
             Statement s = con.createStatement();
             String query = "call ingresarproductos(\"" +codigo +"\",\"" +nombreProducto +"\",\"" +Descripcion +"\"," +perecedero +"," +proveedor 
                            +"," +tipo +"," +precioCompra +"," +ganancia +"," +departamento +"," +hay +"," +minimo +"," +maximo +"," +precioFinal +");";
-            System.out.println(query);
             s.execute(query);
             return true;
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
             return false;
         }
-        
-        
+    }
+    
+    // <editor-fold defaultstate="collapsed" desc="Consultas de Departamentos"> 
+    public DefaultTableModel mostrarDepartamentos(){
+        DefaultTableModel depas = new DefaultTableModel();
+        depas.addColumn("id");
+        depas.addColumn("Departamentos");
+        try {
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery("Select * from departamentos;");
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int columnas = rsMd.getColumnCount(); // Regresa el número de columnas
+            //Ciclo para filas o datos de la tabla
+            while(rs.next()) {
+                Object[] fila = new Object[columnas];
+                for(int i = 0; i < columnas; i++) {
+                    fila[i] = rs.getObject(i + 1);
+                }
+                depas.addRow(fila);
+            }
+            return depas;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return depas;
+        }
+    }
+    
+    public DefaultTableModel mostrarDepartamentos(int id){
+        DefaultTableModel depas = new DefaultTableModel();
+        depas.addColumn("id");
+        depas.addColumn("Departamentos");
+        try {
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery("call AllDepartamentsid("+id+");");
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int columnas = rsMd.getColumnCount(); // Regresa el número de columnas
+            //Ciclo para filas o datos de la tabla
+            while(rs.next()) {
+                Object[] fila = new Object[columnas];
+                for(int i = 0; i < columnas; i++) {
+                    fila[i] = rs.getObject(i + 1);
+                }
+                depas.addRow(fila);
+            }
+            return depas;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return depas;
+        }
+    }
+    
+    public boolean agregarDepartamentos(String nomDepa){
+        try {
+            Statement s = con.createStatement();
+            String query = "call insertDepartaments(\""+nomDepa+"\");";
+            s.executeUpdate(query);
+            return true;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
+    }
+    
+    public boolean eliminarDepartamentos(int Id){
+        try {
+            Statement s = con.createStatement();
+            String query = "call Departamentsdelete("+Id+");";
+            s.executeUpdate(query);
+            return true;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
+    }
+    // </editor-fold>  
+    // <editor-fold defaultstate="collapsed" desc="Consultas de Catalogo"> 
+    public DefaultTableModel catalogoDefault(){
+        DefaultTableModel catalogo = new DefaultTableModel();
+        catalogo.addColumn("IdProducto");
+        catalogo.addColumn("NombreProducto");
+        catalogo.addColumn("Codigo de Barras");
+        catalogo.addColumn("Precio Compra");
+        catalogo.addColumn("Precio Venta");
+        catalogo.addColumn("Minimo");
+        catalogo.addColumn("Maximo");
+        catalogo.addColumn("Existencia");
+        catalogo.addColumn("Departamento");
+        catalogo.addColumn("TipoProducto");
+        catalogo.addColumn("Caducidad");
+        catalogo.addColumn("Proveedor");
+        return catalogo;
+    }
+    
+    public DefaultTableModel catalogoMinimo(){
+        try {
+            DefaultTableModel catalogo = catalogoDefault();
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery("call busquedaExistencia();");
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int columnas = rsMd.getColumnCount(); // Regresa el número de columnas
+            //Ciclo para filas o datos de la tabla
+            while(rs.next()) {
+                Object[] fila = new Object[columnas];
+                for(int i = 0; i < columnas; i++) {
+                    fila[i] = rs.getObject(i + 1);
+                }
+                catalogo.addRow(fila);
+            }
+            return catalogo;
+        } catch (SQLException ex) {
+            return catalogoDefault();
+        }
+    }
+    
+    public DefaultTableModel catalogoDepartamento(String nombre){
+        System.out.println("catDEpas");
+        try {
+            DefaultTableModel catalogo = new DefaultTableModel();
+            System.out.println("Creacion del stsm");
+            Statement s = con.createStatement();
+            System.out.println("Llamada al query");
+            ResultSet rs = s.executeQuery("call inventarioNombre(\"" +nombre +"\");");
+            System.out.println("Ext");
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int columnas = rsMd.getColumnCount(); // Regresa el número de columnas
+            for(int i=1; i <= columnas; i++){  // sirve para obtener los nombres de cada columna (encabezado)
+                catalogo.addColumn(rsMd.getColumnLabel(i));
+            }
+            //Ciclo para filas o datos de la tabla
+            while(rs.next()) {
+                Object[] fila = new Object[columnas];
+                for(int i = 0; i < columnas; i++) {
+                    fila[i] = rs.getObject(i + 1);
+                }
+                catalogo.addRow(fila);
+            }
+            return catalogo;
+        } catch (SQLException ex) {
+            return catalogoDefault();
+        }
+    }
+    
+    public DefaultTableModel catalogoCodigo(int id){
+        try {
+            DefaultTableModel catalogo = new DefaultTableModel();
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery("call inventario(" +id +");");
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int columnas = rsMd.getColumnCount(); // Regresa el número de columnas
+            for(int i=1; i <= columnas; i++){  // sirve para obtener los nombres de cada columna (encabezado)
+                catalogo.addColumn(rsMd.getColumnLabel(i));
+            }
+            //Ciclo para filas o datos de la tabla
+            while(rs.next()) {
+                Object[] fila = new Object[columnas];
+                for(int i = 0; i < columnas; i++) {
+                    fila[i] = rs.getObject(i + 1);
+                }
+                catalogo.addRow(fila);
+            }
+            return catalogo;
+        } catch (SQLException ex) {
+            return catalogoDefault();
+        }
+    }
+    // </editor-fold>  
+    
+    public boolean actualizarProducto(int id, String codigo, String nombreProducto, String Descripcion,
+                                    int perecedero, int proveedor, int tipo, float precioCompra,
+                                    float ganancia, int departamento, int hay, int minimo, int maximo, float precioFinal){
+        try {
+            Statement s = con.createStatement();
+            String query = "call ActualizarProducto(\"" +id +",\""+codigo +"\",\"" +nombreProducto +"\",\"" +Descripcion +"\"," +proveedor 
+                           +"," +tipo +"," +precioCompra +"," +ganancia +"," +departamento +"," +hay +"," +minimo +"," +maximo +"," +perecedero +"," + +precioFinal +");";
+            System.out.println(query);
+            s.executeUpdate(query);
+            return true;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
+    }
+    
+    public String[] buscarProducto(int id){
+        try {
+            Statement s = con.createStatement();
+            String query = "select * from productos where idProductos = " +id +";";
+            System.out.println(query);
+            ResultSet rs = s.executeQuery(query);
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int columnas = rsMd.getColumnCount();
+            String[] producto = new String[columnas];
+            if(rs.next()){
+                for(int i = 0; i < columnas; i++){
+                producto[i] = rs.getString(i+1);
+                }
+                System.out.println("exito");
+                return producto;
+            }else{
+                return null;
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
     }
 }

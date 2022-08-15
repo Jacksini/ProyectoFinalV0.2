@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import modelo.Modelo;
 import vista.Agregarproducto;
 import vista.Clientes;
@@ -85,6 +86,7 @@ public class ControladorModificarProducto implements ActionListener, MouseListen
         this.ModProdu.btnCatalogo.addMouseListener(this);
         
         //Botones con funciones
+        this.ModProdu.btnBuscar.addMouseListener(this);
         this.ModProdu.btnGuardar.addMouseListener(this);
         this.ModProdu.btnCancelar.addMouseListener(this);
     }
@@ -229,13 +231,142 @@ public class ControladorModificarProducto implements ActionListener, MouseListen
         }else if(ModProdu.btnCatalogo == e.getSource()){
             ModProdu.setVisible(false);
             ventanaInventario();
+        }else if(ModProdu.btnBuscar == e.getSource()){
+            //Buuscar
+            rellenarInformacion();
         }else if(ModProdu.btnGuardar == e.getSource()){
-            
+            //Guardar cambios
+            if(updateProducto()){
+                JOptionPane.showMessageDialog(null, "Se actualizo con exito");
+            }else{
+                JOptionPane.showMessageDialog(null, "Hubo un problema al modificar el producto");
+            }
         }else if(ModProdu.btnCancelar == e.getSource()){
-            
+            //Cancelar
+            limpiarInformacion();
         }
     }
 
+    public boolean updateProducto(){
+        try{
+            int id = Integer.parseInt(ModProdu.txtIdProd.getText());
+            int tipo = determinarTipo(ModProdu.cbPerecedero.isSelected(), ModProdu.cbUnidades.isSelected());
+            int perecedero = determinarPerecedero(ModProdu.cbPerecedero.isSelected());
+            int proveedor = Integer.parseInt(ModProdu.txtProveedor.getText());
+            float precioCosto = Float.parseFloat(ModProdu.txtPrecioCosto.getText());
+            float ganancia = (Float.parseFloat(ModProdu.txtGanancia.getText()) / 100);
+            int departamento = Integer.parseInt(ModProdu.txtDepartamento.getText());
+            int hay = Integer.parseInt(ModProdu.txtHay.getText());
+            int minimo = Integer.parseInt(ModProdu.txtMinimo.getText());
+            int maximo = Integer.parseInt(ModProdu.txtMaximo.getText());
+            float precioFinal = 0;
+            
+            return model.actualizarProducto(id,
+                    ModProdu.txtCodigoProducto.getText(), ModProdu.txtNombreProd.getText(), ModProdu.txtDescripcion.getText(), perecedero,
+                    proveedor, tipo, precioCosto, ganancia, departamento, hay, minimo, maximo, precioFinal);
+        }catch(NumberFormatException e){
+            return false;
+        }catch(ArithmeticException e){
+            JOptionPane.showMessageDialog(null, e.getMessage()+". Por favor intente de Nuevo");
+            return false;
+        }
+    }
+    
+    public int determinarPerecedero(boolean perecedero){
+        if(perecedero){
+            return 1;
+        }else{
+            return 2;
+        }
+    }
+    
+    public int determinarTipo(boolean kilo, boolean unidades) throws ArithmeticException{
+        if(kilo == unidades){
+            throw new ArithmeticException("Se seleccionaron dos tipos de producto (Por kilo & Por Unidad)");
+        }else{
+            if(kilo){
+                return 1;
+            }else if(unidades){
+                return 2;
+            }
+            else{
+                return -1;
+            }
+        }
+    }
+
+    public void rellenarInformacion(){
+        int id;
+        try{
+            id = Integer.parseInt(ModProdu.txtIdProd.getText());
+            String[] producto = model.buscarProducto(id);
+            if(producto == null){
+                JOptionPane.showMessageDialog(null, "Hubo un error al buscar este producto.");
+            }else{
+                ModProdu.txtIdProd.setText(producto[0]);
+                ModProdu.txtCodigoProducto.setText(producto[3]);
+                ModProdu.txtDepartamento.setText(producto[10]);
+                ModProdu.txtDescripcion.setText(producto[2]);
+                ModProdu.txtGanancia.setText(producto[8]);
+                ModProdu.txtHay.setText(producto[5]);
+                ModProdu.txtMaximo.setText(producto[7]);
+                ModProdu.txtMinimo.setText(producto[6]);
+                ModProdu.txtNombreProd.setText(producto[1]);
+                ModProdu.txtPrecioCosto.setText(producto[4]);
+                ModProdu.txtProveedor.setText(producto[11]);
+                setKiloUnidades(producto[12]);
+                setPerecedero(producto[13]);
+            }
+        }catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog(null, "Por favor introduzca un id Valido");
+        } 
+    }
+    
+    public void limpiarInformacion(){
+        ModProdu.txtIdProd.setText("");
+        ModProdu.txtCodigoProducto.setText("");
+        ModProdu.txtDepartamento.setText("");
+        ModProdu.txtDescripcion.setText("");
+        ModProdu.txtGanancia.setText("");
+        ModProdu.txtHay.setText("");
+        ModProdu.txtMaximo.setText("");
+        ModProdu.txtMinimo.setText("");
+        ModProdu.txtNombreProd.setText("");
+        ModProdu.txtPrecioCosto.setText("");
+        ModProdu.txtProveedor.setText("");
+        ModProdu.cbKilo.setSelected(false);
+        ModProdu.cbPerecedero.setSelected(false);
+        ModProdu.cbUnidades.setSelected(false);
+    }
+    
+    public void setKiloUnidades(String num){
+        switch(num){
+            case "1" -> {
+                ModProdu.cbKilo.setSelected(true);
+                ModProdu.cbUnidades.setSelected(false);
+            }
+            case "2" -> {
+                ModProdu.cbKilo.setSelected(false);
+                ModProdu.cbUnidades.setSelected(true);
+            }
+            default -> {
+            }
+        }
+    }
+    
+    public void setPerecedero(String num){
+        switch(num){
+            case "1" -> {
+                ModProdu.cbPerecedero.setSelected(true);
+            }
+            case "2" -> {
+                ModProdu.cbPerecedero.setSelected(false);
+            }
+            default -> {
+            }
+        }
+    }
+    
     @Override
     public void mousePressed(MouseEvent e) {
     }
