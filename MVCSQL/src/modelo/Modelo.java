@@ -706,7 +706,7 @@ public class Modelo {
     public boolean ingresarFactura(String descripcion, int idCliente, int idEmpleado){
         try{
             Statement s = con.createStatement();
-            String query = "call ingresarFacturas(\"" +descripcion +", " +idCliente +", " +idEmpleado +");";
+            String query = "call ingresarFacturas(\"" +descripcion +"\", " +idCliente +", " +idEmpleado +");";
             s.executeUpdate(query);
             return true;
         } catch (SQLException ex){

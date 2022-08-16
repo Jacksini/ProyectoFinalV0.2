@@ -280,10 +280,12 @@ public class ControladorVentas implements ActionListener, MouseListener{
                 Cobro.lblTotalArticulos.setText(ventasInicial.LblTotalProductos.getText());
             }catch(Exception ex){}
         }else if(ventasInicial.btnActualizar == e.getSource()){
+            settings.updateSettings("Configuracion");
             String consulta = "call mostrarfacturasventa();";
             try{
-                DefaultTableModel tabla = model.MostrarTablas(consulta);
-                ventasInicial.TablaProductos.setModel(tabla);
+                updateTabla(model.MostrarTablas(consulta));
+//                DefaultTableModel tabla = model.MostrarTablas(consulta);
+//                ventasInicial.TablaProductos.setModel(tabla);
             }catch(IllegalArgumentException ex){
                 JOptionPane.showMessageDialog(null, ex.getMessage());
             }
@@ -383,12 +385,13 @@ public class ControladorVentas implements ActionListener, MouseListener{
             }
         }else if(Cobro.BtnCobrar == e.getSource()){
             //Cobrar la factura
+            settings.updateSettings("Configuracion");
             String total = Cobro.LblTotal.getText();
             String[] split = total.split(" MXN");
-            String[] aCobrar = split[0].split("\\$");
-            //String[] aCobrar = split[0].split(settings.moneda);
-            System.out.println(aCobrar[1]);
-            float Total = Float.valueOf(aCobrar[1]);
+//            String[] aCobrar = split[0].split("\\$");
+            String aCobrar = split[0].substring(1);
+//            System.out.println(aCobrar[1]);
+            float Total = Float.valueOf(aCobrar);
             try{
                 float payment = Float.valueOf(Cobro.TFPago.getText());
                 String cambio = Float.toString(payment - Total);
@@ -466,6 +469,7 @@ public class ControladorVentas implements ActionListener, MouseListener{
             ventasInicial.LblTotalProductos.setText(Integer.toString(cant));
             ventasInicial.LblTotal.setText(putPrices(Float.toString(total)) +" MXN");
         }catch(NumberFormatException e){
+            System.out.println(e.getMessage());
         }
     }
     

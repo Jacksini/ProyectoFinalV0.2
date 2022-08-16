@@ -222,10 +222,10 @@ public class VentanaCobro extends javax.swing.JFrame {
     public javax.swing.JButton BtnCobrar;
     private javax.swing.JLabel LblCambio;
     private javax.swing.JLabel LblPago;
-    private javax.swing.JLabel LblTotal;
+    public javax.swing.JLabel LblTotal;
     private javax.swing.JLabel LblTotalArticulos;
-    private javax.swing.JLabel LblTotalCambio;
-    private javax.swing.JTextField TFPago;
+    public javax.swing.JLabel LblTotalCambio;
+    public javax.swing.JTextField TFPago;
     public javax.swing.JButton btnGenerarFactura;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
