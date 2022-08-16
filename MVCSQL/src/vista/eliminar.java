@@ -32,7 +32,6 @@ public class eliminar extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         BTTNuevoProveedor = new javax.swing.JButton();
-        BTTModificarProveedor = new javax.swing.JButton();
         BTTEliminarProveedor = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaprov = new javax.swing.JTable();
@@ -68,16 +67,8 @@ public class eliminar extends javax.swing.JFrame {
         BTTNuevoProveedor.setText("Nuevo");
         getContentPane().add(BTTNuevoProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
-        BTTModificarProveedor.setText("Modificar");
-        BTTModificarProveedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTTModificarProveedorActionPerformed(evt);
-            }
-        });
-        getContentPane().add(BTTModificarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
-
         BTTEliminarProveedor.setText("Eliminar");
-        getContentPane().add(BTTEliminarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
+        getContentPane().add(BTTEliminarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
 
         tablaprov.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -161,10 +152,6 @@ public class eliminar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BTTModificarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTTModificarProveedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BTTModificarProveedorActionPerformed
-
     private void BTTEliminarBuscadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTTEliminarBuscadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BTTEliminarBuscadoActionPerformed
@@ -212,7 +199,6 @@ public class eliminar extends javax.swing.JFrame {
     public javax.swing.JButton BTTBuscar;
     public javax.swing.JButton BTTEliminarBuscado;
     public javax.swing.JButton BTTEliminarProveedor;
-    public javax.swing.JButton BTTModificarProveedor;
     public javax.swing.JButton BTTMostrarPro;
     public javax.swing.JButton BTTNuevoProveedor;
     public javax.swing.JMenu BtnMenuClientes;

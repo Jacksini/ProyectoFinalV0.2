@@ -71,10 +71,11 @@ public class ControladorEliminar implements ActionListener, MouseListener{
         this.elim.BtnMenuProductos.addMouseListener(this);
         this.elim.BtnMenuInventario.addMouseListener(this);
         this.elim.BtnMenuConfiguracion.addMouseListener(this);
+        this.elim.BtnMenuProveedores.addMouseListener(this);
         
         //Botones para abrir ventanas emergentes sourse: Proveedores
         this.elim.BTTNuevoProveedor.addMouseListener(this);
-        this.elim.BTTModificarProveedor.addMouseListener(this);
+//        this.elim.BTTModificarProveedor.addMouseListener(this);
         this.elim.BTTEliminarProveedor.addMouseListener(this);
         
         //BOTONES PARA MOSTRAR EN TABLA
@@ -191,8 +192,8 @@ public class ControladorEliminar implements ActionListener, MouseListener{
         }else if(elim.BTTNuevoProveedor == e.getSource()){
             elim.setVisible(false);
             ventanaNuevoProveedor();
-        }else if(elim.BTTModificarProveedor == e.getSource()){
-            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
+//        }else if(elim.BTTModificarProveedor == e.getSource()){
+//            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
 //            elim.setVisible(false);
 //            ventanaEditarProveedor();
         }else if(elim.BTTEliminarProveedor == e.getSource()){
@@ -214,6 +215,9 @@ public class ControladorEliminar implements ActionListener, MouseListener{
             }catch(IllegalArgumentException exc){
                 
             }
+        }else if(elim.BtnMenuProveedores == e.getSource()){
+            elim.setVisible(false);
+            ventanaProveedores();
         }
     }
 

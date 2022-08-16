@@ -73,10 +73,11 @@ public class ControladorNuevoProveedor implements ActionListener, MouseListener{
         this.nuevoProv.BtnMenuProductos.addMouseListener(this);
         this.nuevoProv.BtnMenuInventario.addMouseListener(this);
         this.nuevoProv.BtnMenuConfiguracion.addMouseListener(this);
+        this.nuevoProv.BtnMenuProveedores.addMouseListener(this);
         
         //Botones para abrir ventanas emergentes sourse: Proveedores
         this.nuevoProv.BTTNuevoProveedor.addMouseListener(this);
-        this.nuevoProv.BTTModificarProveedor.addMouseListener(this);
+//        this.nuevoProv.BTTModificarProveedor.addMouseListener(this);
         this.nuevoProv.BTTEliminarProveedor.addMouseListener(this);
         
         //Botones con pocesos
@@ -191,8 +192,8 @@ public class ControladorNuevoProveedor implements ActionListener, MouseListener{
         }else if(nuevoProv.BTTNuevoProveedor == e.getSource()){
             nuevoProv.setVisible(false); 
             ventanaNuevoProveedor();
-        }else if(nuevoProv.BTTModificarProveedor == e.getSource()){
-            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
+//        }else if(nuevoProv.BTTModificarProveedor == e.getSource()){
+//            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
 
 //            nuevoProv.setVisible(false); 
 //            ventanaEditarProveedor();
@@ -241,6 +242,9 @@ public class ControladorNuevoProveedor implements ActionListener, MouseListener{
             } catch (SQLException ex) {
 
             }        
+        }else if(nuevoProv.BtnMenuProveedores == e.getSource()){
+            nuevoProv.setVisible(false); 
+            ventanaProveedores();
         }
     }
 

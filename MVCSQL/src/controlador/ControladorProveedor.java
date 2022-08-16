@@ -91,7 +91,7 @@ public class ControladorProveedor implements ActionListener, MouseListener{
         
         //Botones para abrir ventanas emergentes sourse: Proveedores
         this.Proveedor.BTTNuevoProveedor.addMouseListener(this);
-        this.Proveedor.BTTModificarProveedor.addMouseListener(this);
+//        this.Proveedor.BTTModificarProveedor.addMouseListener(this);
         this.Proveedor.BTTEliminarProveedor.addMouseListener(this);
         
         //BOTONES PARA MOSTRAR EN TABLA
@@ -202,10 +202,10 @@ public class ControladorProveedor implements ActionListener, MouseListener{
         }else if(Proveedor.BTTNuevoProveedor == e.getSource()){
             Proveedor.setVisible(false);
             ventanaNuevoProveedor();
-        }else if(Proveedor.BTTModificarProveedor == e.getSource()){
-            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
-//            Proveedor.setVisible(false);
-//            ventanaEditarProveedor();
+//        }else if(Proveedor.BTTModificarProveedor == e.getSource()){
+//            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
+////            Proveedor.setVisible(false);
+////            ventanaEditarProveedor();
         }else if(Proveedor.BTTEliminarProveedor == e.getSource()){
             Proveedor.setVisible(false);
             ventanaEliminarProveedor();
