@@ -308,6 +308,7 @@ public class ControladorVentas implements ActionListener, MouseListener{
             //Pendiente
             JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
 //            String[] Valores = model.MostrarProductos(Integer.parseInt(Verificador.TFBuscador.getText()));
+//            System.out.println("Vallore" + Valores);
 //            Verificador.LblNombreArticulo.setText(Valores[0]);
 //            Verificador.LblPrecioArticulo.setText(putPrices(Valores[1]));
         }else if(Verificador.BtnCancelar == e.getSource()){

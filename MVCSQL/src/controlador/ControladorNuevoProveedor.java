@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import modelo.Modelo;
 import vista.Clientes;
 import vista.Configuracion;
@@ -191,8 +192,10 @@ public class ControladorNuevoProveedor implements ActionListener, MouseListener{
             nuevoProv.setVisible(false); 
             ventanaNuevoProveedor();
         }else if(nuevoProv.BTTModificarProveedor == e.getSource()){
-            nuevoProv.setVisible(false); 
-            ventanaEditarProveedor();
+            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
+
+//            nuevoProv.setVisible(false); 
+//            ventanaEditarProveedor();
         }else if(nuevoProv.BTTEliminarProveedor == e.getSource()){
             nuevoProv.setVisible(false); 
             ventanaEliminarProveedor();

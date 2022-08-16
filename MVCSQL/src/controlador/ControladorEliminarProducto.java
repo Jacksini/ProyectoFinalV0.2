@@ -216,8 +216,9 @@ public class ControladorEliminarProducto implements ActionListener, MouseListene
             ElimProdu.setVisible(false);
             ventanaAgregarProducto();
         }else if(ElimProdu.btnModificar == e.getSource()){
-            ElimProdu.setVisible(false);
-            ventanaModificarProducto();
+            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
+//            ElimProdu.setVisible(false);
+//            ventanaModificarProducto();
         }else if(ElimProdu.btnEliminar == e.getSource()){
             ElimProdu.setVisible(false);
             ventanaEliminarProducto();

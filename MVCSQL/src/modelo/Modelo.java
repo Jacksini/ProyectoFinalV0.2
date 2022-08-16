@@ -329,10 +329,10 @@ public class Modelo {
     public String[] MostrarProductos(int IDProducto ){
         try{
             Statement N = con.createStatement();
-            String query = "call VerificadorPrecio(" + (IDProducto) + ");";
+            String query = "call VerificadorPrecio(" + IDProducto  + ");";
             ResultSet rs = N.executeQuery(query);
             String[] values = new String[2];
-
+               System.out.println(query);
             if(rs.next()){
                 for(int i = 0; i < 2; i++){
                 values[i] = rs.getString(i+1);

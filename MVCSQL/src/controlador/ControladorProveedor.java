@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 //Packages Locales
@@ -202,8 +203,9 @@ public class ControladorProveedor implements ActionListener, MouseListener{
             Proveedor.setVisible(false);
             ventanaNuevoProveedor();
         }else if(Proveedor.BTTModificarProveedor == e.getSource()){
-            Proveedor.setVisible(false);
-            ventanaEditarProveedor();
+            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
+//            Proveedor.setVisible(false);
+//            ventanaEditarProveedor();
         }else if(Proveedor.BTTEliminarProveedor == e.getSource()){
             Proveedor.setVisible(false);
             ventanaEliminarProveedor();

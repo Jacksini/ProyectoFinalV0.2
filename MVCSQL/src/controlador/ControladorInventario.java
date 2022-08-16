@@ -208,8 +208,9 @@ public class ControladorInventario implements ActionListener, MouseListener{
             Inv.setVisible(false);
             ventanaAgregarProducto();
         }else if(Inv.btnModificar == e.getSource()){
-            Inv.setVisible(false);
-            ventanaModificarProducto();
+            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
+//            Inv.setVisible(false);
+//            ventanaModificarProducto();
         }else if(Inv.btnEliminar == e.getSource()){
             Inv.setVisible(false);
             ventanaEliminarProducto();

@@ -239,6 +239,8 @@ public class ControladorModificarProducto implements ActionListener, MouseListen
             if(updateProducto()){
                 JOptionPane.showMessageDialog(null, "Se actualizo con exito");
             }else{
+                System.out.println(updateProducto());
+                
                 JOptionPane.showMessageDialog(null, "Hubo un problema al modificar el producto");
             }
         }else if(ModProdu.btnCancelar == e.getSource()){

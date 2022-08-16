@@ -233,8 +233,9 @@ public class ControladorNuevoProducto implements ActionListener, MouseListener{
             NewProdu.setVisible(false);
             ventanaAgregarProducto();
         }else if(NewProdu.btnModificar == e.getSource()){
-            NewProdu.setVisible(false);
-            ventanaModificarProducto();
+            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
+//            NewProdu.setVisible(false);
+//            ventanaModificarProducto();
         }else if(NewProdu.btnEliminar == e.getSource()){
             NewProdu.setVisible(false);
             ventanaEliminarProducto();

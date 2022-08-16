@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Modelo;
 import vista.Clientes;
@@ -191,8 +192,9 @@ public class ControladorEliminar implements ActionListener, MouseListener{
             elim.setVisible(false);
             ventanaNuevoProveedor();
         }else if(elim.BTTModificarProveedor == e.getSource()){
-            elim.setVisible(false);
-            ventanaEditarProveedor();
+            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
+//            elim.setVisible(false);
+//            ventanaEditarProveedor();
         }else if(elim.BTTEliminarProveedor == e.getSource()){
             elim.setVisible(false);
             ventanaEliminarProveedor();

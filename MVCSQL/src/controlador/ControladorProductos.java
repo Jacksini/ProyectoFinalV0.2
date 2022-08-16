@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import modelo.Modelo;
 import vista.Agregarproducto;
 
@@ -222,8 +223,9 @@ public class ControladorProductos implements ActionListener, MouseListener{
             Product.setVisible(false);
             ventanaAgregarProducto();
         }else if(Product.btnModificar == e.getSource()){
-            Product.setVisible(false);
-            ventanaModificarProducto();
+            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
+//            Product.setVisible(false);
+//            ventanaModificarProducto();
         }else if(Product.btnEliminar == e.getSource()){
             Product.setVisible(false);
             ventanaEliminarProducto();

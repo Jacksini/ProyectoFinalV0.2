@@ -206,97 +206,97 @@ public class ControladorModificarProveedor implements ActionListener, MouseListe
 //                    modProv.TXTCorreoProveedor.setText("CORREO PROVEEDOR");//CORREO DEL PROVEEDOR
 //                    modProv.TXTCalleNumeroProveedor.setText("DIRECCION");//CALLE Y NUMERO DEL PROVEEDOR
 //                    modProv.TXTTelefonoProveedor.setText("TELEFONO");//TELEFONO DEL PROVEEDOR
-            String buscar = "call buscarProveedorid(" + modProv.TXTIDproveedor.getText() + ");";
-            try {
+//            String buscar = "call buscarProveedorid(" + modProv.TXTIDproveedor.getText() + ");";
+//            try {
                 //PROVEEDORES ID
-                Statement st = model.con.createStatement();
+//                Statement st = model.con.createStatement();
                 //Statement Col = model.con.createStatement();
-
-                //COLONIA
-                //ResultSet mostrarCol = Col.executeQuery(col);
-                ResultSet mostrar = st.executeQuery(buscar);
-                System.out.println(buscar);
-
-                if (modProv.TXTIDproveedor != null){
-                    System.out.println(buscar);
-
-                    String nombreProv = mostrar.getString("proveedores.Nombre"); //NOMBRE DEL PROVEEDOR
-                    String Rfcc = mostrar.getString("RFC");         //RFC DEL PROVEEDOR
-                    String Correo = mostrar.getString("CorreoPro"); //CORREO DEL PROVEEDOR
-                    String Call = mostrar.getString("CalleYNumero"); //CALLE Y NUM DEL PROVEEDOR
-                    //String col2 = mostrar.getString("NombreColonia"); //NOMBRE COLONIA
-                    //String muni = mostrar.getString("NombreMunicipio"); //NOMBRE DEL MUNICIPO
-                    //String estado = mostrar.getString("NombreEstado"); //NOMBRE DEL ESTADO
-                    String teled = mostrar.getString("TelefonoPro"); //TELEFONO DEL PROVEEDOR
-                    String nombredepaa = mostrar.getString("NombreTPro");//NOMBRE DEL PERSONAL DEL DEPARTAMENTO
-                    String depa = mostrar.getString("Departamento"); //NOMBRE DEL DEPARTAMENTO
-                    //String tipotel = mostrar.getString("Tipo"); //TIPO DE TELEFONO
-                    
-                    //int IDCOL = mostrarCol.getInt("idColonia"); //EXTRAE EL INT ID DE COLONIA
-                    //modProv.BOXColonia.addItem(mostrarCol.getString("NombreEstado"));
-                    System.out.println(buscar);
-
-                    modProv.TXTNombrePersonal.setText(nombredepaa);//NOMBRE DEL PERSONAL
-                    modProv.TXTnombreProveedor.setText(nombreProv);//NOMBRE DEL PROVEEDOR
-                    modProv.TXTRFCproveedor.setText(Rfcc);//RFC DEL PROVEEDOR
-                    modProv.TXTCorreoProveedor.setText(Correo);//CORREO DEL PROVEEDOR
-                    modProv.TXTCalleNumeroProveedor.setText(Call);//CALLE Y NUMERO DEL PROVEEDOR
-                    modProv.TXTTelefonoProveedor.setText(teled);//TELEFONO DEL PROVEEDOR
-                    modProv.TXTDepartamentoTelefono.setText(depa);//DEPARTAMENTO
-                    System.out.println(buscar);
-
-                    System.out.println(modProv.TXTnombreProveedor.getText()+" : HOLA SOY PROVEEDOR");
-
-                    
-                    //modProv.BOXColonia.setSelectedIndex(IDCOL);
-                                        
-                }
-            } catch (SQLException ex){
-                
-            }
-            
-        }else if(modProv.BTTModificar == e.getSource()){
-            try {
-                Statement s = model.con.createStatement();
-                String query = "call ModificarProveedor("+modProv.TXTIDproveedor.getText()+",'" + modProv.TXTnombreProveedor.getText() + "', '" + modProv.TXTRFCproveedor.getText() + "', '" + modProv.TXTCalleNumeroProveedor.getText() + "', '" + modProv.TXTTelefonoProveedor.getText() + "', '" + modProv.TXTDepartamentoTelefono.getText() + "', '" + nuevoProv.TXTNombrePersonal.getText() + "', '" + nuevoProv.TXTDepartamentoTelefono.getText() + "', '" + modProv.TXTNombrePersonal.getText() + "','" + modProv.TXTCorreoProveedor.getText() + "', "+ modProv.BOXTipoTelefono.getSelectedIndex() + ", "+ nuevoProv.BOXEstado.getSelectedIndex() + ", "+ nuevoProv.BOXMunicipio.getSelectedIndex() + ", "+ nuevoProv.BOXColonia.getSelectedIndex() + ");";
-                System.out.println(query);
-                s.execute(query);
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }            
+//
+//                //COLONIA
+//                //ResultSet mostrarCol = Col.executeQuery(col);
+//                ResultSet mostrar = st.executeQuery(buscar);
+//                System.out.println(buscar);
+//
+//                if (modProv.TXTIDproveedor != null){
+//                    System.out.println(buscar);
+//
+//                    String nombreProv = mostrar.getString("proveedores.Nombre"); //NOMBRE DEL PROVEEDOR
+//                    String Rfcc = mostrar.getString("RFC");         //RFC DEL PROVEEDOR
+//                    String Correo = mostrar.getString("CorreoPro"); //CORREO DEL PROVEEDOR
+//                    String Call = mostrar.getString("CalleYNumero"); //CALLE Y NUM DEL PROVEEDOR
+//                    //String col2 = mostrar.getString("NombreColonia"); //NOMBRE COLONIA
+//                    //String muni = mostrar.getString("NombreMunicipio"); //NOMBRE DEL MUNICIPO
+//                    //String estado = mostrar.getString("NombreEstado"); //NOMBRE DEL ESTADO
+//                    String teled = mostrar.getString("TelefonoPro"); //TELEFONO DEL PROVEEDOR
+//                    String nombredepaa = mostrar.getString("NombreTPro");//NOMBRE DEL PERSONAL DEL DEPARTAMENTO
+//                    String depa = mostrar.getString("Departamento"); //NOMBRE DEL DEPARTAMENTO
+//                    //String tipotel = mostrar.getString("Tipo"); //TIPO DE TELEFONO
+//                    
+//                    //int IDCOL = mostrarCol.getInt("idColonia"); //EXTRAE EL INT ID DE COLONIA
+//                    //modProv.BOXColonia.addItem(mostrarCol.getString("NombreEstado"));
+//                    System.out.println(buscar);
+//
+//                    modProv.TXTNombrePersonal.setText(nombredepaa);//NOMBRE DEL PERSONAL
+//                    modProv.TXTnombreProveedor.setText(nombreProv);//NOMBRE DEL PROVEEDOR
+//                    modProv.TXTRFCproveedor.setText(Rfcc);//RFC DEL PROVEEDOR
+//                    modProv.TXTCorreoProveedor.setText(Correo);//CORREO DEL PROVEEDOR
+//                    modProv.TXTCalleNumeroProveedor.setText(Call);//CALLE Y NUMERO DEL PROVEEDOR
+//                    modProv.TXTTelefonoProveedor.setText(teled);//TELEFONO DEL PROVEEDOR
+//                    modProv.TXTDepartamentoTelefono.setText(depa);//DEPARTAMENTO
+//                    System.out.println(buscar);
+//
+//                    System.out.println(modProv.TXTnombreProveedor.getText()+" : HOLA SOY PROVEEDOR");
+//
+//                    
+//                    //modProv.BOXColonia.setSelectedIndex(IDCOL);
+//                                        
+//                }
+//            } catch (SQLException ex){
+//                
+//            }
+//            
+//        }else if(modProv.BTTModificar == e.getSource()){
+//            try {
+//                Statement s = model.con.createStatement();
+//                String query = "call ModificarProveedor("+modProv.TXTIDproveedor.getText()+",'" + modProv.TXTnombreProveedor.getText() + "', '" + modProv.TXTRFCproveedor.getText() + "', '" + modProv.TXTCalleNumeroProveedor.getText() + "', '" + modProv.TXTTelefonoProveedor.getText() + "', '" + modProv.TXTDepartamentoTelefono.getText() + "', '" + nuevoProv.TXTNombrePersonal.getText() + "', '" + nuevoProv.TXTDepartamentoTelefono.getText() + "', '" + modProv.TXTNombrePersonal.getText() + "','" + modProv.TXTCorreoProveedor.getText() + "', "+ modProv.BOXTipoTelefono.getSelectedIndex() + ", "+ nuevoProv.BOXEstado.getSelectedIndex() + ", "+ nuevoProv.BOXMunicipio.getSelectedIndex() + ", "+ nuevoProv.BOXColonia.getSelectedIndex() + ");";
+//                System.out.println(query);
+//                s.execute(query);
+//            } catch (SQLException ex) {
+//                System.out.println(ex.getMessage());
+//            }            
         }else if(modProv.BTTActualizar == e.getSource()){
-            String consultaEstado = "Select *from estado";
-            String consultaMunicipio = "Select *from municipio";
-            String consultaColonia = "Select *from colonia";
-            String consultaTipoTelefono = "Select *from tipotelefono";
-
-            try {
-                Statement f = model.con.createStatement();
-                Statement m = model.con.createStatement();
-                Statement c = model.con.createStatement();
-                Statement t = model.con.createStatement();
-
-                ResultSet estado = f.executeQuery(consultaEstado);
-                ResultSet municipio = m.executeQuery(consultaMunicipio);
-                ResultSet colonia = c.executeQuery(consultaColonia);
-                ResultSet tipoTelefono = t.executeQuery(consultaTipoTelefono);
-
-
-                while (estado.next()){
-                    modProv.BOXEstado.addItem(estado.getString("NombreEstado"));
-                }  
-                while (municipio.next()){
-                    modProv.BOXMunicipio.addItem(municipio.getString("NombreMunicipio"));
-                } 
-               while (colonia.next()){
-                    modProv.BOXColonia.addItem(colonia.getString("NombreColonia"));
-                } 
-                while (tipoTelefono.next()){
-                    modProv.BOXTipoTelefono.addItem(tipoTelefono.getString("Tipo"));
-                }
-            } catch (SQLException ex) {
-
-            }        
+//            String consultaEstado = "Select *from estado";
+//            String consultaMunicipio = "Select *from municipio";
+//            String consultaColonia = "Select *from colonia";
+//            String consultaTipoTelefono = "Select *from tipotelefono";
+//
+//            try {
+//                Statement f = model.con.createStatement();
+//                Statement m = model.con.createStatement();
+//                Statement c = model.con.createStatement();
+//                Statement t = model.con.createStatement();
+//
+//                ResultSet estado = f.executeQuery(consultaEstado);
+//                ResultSet municipio = m.executeQuery(consultaMunicipio);
+//                ResultSet colonia = c.executeQuery(consultaColonia);
+//                ResultSet tipoTelefono = t.executeQuery(consultaTipoTelefono);
+//
+//
+//                while (estado.next()){
+//                    modProv.BOXEstado.addItem(estado.getString("NombreEstado"));
+//                }  
+//                while (municipio.next()){
+//                    modProv.BOXMunicipio.addItem(municipio.getString("NombreMunicipio"));
+//                } 
+//               while (colonia.next()){
+//                    modProv.BOXColonia.addItem(colonia.getString("NombreColonia"));
+//                } 
+//                while (tipoTelefono.next()){
+//                    modProv.BOXTipoTelefono.addItem(tipoTelefono.getString("Tipo"));
+//                }
+//            } catch (SQLException ex) {
+//
+//            }        
         }
     }
 
