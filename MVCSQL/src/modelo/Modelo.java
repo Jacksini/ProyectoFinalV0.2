@@ -326,24 +326,24 @@ public class Modelo {
         }
     }
 
-    public String[] MostrarProductos(int IDProducto ){
-        try{
-            Statement N = con.createStatement();
-            String query = "call VerificadorPrecio(" + IDProducto  + ");";
-            ResultSet rs = N.executeQuery(query);
-            String[] values = new String[2];
-               System.out.println(query);
-            if(rs.next()){
-                for(int i = 0; i < 2; i++){
-                values[i] = rs.getString(i+1);
+    public Object[] MostrarProductos(int IDProducto ){
+        try {
+            Statement s = con.createStatement();
+            String query = "call VerificadorPrecio(" +IDProducto +");";
+            System.out.println(query);
+            ResultSet rs = s.executeQuery(query);
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int columnas = rsMd.getColumnCount();
+            Object[] producto = new Object[columnas];
+            while(rs.next()) {
+                for(int i = 0; i < columnas; i++) {
+                    System.out.println(rs.getObject(i+1).toString());
+                    producto[i] = rs.getObject(i + 1);
                 }
-                return values;
-            }else{
-                return null;
             }
-        }catch (SQLException ex){
-            System.out.println("Error 2");
-            System.out.println("hola: " + ex.getMessage());
+                return producto;
+        } catch (SQLException ex) {
+            System.out.println("Excepcion: " +ex.getMessage());
             return null;
         }
     }
@@ -602,6 +602,129 @@ public class Modelo {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
             return null;
+        }
+    }
+    
+    public Object[] buscarProductoVenta(int id){
+        try {
+            Statement s = con.createStatement();
+            String query = "call buscadorProducto(" +id +");";
+            System.out.println(query);
+            ResultSet rs = s.executeQuery(query);
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int columnas = rsMd.getColumnCount();
+            Object[] producto = new Object[columnas];
+            while(rs.next()) {
+                for(int i = 0; i < columnas; i++) {
+                    System.out.println(rs.getObject(i+1).toString());
+                    producto[i] = rs.getObject(i + 1);
+                }
+            }
+                return producto;
+        } catch (SQLException ex) {
+            System.out.println("Excepcion: " +ex.getMessage());
+            return null;
+        }
+    }
+    
+    public Object[] verificarProductoVenta(int id){
+        try {
+            Statement s = con.createStatement();
+            String query = "call verificadorPrecio(" +id +");";
+            System.out.println(query);
+            ResultSet rs = s.executeQuery(query);
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int columnas = rsMd.getColumnCount();
+            Object[] producto = new Object[columnas];
+            while(rs.next()) {
+                for(int i = 0; i < columnas; i++) {
+                    System.out.println(rs.getObject(i+1).toString());
+                    producto[i] = rs.getObject(i + 1);
+                }
+            }
+                return producto;
+        } catch (SQLException ex) {
+            System.out.println("Excepcion: " +ex.getMessage());
+            return null;
+        }
+    }
+    
+    public String consultarCodigoBarras(int id){
+        try {
+            Statement s = con.createStatement();
+            String query = "select CodigoBarras from productos where idProductos = " +id +";";
+            System.out.println(query);
+            ResultSet rs = s.executeQuery(query);
+            String codigo;
+            if(rs.next()){
+                codigo = rs.getNString("CodigoBarras");
+                return codigo;
+            }
+            return null;
+        } catch (SQLException ex) {
+            System.out.println("Excepcion: " +ex.getMessage());
+            return null;
+        }
+    }
+    
+    public boolean insertarBuscarProducto(int id, int cantidad){
+        try{
+            Statement s = con.createStatement();
+            String query = "call InsertProductbsq(" +id +", "+cantidad +");";
+            s.executeUpdate(query);
+            return true;
+        } catch (SQLException ex){
+            System.out.println(ex.getMessage());
+            return false;
+        }
+    }
+    
+    public DefaultTableModel mostrarFacturas(){
+        DefaultTableModel factura = defaultTablaClientes();
+        try {
+            Statement s = con.createStatement();
+            String query = "call mostrarfacturasventa();";
+            ResultSet rs = s.executeQuery(query);
+            
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int columnas = rsMd.getColumnCount();
+            
+            while(rs.next()) {
+                Object[] fila = new Object[columnas];
+                for(int i = 0; i < columnas; i++) {
+                    fila[i] = rs.getObject(i + 1);
+                }
+                factura.addRow(fila);
+            }
+                return factura;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
+    
+    public boolean ingresarFactura(String descripcion, int idCliente, int idEmpleado){
+        try{
+            Statement s = con.createStatement();
+            String query = "call ingresarFacturas(\"" +descripcion +", " +idCliente +", " +idEmpleado +");";
+            s.executeUpdate(query);
+            return true;
+        } catch (SQLException ex){
+            System.out.println(ex.getMessage());
+            return false;
+        }
+    }
+    
+    public boolean eliminarProductoFactura(String nombreProd){
+        try{
+            Statement s = con.createStatement();
+            String id = "select idProducto from productos where NombreProducto = \"" +nombreProd +"\")";
+            String query = "call EliminarProducto(" +id +");";
+            s.executeUpdate(query);
+            return true;
+        } catch (SQLException ex){
+            System.out.println(ex.getMessage());
+            return false;
         }
     }
 }

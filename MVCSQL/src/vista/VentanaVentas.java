@@ -30,8 +30,6 @@ public class VentanaVentas extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         LblCodigoProducto = new javax.swing.JLabel();
         TFCodigoProducto = new javax.swing.JTextField();
-        BtnEntradas = new javax.swing.JButton();
-        BtnSalidas = new javax.swing.JButton();
         BtnBorrar = new javax.swing.JButton();
         BtnVerificador = new javax.swing.JButton();
         BtnBuscar = new javax.swing.JButton();
@@ -65,11 +63,6 @@ public class VentanaVentas extends javax.swing.JFrame {
                 TFCodigoProductoActionPerformed(evt);
             }
         });
-
-        BtnEntradas.setText(" Entradas F7");
-        BtnEntradas.setToolTipText("");
-
-        BtnSalidas.setText("Salidas F8");
 
         BtnBorrar.setText("Borrar Art. DEL");
 
@@ -203,22 +196,18 @@ public class VentanaVentas extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(TFCodigoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnActualizar))
-                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnActualizar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(LblUsuario))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(BtnEntradas)
-                        .addGap(18, 18, 18)
-                        .addComponent(BtnSalidas)
-                        .addGap(18, 18, 18)
                         .addComponent(BtnBorrar)
                         .addGap(18, 18, 18)
                         .addComponent(BtnVerificador)
                         .addGap(18, 18, 18)
-                        .addComponent(BtnBuscar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BtnSalir, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(LblUsuario, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(BtnBuscar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnSalir)))
                 .addGap(32, 32, 32))
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
@@ -261,8 +250,6 @@ public class VentanaVentas extends javax.swing.JFrame {
                             .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BtnEntradas)
-                            .addComponent(BtnSalidas)
                             .addComponent(BtnBorrar)
                             .addComponent(BtnVerificador)
                             .addComponent(BtnBuscar))
@@ -354,20 +341,18 @@ public class VentanaVentas extends javax.swing.JFrame {
     public javax.swing.JButton BtnBorrar;
     public javax.swing.JButton BtnBuscar;
     public javax.swing.JButton BtnCobrar;
-    public javax.swing.JButton BtnEntradas;
     public javax.swing.JMenu BtnMenuClientes;
     public javax.swing.JMenu BtnMenuConfiguracion;
     public javax.swing.JMenu BtnMenuInventario;
     public javax.swing.JMenu BtnMenuProductos;
     public javax.swing.JMenu BtnMenuProveedores;
     public javax.swing.JMenu BtnMenuVentas;
-    public javax.swing.JButton BtnSalidas;
     private javax.swing.JButton BtnSalir;
     public javax.swing.JButton BtnVerificador;
     private javax.swing.JLabel LblCodigoProducto;
     private javax.swing.JLabel LblFechaYHora;
-    private javax.swing.JLabel LblTotal;
-    private javax.swing.JLabel LblTotalProductos;
+    public javax.swing.JLabel LblTotal;
+    public javax.swing.JLabel LblTotalProductos;
     private javax.swing.JLabel LblUsuario;
     private javax.swing.JLabel LblVentaActual;
     public javax.swing.JTextField TFCodigoProducto;
