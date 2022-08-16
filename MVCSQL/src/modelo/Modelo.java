@@ -326,24 +326,24 @@ public class Modelo {
         }
     }
 
-    public String[] MostrarProductos(int IDProducto ){
-        try{
-            Statement N = con.createStatement();
-            String query = "call VerificadorPrecio(" + IDProducto  + ");";
-            ResultSet rs = N.executeQuery(query);
-            String[] values = new String[2];
-               System.out.println(query);
-            if(rs.next()){
-                for(int i = 0; i < 2; i++){
-                values[i] = rs.getString(i+1);
+    public Object[] MostrarProductos(int IDProducto ){
+        try {
+            Statement s = con.createStatement();
+            String query = "call VerificadorPrecio(" +IDProducto +");";
+            System.out.println(query);
+            ResultSet rs = s.executeQuery(query);
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int columnas = rsMd.getColumnCount();
+            Object[] producto = new Object[columnas];
+            while(rs.next()) {
+                for(int i = 0; i < columnas; i++) {
+                    System.out.println(rs.getObject(i+1).toString());
+                    producto[i] = rs.getObject(i + 1);
                 }
-                return values;
-            }else{
-                return null;
             }
-        }catch (SQLException ex){
-            System.out.println("Error 2");
-            System.out.println("hola: " + ex.getMessage());
+                return producto;
+        } catch (SQLException ex) {
+            System.out.println("Excepcion: " +ex.getMessage());
             return null;
         }
     }
@@ -601,6 +601,50 @@ public class Modelo {
             return producto;
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+            return null;
+        }
+    }
+    
+    public Object[] buscarProductoVenta(int id){
+        try {
+            Statement s = con.createStatement();
+            String query = "call buscadorProducto(" +id +");";
+            System.out.println(query);
+            ResultSet rs = s.executeQuery(query);
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int columnas = rsMd.getColumnCount();
+            Object[] producto = new Object[columnas];
+            while(rs.next()) {
+                for(int i = 0; i < columnas; i++) {
+                    System.out.println(rs.getObject(i+1).toString());
+                    producto[i] = rs.getObject(i + 1);
+                }
+            }
+                return producto;
+        } catch (SQLException ex) {
+            System.out.println("Excepcion: " +ex.getMessage());
+            return null;
+        }
+    }
+    
+    public Object[] verificarProductoVenta(int id){
+        try {
+            Statement s = con.createStatement();
+            String query = "call verificarPrecio(" +id +");";
+            System.out.println(query);
+            ResultSet rs = s.executeQuery(query);
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int columnas = rsMd.getColumnCount();
+            Object[] producto = new Object[columnas];
+            while(rs.next()) {
+                for(int i = 0; i < columnas; i++) {
+                    System.out.println(rs.getObject(i+1).toString());
+                    producto[i] = rs.getObject(i + 1);
+                }
+            }
+                return producto;
+        } catch (SQLException ex) {
+            System.out.println("Excepcion: " +ex.getMessage());
             return null;
         }
     }

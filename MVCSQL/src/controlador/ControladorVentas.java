@@ -5,8 +5,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Arrays;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 
 //Packages Locales
@@ -24,7 +27,7 @@ import vista.VentanaVentas;
 import vista.proveedores;
 import vista.sesion;
 
-public class ControladorVentas implements ActionListener, MouseListener{
+public class ControladorVentas implements ActionListener, MouseListener, TableModelListener{
     
 //vistas de Ventas
     private sesion vistaInicioSesion;
@@ -88,10 +91,9 @@ public class ControladorVentas implements ActionListener, MouseListener{
         this.ventasInicial.BtnMenuProveedores.addMouseListener(this);
         this.ventasInicial.BtnMenuInventario.addMouseListener(this);
         this.ventasInicial.BtnMenuConfiguracion.addMouseListener(this);
+        this.ventasInicial.TablaProductos.addMouseListener(this);
         
         //Botones para abirir ventanas emergentes
-        this.ventasInicial.BtnEntradas.addMouseListener(this);
-        this.ventasInicial.BtnSalidas.addMouseListener(this);
         this.ventasInicial.BtnBuscar.addMouseListener(this);
         this.ventasInicial.BtnVerificador.addMouseListener(this);
         this.ventasInicial.BtnCobrar.addMouseListener(this);
@@ -266,10 +268,6 @@ public class ControladorVentas implements ActionListener, MouseListener{
         }else if(ventasInicial.BtnMenuConfiguracion == e.getSource()){
             ventasInicial.setVisible(false);
             ventanaConfiguracion();
-        }else if(ventasInicial.BtnEntradas == e.getSource()){
-            ventanaEntradas();
-        }else if(ventasInicial.BtnSalidas == e.getSource()){
-            ventanaSalidas();
         }else if(ventasInicial.BtnBuscar == e.getSource()){
             ventanaBuscador();
         }else if(ventasInicial.BtnVerificador == e.getSource()){
@@ -286,8 +284,8 @@ public class ControladorVentas implements ActionListener, MouseListener{
             }
             
         }else if(ventasInicial.BtnBorrar == e.getSource()){
-            DefaultTableModel model = (DefaultTableModel) ventasInicial.TablaProductos.getModel(); 
-            model.setRowCount(0);
+            DefaultTableModel model = (DefaultTableModel) ventasInicial.TablaProductos.getModel();
+            int fila = ventasInicial.TablaProductos.rowAtPoint(e.getPoint());
         }
         // <editor-fold defaultstate="collapsed" desc="Botones de ventnas emergentes">
         else if(Entradas.BtnGuardar == e.getSource()){
@@ -305,26 +303,44 @@ public class ControladorVentas implements ActionListener, MouseListener{
             Salidas.setLocationRelativeTo(null);
             Salidas.setVisible(false);
         }else if(Verificador.BtnAgregar == e.getSource()){
-            //Pendiente
-            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
-//            String[] Valores = model.MostrarProductos(Integer.parseInt(Verificador.TFBuscador.getText()));
-//            System.out.println("Vallore" + Valores);
-//            Verificador.LblNombreArticulo.setText(Valores[0]);
-//            Verificador.LblPrecioArticulo.setText(putPrices(Valores[1]));
+            try{
+                //Verificar precio del producto
+                Object[] Valores = model.MostrarProductos(Integer.parseInt(Verificador.TFBuscador.getText()));
+                Verificador.LblNombreArticulo.setText(Valores[0].toString());
+                Verificador.LblPrecioArticulo.setText(putPrices(Valores[1].toString()));
+            }catch(NullPointerException ex){
+                JOptionPane.showMessageDialog(null, "No se encontro el producto");
+            }catch(NumberFormatException ex){
+                JOptionPane.showMessageDialog(null, "Por favor registre un id numerico");
+            }
         }else if(Verificador.BtnCancelar == e.getSource()){
             Verificador.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
             Verificador.setLocationRelativeTo(null);
             Verificador.setVisible(false);
         }else if(Buscador.BtnAceptar == e.getSource()){
-            //Pendiente
+            //Aceptar producto buscado
+            
             JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
         }else if(Buscador.BtnCancelar == e.getSource()){
             Buscador.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
             Buscador.setLocationRelativeTo(null);
             Buscador.setVisible(false);
         }else if(Buscador.btnBuscar == e.getSource()){
-            //Pendiente
-            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
+            //Buscar prodduxto
+            try{
+                int id = Integer.parseInt(Buscador.TFBuscador.getText());
+                Object[] producto = model.buscarProductoVenta(id);
+                Buscador.TfNombre.setText(producto[0].toString());
+                Buscador.TfPrecio.setText(producto[1].toString());
+                Buscador.TfExistencia.setText(producto[2].toString());
+            }catch(NumberFormatException ex){
+                JOptionPane.showMessageDialog(null, "Por favor registre un codigo numerico");
+            }catch(NullPointerException ex){
+                JOptionPane.showMessageDialog(null, "No se pudo encontrar el producto");
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(null, "Ocurrio un error inesperado");
+                System.out.println(ex.getMessage());
+            }
         }else if(Cobro.BtnCobrar == e.getSource()){
             //Pendiente
             JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
@@ -335,16 +351,39 @@ public class ControladorVentas implements ActionListener, MouseListener{
         }else if(Cobro.btnGenerarFactura == e.getSource()){
             //Pendiente
             JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
+        }else if(ventasInicial.TablaProductos == e.getSource()){
+            System.out.println(ventasInicial.TablaProductos.getSelectedRow());
         }
         // </editor-fold>  
     }
 
     public String putPrices(String floatingNum){
         //Metodo para asignar a los String de numero los simbolos customizados.
-        String[] valores = new String[2];
-        valores = floatingNum.split("\\.");
+        String[] valores = floatingNum.split("\\.");
         String end = settings.moneda + valores[0] +settings.decimal +valores[1];
         return end;
+    }
+    
+    public DefaultTableModel defaultTablaVentas(){
+        DefaultTableModel tabla = new DefaultTableModel();
+        tabla.addColumn("Codigo de barras");
+        tabla.addColumn("Nombre del Producto");
+        tabla.addColumn("Cantidad");
+        tabla.addColumn("Precio de venta");
+        return tabla;
+    }
+    
+    public void agregarProducto(String[] producto){
+        //TableModel tabla = ventasInicial.TablaProductos.getModel();
+    }
+    
+    public void eliminarProducto(int row){
+        DefaultTableModel tabla = (DefaultTableModel) ventasInicial.TablaProductos.getModel();
+        DefaultTableModel neoTabla = defaultTablaVentas();
+        int filas = tabla.getRowCount();
+        for(int i=0; i < filas; i++){
+            neoTabla.removeRow(row);
+        }
     }
     
     @Override
@@ -365,5 +404,14 @@ public class ControladorVentas implements ActionListener, MouseListener{
     @Override
     public void mouseExited(MouseEvent e) {
         
+    }
+
+    @Override
+    public void tableChanged(TableModelEvent e) {
+        if(e.getType() == TableModelEvent.DELETE){
+            //Que hacer cuando se borre algo.
+            int fila = e.getFirstRow();
+            DefaultTableModel d = new DefaultTableModel();
+        }
     }
 }

@@ -33,13 +33,13 @@ public class VentaBuscador extends javax.swing.JFrame {
         BtnCancelar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        TfNombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        TfPrecio = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         TfCantidad = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        TfExistencia = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -70,15 +70,15 @@ public class VentaBuscador extends javax.swing.JFrame {
         jLabel2.setText("Nombre de producto");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 112, -1, -1));
 
-        jTextField2.setEnabled(false);
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 226, 40));
+        TfNombre.setEnabled(false);
+        getContentPane().add(TfNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 226, 40));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel3.setText("Precio de venta");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 112, -1, -1));
 
-        jTextField3.setEnabled(false);
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 160, 170, 40));
+        TfPrecio.setEnabled(false);
+        getContentPane().add(TfPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 160, 170, 40));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel4.setText("Cantidad");
@@ -89,8 +89,8 @@ public class VentaBuscador extends javax.swing.JFrame {
         jLabel5.setText("Existencia");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(642, 112, -1, -1));
 
-        jTextField5.setEnabled(false);
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(642, 162, 100, 40));
+        TfExistencia.setEnabled(false);
+        getContentPane().add(TfExistencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(642, 162, 100, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -143,13 +143,13 @@ public class VentaBuscador extends javax.swing.JFrame {
     private javax.swing.JLabel LblBusqueda;
     public javax.swing.JTextField TFBuscador;
     public javax.swing.JTextField TfCantidad;
+    public javax.swing.JTextField TfExistencia;
+    public javax.swing.JTextField TfNombre;
+    public javax.swing.JTextField TfPrecio;
     public javax.swing.JButton btnBuscar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }
