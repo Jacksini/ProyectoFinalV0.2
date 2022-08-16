@@ -1,6 +1,7 @@
 package controlador;
 
 //Librerias Java
+import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -27,7 +28,7 @@ import vista.VentanaVentas;
 import vista.proveedores;
 import vista.sesion;
 
-public class ControladorVentas implements ActionListener, MouseListener, TableModelListener{
+public class ControladorVentas implements ActionListener, MouseListener{
     
 //vistas de Ventas
     private sesion vistaInicioSesion;
@@ -274,6 +275,10 @@ public class ControladorVentas implements ActionListener, MouseListener, TableMo
             ventanaVerificador();
         }else if(ventasInicial.BtnCobrar == e.getSource()){
             ventanaCobro();
+            try{
+                Cobro.LblTotal.setText(ventasInicial.LblTotal.getText());
+                Cobro.lblTotalArticulos.setText(ventasInicial.LblTotalProductos.getText());
+            }catch(Exception ex){}
         }else if(ventasInicial.btnActualizar == e.getSource()){
             String consulta = "call mostrarfacturasventa();";
             try{
@@ -284,21 +289,34 @@ public class ControladorVentas implements ActionListener, MouseListener, TableMo
             }
             
         }else if(ventasInicial.BtnBorrar == e.getSource()){
-            DefaultTableModel model = (DefaultTableModel) ventasInicial.TablaProductos.getModel();
-            int fila = ventasInicial.TablaProductos.rowAtPoint(e.getPoint());
+            try{
+                DefaultTableModel tModel = (DefaultTableModel) ventasInicial.TablaProductos.getModel();
+                int column = ventasInicial.TablaProductos.getSelectedColumn();
+                int fila = ventasInicial.TablaProductos.getSelectedRow();
+                String name = ventasInicial.TablaProductos.getValueAt(fila, column).toString();
+                if(!model.eliminarProductoFactura(name)){
+                    JOptionPane.showMessageDialog(null, "No se pudo eliminar");
+                }else{
+                    tModel.removeRow(ventasInicial.TablaProductos.getSelectedRow());
+                }
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(null, "Surgio un problema al borrar");
+            }
+            
         }
         // <editor-fold defaultstate="collapsed" desc="Botones de ventnas emergentes">
-        else if(Entradas.BtnGuardar == e.getSource()){
-            //Pendiente
-            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
-        }else if(Entradas.BtnCancelar == e.getSource()){
-            Entradas.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-            Entradas.setLocationRelativeTo(null);
-            Entradas.setVisible(false);
-        }else if(Salidas.BtnGuardar == e.getSource()){
-            //Pendinete
-            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
-        }else if(Salidas.BtnCancelar == e.getSource()){
+//        else if(Entradas.BtnGuardar == e.getSource()){
+//            //Pendiente
+//            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
+//        }else if(Entradas.BtnCancelar == e.getSource()){
+//            Entradas.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+//            Entradas.setLocationRelativeTo(null);
+//            Entradas.setVisible(false);
+//        }else if(Salidas.BtnGuardar == e.getSource()){
+//            //Pendinete
+//            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
+//        }
+        else if(Salidas.BtnCancelar == e.getSource()){
             Salidas.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
             Salidas.setLocationRelativeTo(null);
             Salidas.setVisible(false);
@@ -319,8 +337,30 @@ public class ControladorVentas implements ActionListener, MouseListener, TableMo
             Verificador.setVisible(false);
         }else if(Buscador.BtnAceptar == e.getSource()){
             //Aceptar producto buscado
+            try{
+                int id = Integer.parseInt(Buscador.TFBuscador.getText());
+                int cantidad = Integer.parseInt(Buscador.TfCantidad.getText());
+                if(Buscador.TfNombre.getText().isEmpty() || Buscador.TfPrecio.getText().isEmpty() || Buscador.TfCantidad.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Asegurese que si se haya encontrado el producto");
+                }else{
+                    if(!model.insertarBuscarProducto(id, cantidad)){
+                        JOptionPane.showMessageDialog(null, "No se pudo registrar la factura");
+                    }else{
+                        ventasInicial.TablaProductos.setModel(model.mostrarFacturas());
+//                        Esta es una forma de hacerlo, sin embargo, opte por otra forma
+//                        Buscador.TfNombre.getText();
+//                        Buscador.TfPrecio.getText();
+//                        Buscador.TfCantidad.getText();
+//                        agregarProducto(model.consultarCodigoBarras(id), Buscador.TfNombre.getText(), Buscador.TfPrecio.getText(), Buscador.TfCantidad.getText());
+                    }    
+                }
+            }catch(NumberFormatException ex){
+                JOptionPane.showMessageDialog(null, "Por favor registre valores numericos");
+            }catch(HeadlessException ex){
+                JOptionPane.showMessageDialog(null, "Ocurrio un error inesperado: " +ex.getMessage());
+                System.out.println(ex.getMessage());
+            }
             
-            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
         }else if(Buscador.BtnCancelar == e.getSource()){
             Buscador.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
             Buscador.setLocationRelativeTo(null);
@@ -342,15 +382,37 @@ public class ControladorVentas implements ActionListener, MouseListener, TableMo
                 System.out.println(ex.getMessage());
             }
         }else if(Cobro.BtnCobrar == e.getSource()){
-            //Pendiente
-            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
+            //Cobrar la factura
+            String total = Cobro.LblTotal.getText();
+            String[] split = total.split(" MXN");
+            String[] aCobrar = split[0].split("\\$");
+            //String[] aCobrar = split[0].split(settings.moneda);
+            System.out.println(aCobrar[1]);
+            float Total = Float.valueOf(aCobrar[1]);
+            try{
+                float payment = Float.valueOf(Cobro.TFPago.getText());
+                String cambio = Float.toString(payment - Total);
+                Cobro.LblTotalCambio.setText(putPrices(cambio) +" MXN");
+            }catch(NumberFormatException ex){
+                JOptionPane.showInternalMessageDialog(null, "Asegurese de ingresar el pago con solamente numeros");
+            }
         }else if(Cobro.BtnCancelar == e.getSource()){
             Cobro.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
             Cobro.setLocationRelativeTo(null);
             Cobro.setVisible(false);
         }else if(Cobro.btnGenerarFactura == e.getSource()){
-            //Pendiente
-            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
+            //Ingresar datos a la tabla factura
+            try{
+                int idCliente = Integer.parseInt(Cobro.txtIdCliente.getText());
+                int idEmpleado = Integer.parseInt(Cobro.txtIdEmpleado.getText());
+                if(!model.ingresarFactura(Cobro.txtDescripcion.getText(), idCliente, idEmpleado)){
+                    JOptionPane.showMessageDialog(null, "No se pudo generar la factura");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Se genero la factura exitosamente", "Exito", 1);
+                }
+            }catch(NumberFormatException ex){
+                
+            }
         }else if(ventasInicial.TablaProductos == e.getSource()){
             System.out.println(ventasInicial.TablaProductos.getSelectedRow());
         }
@@ -373,8 +435,11 @@ public class ControladorVentas implements ActionListener, MouseListener, TableMo
         return tabla;
     }
     
-    public void agregarProducto(String[] producto){
-        //TableModel tabla = ventasInicial.TablaProductos.getModel();
+    public void agregarProducto(String codigo, String nombre, String cantidad, String precio){
+        DefaultTableModel tabla = (DefaultTableModel) ventasInicial.TablaProductos.getModel();
+        String[] row = new String[4]; row[0] = codigo; row[1] = nombre; row[2] = cantidad; row[3] = precio;
+        tabla.addRow(row);
+        ventasInicial.TablaProductos.setModel(tabla);
     }
     
     public void eliminarProducto(int row){
@@ -384,6 +449,28 @@ public class ControladorVentas implements ActionListener, MouseListener, TableMo
         for(int i=0; i < filas; i++){
             neoTabla.removeRow(row);
         }
+    }
+    
+    public void updateTabla(DefaultTableModel dtm){
+        ventasInicial.TablaProductos.setModel(dtm);
+        try{
+            float total=0; int cant=0;
+            Object[] cantidades = new Object[dtm.getRowCount()];
+            Object[] precios = new Object[dtm.getRowCount()];
+            for(int i=0; i < dtm.getRowCount(); i++){
+                cantidades[i] = dtm.getValueAt(i, 2);
+                cant += Integer.parseInt(cantidades[i].toString());
+                precios[i] = dtm.getValueAt(i, 3);
+                total += Float.valueOf(precios[i].toString()) * Integer.parseInt(cantidades[i].toString());
+            }
+            ventasInicial.LblTotalProductos.setText(Integer.toString(cant));
+            ventasInicial.LblTotal.setText(putPrices(Float.toString(total)) +" MXN");
+        }catch(NumberFormatException e){
+        }
+    }
+    
+    public void cobrar(){
+        
     }
     
     @Override
@@ -404,14 +491,5 @@ public class ControladorVentas implements ActionListener, MouseListener, TableMo
     @Override
     public void mouseExited(MouseEvent e) {
         
-    }
-
-    @Override
-    public void tableChanged(TableModelEvent e) {
-        if(e.getType() == TableModelEvent.DELETE){
-            //Que hacer cuando se borre algo.
-            int fila = e.getFirstRow();
-            DefaultTableModel d = new DefaultTableModel();
-        }
     }
 }

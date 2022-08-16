@@ -147,6 +147,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="0.00"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="BtnCobrar">
       <Properties>
@@ -182,6 +185,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="$0.00 MXN"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="LblPago">
       <Properties>
@@ -198,6 +204,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="0.00"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
