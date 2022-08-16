@@ -139,6 +139,8 @@ public class ControladorClientes implements ActionListener, MouseListener{
         }else if(ventanaClientes.btnNuevoCliente == e.getSource()){
             //Nuevo CLiente
             setComboBox();
+            model.agregarCliente(ventanaClientes.txtNombre.getText(), ventanaClientes.txtApellidos.getText(), ventanaClientes.txtTelefono.getText(), ventanaClientes.cbColonia.getSelectedItem(), ventanaClientes.cbMunicipio.getSelectedItem(), ventanaClientes.txtCP.getText(), ventanaClientes.cbTipoTel.getSelectedItem(), ventanaClientes.txtCorreo.getText(), ventanaClientes.cbEstado.getSelectedItem());
+            
         }else if(ventanaClientes.btnEliminarCliente == e.getSource()){
             //Eliminar cliente
             int x = JOptionPane.showConfirmDialog(null, "Esta seguro que quiere eliminar el producto seleccionado?", "Eliminacion de Producto", 0);

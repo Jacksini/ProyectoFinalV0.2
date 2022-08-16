@@ -727,4 +727,16 @@ public class Modelo {
             return false;
         }
     }
+    
+    public boolean agregarCliente(String nomCli, String Apellido, String Telefono, int Colonia, int municipio, String Codigo, int tipo, String Correo, int estado){
+        try {
+            Statement s = con.createStatement();
+            String query = "call InsertarCliente(\"" + nomCli + "\",\"" + Apellido + "\",\"" + Telefono + "\"," + Colonia + "," + municipio + ",\"" + Codigo + "\"," + tipo + ",\"" + Correo + "\"," + estado + ");";
+            s.executeUpdate(query);
+            return true;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
+    }
 }
