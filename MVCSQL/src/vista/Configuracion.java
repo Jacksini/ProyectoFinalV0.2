@@ -29,9 +29,6 @@ public class Configuracion extends javax.swing.JFrame {
 
         lblConfiguracion = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        lblGeneral = new javax.swing.JLabel();
-        btnOpciones = new javax.swing.JButton();
-        btnCajeros = new javax.swing.JButton();
         lblGeneral1 = new javax.swing.JLabel();
         btnImpuestos = new javax.swing.JButton();
         btnTicket = new javax.swing.JButton();
@@ -50,15 +47,6 @@ public class Configuracion extends javax.swing.JFrame {
 
         lblConfiguracion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblConfiguracion.setText("Configuración");
-
-        lblGeneral.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblGeneral.setText("General");
-
-        btnOpciones.setText("Opciones");
-        btnOpciones.setToolTipText("");
-
-        btnCajeros.setText("Cajeros");
-        btnCajeros.setToolTipText("");
 
         lblGeneral1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblGeneral1.setText("Personalización");
@@ -104,11 +92,6 @@ public class Configuracion extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblConfiguracion)
-                    .addComponent(lblGeneral)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnOpciones)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCajeros))
                     .addComponent(lblGeneral1)
                     .addComponent(btnConfHome)
                     .addGroup(layout.createSequentialGroup()
@@ -129,19 +112,13 @@ public class Configuracion extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(lblGeneral)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnOpciones)
-                    .addComponent(btnCajeros))
-                .addGap(18, 18, 18)
                 .addComponent(lblGeneral1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnTicket)
                     .addComponent(btnImpuestos)
                     .addComponent(btnMoneda))
-                .addGap(0, 435, Short.MAX_VALUE))
+                .addGap(0, 512, Short.MAX_VALUE))
         );
 
         pack();
@@ -149,16 +126,13 @@ public class Configuracion extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnCajeros;
     public javax.swing.JButton btnConfHome;
     public javax.swing.JButton btnImpuestos;
     public javax.swing.JButton btnMoneda;
-    public javax.swing.JButton btnOpciones;
     public javax.swing.JButton btnTicket;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblConfiguracion;
-    private javax.swing.JLabel lblGeneral;
     private javax.swing.JLabel lblGeneral1;
     public javax.swing.JMenu menuClientes;
     public javax.swing.JMenu menuConfiguracion;

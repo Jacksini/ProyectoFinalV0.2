@@ -351,8 +351,8 @@ public class VentanaVentas extends javax.swing.JFrame {
     public javax.swing.JButton BtnVerificador;
     private javax.swing.JLabel LblCodigoProducto;
     private javax.swing.JLabel LblFechaYHora;
-    private javax.swing.JLabel LblTotal;
-    private javax.swing.JLabel LblTotalProductos;
+    public javax.swing.JLabel LblTotal;
+    public javax.swing.JLabel LblTotalProductos;
     private javax.swing.JLabel LblUsuario;
     private javax.swing.JLabel LblVentaActual;
     public javax.swing.JTextField TFCodigoProducto;

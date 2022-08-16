@@ -32,7 +32,6 @@ public class EliminarProducto extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         btnNuevo = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnDepartamentos = new javax.swing.JButton();
         btnCatalogo = new javax.swing.JButton();
@@ -63,8 +62,6 @@ public class EliminarProducto extends javax.swing.JFrame {
         btnNuevo.setText("Nuevo");
 
         btnAgregar.setText("Agregar");
-
-        btnModificar.setText("Modificar");
 
         btnEliminar.setText("Eliminar");
 
@@ -149,14 +146,12 @@ public class EliminarProducto extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1001, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(etiquetaEliminarProducto)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnNuevo)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnAgregar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnModificar)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnEliminar)
                                 .addGap(18, 18, 18)
@@ -167,7 +162,7 @@ public class EliminarProducto extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(etiquetaCodigoProducto)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtCodigoProducto)
+                                .addComponent(txtCodigoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(BtnBuscar)
                                 .addGap(90, 90, 90)))
@@ -191,7 +186,6 @@ public class EliminarProducto extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevo)
                     .addComponent(btnAgregar)
-                    .addComponent(btnModificar)
                     .addComponent(btnEliminar)
                     .addComponent(btnDepartamentos)
                     .addComponent(btnCatalogo))
@@ -270,7 +264,6 @@ public class EliminarProducto extends javax.swing.JFrame {
     public javax.swing.JButton btnDepartamentos;
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnEliminarProducto;
-    public javax.swing.JButton btnModificar;
     public javax.swing.JButton btnNuevo;
     private javax.swing.JLabel etiquetaAtiende;
     private javax.swing.JLabel etiquetaCodigoProducto;

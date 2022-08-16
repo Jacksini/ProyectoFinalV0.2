@@ -81,7 +81,7 @@ public class ControladorDepartamentos implements ActionListener, MouseListener{
         //Botones para abrir ventanas emergentes
         this.Depart.btnNuevo.addMouseListener(this);
         this.Depart.btnAgregar.addMouseListener(this);
-        this.Depart.btnModificar.addMouseListener(this);
+//        this.Depart.btnModificar.addMouseListener(this);
         this.Depart.btnEliminar.addMouseListener(this);
         this.Depart.btnDepartamentos.addMouseListener(this);
         this.Depart.btnCatalogo.addMouseListener(this);
@@ -219,9 +219,6 @@ public class ControladorDepartamentos implements ActionListener, MouseListener{
         }else if(Depart.btnAgregar == e.getSource()){
             Depart.setVisible(false);
             ventanaAgregarProducto();
-        }else if(Depart.btnModificar == e.getSource()){
-            Depart.setVisible(false);
-            ventanaModificarProducto();
         }else if(Depart.btnEliminar == e.getSource()){
             Depart.setVisible(false);
             ventanaEliminarProducto();

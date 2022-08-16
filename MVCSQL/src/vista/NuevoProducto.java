@@ -32,7 +32,6 @@ public class NuevoProducto extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         btnNuevo = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnDepartamentos = new javax.swing.JButton();
         btnCatalogo = new javax.swing.JButton();
@@ -91,17 +90,14 @@ public class NuevoProducto extends javax.swing.JFrame {
         btnAgregar.setText("Agregar");
         getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 41, -1, -1));
 
-        btnModificar.setText("Modificar");
-        getContentPane().add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 41, -1, -1));
-
         btnEliminar.setText("Eliminar");
-        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 41, -1, -1));
+        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
 
         btnDepartamentos.setText("Departamentos");
-        getContentPane().add(btnDepartamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 41, -1, -1));
+        getContentPane().add(btnDepartamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, -1));
 
         btnCatalogo.setText("Catalogo");
-        getContentPane().add(btnCatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(505, 41, -1, -1));
+        getContentPane().add(btnCatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, -1, -1));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 75, 665, 10));
 
         etiquetaProductos1.setBackground(new java.awt.Color(255, 153, 51));
@@ -365,7 +361,6 @@ public class NuevoProducto extends javax.swing.JFrame {
     public javax.swing.JButton btnDepartamentos;
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnGuardar;
-    public javax.swing.JButton btnModificar;
     public javax.swing.JButton btnNuevo;
     public javax.swing.JCheckBox cbKilo;
     public javax.swing.JCheckBox cbPerecedero;
