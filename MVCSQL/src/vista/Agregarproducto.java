@@ -32,7 +32,6 @@ public class Agregarproducto extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         btnNuevo = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnDepartamentos = new javax.swing.JButton();
         btnCatalogo = new javax.swing.JButton();
@@ -65,8 +64,6 @@ public class Agregarproducto extends javax.swing.JFrame {
         btnNuevo.setText("Nuevo");
 
         btnAgregar.setText("Agregar");
-
-        btnModificar.setText("Modificar");
 
         btnEliminar.setText("Eliminar");
 
@@ -162,18 +159,8 @@ public class Agregarproducto extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(etiquetaAgregarProducto)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnNuevo)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnAgregar)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnModificar)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnEliminar)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnDepartamentos))
                                     .addComponent(etiquetaProductos1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(0, 298, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(etiquetaCodigoProducto)
                                 .addGap(18, 18, 18)
@@ -182,11 +169,22 @@ public class Agregarproducto extends javax.swing.JFrame {
                                         .addComponent(etiquetaAgregar)
                                         .addGap(18, 18, 18)
                                         .addComponent(txtAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(txtCodigoProducto)))
+                                    .addComponent(txtCodigoProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(btnBuscar)
-                                .addGap(146, 146, 146))))
+                                .addGap(146, 146, 146))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnNuevo)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAgregar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnEliminar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnDepartamentos)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnCatalogo)
+                                .addGap(3, 3, 3))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAgregarInventario)
@@ -197,14 +195,9 @@ public class Agregarproducto extends javax.swing.JFrame {
                         .addComponent(etiquetaAtiende)
                         .addGap(52, 52, 52))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(btnCatalogo))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(32, 32, 32)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(12, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,7 +211,6 @@ public class Agregarproducto extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevo)
                     .addComponent(btnAgregar)
-                    .addComponent(btnModificar)
                     .addComponent(btnEliminar)
                     .addComponent(btnDepartamentos)
                     .addComponent(btnCatalogo))
@@ -309,7 +301,6 @@ public class Agregarproducto extends javax.swing.JFrame {
     public javax.swing.JButton btnCatalogo;
     public javax.swing.JButton btnDepartamentos;
     public javax.swing.JButton btnEliminar;
-    public javax.swing.JButton btnModificar;
     public javax.swing.JButton btnNuevo;
     private javax.swing.JLabel etiquetaAgregar;
     private javax.swing.JLabel etiquetaAgregarProducto;

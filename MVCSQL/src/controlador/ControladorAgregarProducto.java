@@ -79,7 +79,6 @@ public class ControladorAgregarProducto implements ActionListener, MouseListener
         //Botones para abrir ventanas emergentes
         this.Agregarproduct.btnNuevo.addMouseListener(this);
         this.Agregarproduct.btnAgregar.addMouseListener(this);
-        this.Agregarproduct.btnModificar.addMouseListener(this);
         this.Agregarproduct.btnEliminar.addMouseListener(this);
         this.Agregarproduct.btnDepartamentos.addMouseListener(this);
         this.Agregarproduct.btnCatalogo.addMouseListener(this);
@@ -214,9 +213,6 @@ public class ControladorAgregarProducto implements ActionListener, MouseListener
         }else if(Agregarproduct.btnAgregar == e.getSource()){
             Agregarproduct.setVisible(false);
             ventanaAgregarProducto();
-        }else if(Agregarproduct.btnModificar == e.getSource()){
-            Agregarproduct.setVisible(false);
-            ventanaModificarProducto();
         }else if(Agregarproduct.btnEliminar == e.getSource()){
             Agregarproduct.setVisible(false);
             ventanaEliminarProducto();

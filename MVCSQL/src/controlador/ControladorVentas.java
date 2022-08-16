@@ -90,8 +90,6 @@ public class ControladorVentas implements ActionListener, MouseListener{
         this.ventasInicial.BtnMenuConfiguracion.addMouseListener(this);
         
         //Botones para abirir ventanas emergentes
-        this.ventasInicial.BtnEntradas.addMouseListener(this);
-        this.ventasInicial.BtnSalidas.addMouseListener(this);
         this.ventasInicial.BtnBuscar.addMouseListener(this);
         this.ventasInicial.BtnVerificador.addMouseListener(this);
         this.ventasInicial.BtnCobrar.addMouseListener(this);
@@ -266,10 +264,6 @@ public class ControladorVentas implements ActionListener, MouseListener{
         }else if(ventasInicial.BtnMenuConfiguracion == e.getSource()){
             ventasInicial.setVisible(false);
             ventanaConfiguracion();
-        }else if(ventasInicial.BtnEntradas == e.getSource()){
-            ventanaEntradas();
-        }else if(ventasInicial.BtnSalidas == e.getSource()){
-            ventanaSalidas();
         }else if(ventasInicial.BtnBuscar == e.getSource()){
             ventanaBuscador();
         }else if(ventasInicial.BtnVerificador == e.getSource()){

@@ -81,7 +81,7 @@ public class ControladorInventario implements ActionListener, MouseListener{
         //Botones para abrir ventanas emergentes
         this.Inv.btnNuevo.addMouseListener(this);
         this.Inv.btnAgregar.addMouseListener(this);
-        this.Inv.btnModificar.addMouseListener(this);
+//        this.Inv.btnModificar.addMouseListener(this);
         this.Inv.btnEliminar.addMouseListener(this);
         this.Inv.btnDepartamentos.addMouseListener(this);
         this.Inv.btnCatalogo.addMouseListener(this);
@@ -89,7 +89,6 @@ public class ControladorInventario implements ActionListener, MouseListener{
         //Botones con funciones
         this.Inv.btnBuscarCodigo.addMouseListener(this);
         this.Inv.btnBuscarDepartamento.addMouseListener(this);
-        this.Inv.btnBuscarMinimo.addMouseListener(this);
     }
     
     //Ventanas Inventario
@@ -207,10 +206,6 @@ public class ControladorInventario implements ActionListener, MouseListener{
         }else if(Inv.btnAgregar == e.getSource()){
             Inv.setVisible(false);
             ventanaAgregarProducto();
-        }else if(Inv.btnModificar == e.getSource()){
-            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
-//            Inv.setVisible(false);
-//            ventanaModificarProducto();
         }else if(Inv.btnEliminar == e.getSource()){
             Inv.setVisible(false);
             ventanaEliminarProducto();
@@ -244,14 +239,6 @@ public class ControladorInventario implements ActionListener, MouseListener{
                 }
             }catch(Exception ex){
                 JOptionPane.showMessageDialog(null, "Hubo un error inesperado: "+ex.getMessage());
-            }
-        }else if(Inv.btnBuscarMinimo == e.getSource()){
-            //Boton buscar minimo
-            if(model.catalogoMinimo().getRowCount() == model.defaultTablaCatalogo().getRowCount()){
-                JOptionPane.showMessageDialog(null, "No se encontro");
-                Inv.tblCatalogo.setModel(model.defaultTablaCatalogo());
-            }else{
-                Inv.tblCatalogo.setModel(model.catalogoMinimo());
             }
         }
     }

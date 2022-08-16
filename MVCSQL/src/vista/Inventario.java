@@ -42,7 +42,6 @@ public class Inventario extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         btnNuevo = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnDepartamentos = new javax.swing.JButton();
         btnCatalogo = new javax.swing.JButton();
@@ -57,8 +56,6 @@ public class Inventario extends javax.swing.JFrame {
         btnBuscarDepartamento = new javax.swing.JButton();
         lbDepartamento = new javax.swing.JLabel();
         btnBuscarCodigo = new javax.swing.JButton();
-        btnBuscarMinimo = new javax.swing.JButton();
-        lbMinimo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         BtnMenuVentas = new javax.swing.JMenu();
         BtnMenuClientes = new javax.swing.JMenu();
@@ -75,7 +72,7 @@ public class Inventario extends javax.swing.JFrame {
         etiquetaCatalogo.setForeground(new java.awt.Color(255, 153, 51));
         etiquetaCatalogo.setText("Catalogo");
         getContentPane().add(etiquetaCatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 89, 91, 24));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 844, 10));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, 30, 844, 10));
 
         btnNuevo.setText("Nuevo");
         getContentPane().add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 41, -1, -1));
@@ -83,17 +80,14 @@ public class Inventario extends javax.swing.JFrame {
         btnAgregar.setText("Agregar");
         getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 41, -1, -1));
 
-        btnModificar.setText("Modificar");
-        getContentPane().add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 41, -1, -1));
-
         btnEliminar.setText("Eliminar");
-        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(273, 41, -1, -1));
+        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
 
         btnDepartamentos.setText("Departamentos");
-        getContentPane().add(btnDepartamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 41, -1, -1));
+        getContentPane().add(btnDepartamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, -1));
 
         btnCatalogo.setText("Catalogo");
-        getContentPane().add(btnCatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(485, 41, -1, -1));
+        getContentPane().add(btnCatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, -1, -1));
 
         lbCodigoProducto.setText("Codigo producto:");
         getContentPane().add(lbCodigoProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
@@ -147,17 +141,6 @@ public class Inventario extends javax.swing.JFrame {
         });
         getContentPane().add(btnBuscarCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, -1, -1));
 
-        btnBuscarMinimo.setText("Buscar");
-        btnBuscarMinimo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarMinimoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBuscarMinimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 130, -1, -1));
-
-        lbMinimo.setText("Debajo del minimo");
-        getContentPane().add(lbMinimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 110, -1, -1));
-
         BtnMenuVentas.setText("Ventas");
         jMenuBar1.add(BtnMenuVentas);
 
@@ -188,10 +171,6 @@ public class Inventario extends javax.swing.JFrame {
     private void btnBuscarCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarCodigoActionPerformed
-
-    private void btnBuscarMinimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarMinimoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarMinimoActionPerformed
         /**
      * @param args the command line arguments
      */
@@ -236,11 +215,9 @@ public class Inventario extends javax.swing.JFrame {
     public javax.swing.JButton btnAgregar;
     public javax.swing.JButton btnBuscarCodigo;
     public javax.swing.JButton btnBuscarDepartamento;
-    public javax.swing.JButton btnBuscarMinimo;
     public javax.swing.JButton btnCatalogo;
     public javax.swing.JButton btnDepartamentos;
     public javax.swing.JButton btnEliminar;
-    public javax.swing.JButton btnModificar;
     public javax.swing.JButton btnNuevo;
     private javax.swing.JLabel etiquetaAtiende;
     private javax.swing.JLabel etiquetaCatalogo;
@@ -251,7 +228,6 @@ public class Inventario extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lbCodigoProducto;
     private javax.swing.JLabel lbDepartamento;
-    private javax.swing.JLabel lbMinimo;
     public javax.swing.JTable tblCatalogo;
     public javax.swing.JTextField txtCodigoProducto;
     public javax.swing.JTextField txtDepartamento;

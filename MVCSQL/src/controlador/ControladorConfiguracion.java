@@ -70,8 +70,6 @@ public class ControladorConfiguracion implements ActionListener, MouseListener{
         this.impuestos = impuestos;
         this.simbolos = simbolos;
         
-        this.vista.btnOpciones.addActionListener(this);
-        this.vista.btnCajeros.addActionListener(this);
         this.vista.btnImpuestos.addActionListener(this);
         this.vista.btnTicket.addActionListener(this);
         this.vista.btnMoneda.addActionListener(this);
@@ -220,13 +218,7 @@ public class ControladorConfiguracion implements ActionListener, MouseListener{
     //Opciones de Configuracion que dirijen a otras ventanas
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(vista.btnCajeros == e.getSource()){
-            //No se implementara en esta version
-            JOptionPane.showMessageDialog(null, "Esta funcion no esta implementada en esta version.");
-        }else if(vista.btnOpciones == e.getSource()){
-            //No se implementara en esta version
-            JOptionPane.showMessageDialog(null, "Esta funcion no esta implementada en esta version.");
-        }else if(vista.btnImpuestos == e.getSource()){
+        if(vista.btnImpuestos == e.getSource()){
             //Ventana Impuestos
             this.vista.dispose();
             iniciarImpuestos();

@@ -79,7 +79,6 @@ public class ControladorNuevoProducto implements ActionListener, MouseListener{
         //Botones para abrir ventanas emergentes
         this.NewProdu.btnNuevo.addMouseListener(this);
         this.NewProdu.btnAgregar.addMouseListener(this);
-        this.NewProdu.btnModificar.addMouseListener(this);
         this.NewProdu.btnEliminar.addMouseListener(this);
         this.NewProdu.btnDepartamentos.addMouseListener(this);
         this.NewProdu.btnCatalogo.addMouseListener(this);
@@ -232,10 +231,6 @@ public class ControladorNuevoProducto implements ActionListener, MouseListener{
         }else if(NewProdu.btnAgregar == e.getSource()){
             NewProdu.setVisible(false);
             ventanaAgregarProducto();
-        }else if(NewProdu.btnModificar == e.getSource()){
-            JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
-//            NewProdu.setVisible(false);
-//            ventanaModificarProducto();
         }else if(NewProdu.btnEliminar == e.getSource()){
             NewProdu.setVisible(false);
             ventanaEliminarProducto();

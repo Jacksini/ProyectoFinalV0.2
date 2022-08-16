@@ -79,7 +79,7 @@ public class ControladorEliminarProducto implements ActionListener, MouseListene
         //Botones para abrir ventanas emergentes
         this.ElimProdu.btnNuevo.addMouseListener(this);
         this.ElimProdu.btnAgregar.addMouseListener(this);
-        this.ElimProdu.btnModificar.addMouseListener(this);
+//        this.ElimProdu.btnModificar.addMouseListener(this);
         this.ElimProdu.btnEliminar.addMouseListener(this);
         this.ElimProdu.btnDepartamentos.addMouseListener(this);
         this.ElimProdu.btnCatalogo.addMouseListener(this);
@@ -215,11 +215,11 @@ public class ControladorEliminarProducto implements ActionListener, MouseListene
         }else if(ElimProdu.btnAgregar == e.getSource()){
             ElimProdu.setVisible(false);
             ventanaAgregarProducto();
-        }else if(ElimProdu.btnModificar == e.getSource()){
+        }/*else if(ElimProdu.btnModificar == e.getSource()){
             JOptionPane.showMessageDialog(null, "No se ha implementado esta funcion en la version actual del programa", "No implementado", 1);
 //            ElimProdu.setVisible(false);
 //            ventanaModificarProducto();
-        }else if(ElimProdu.btnEliminar == e.getSource()){
+        }*/else if(ElimProdu.btnEliminar == e.getSource()){
             ElimProdu.setVisible(false);
             ventanaEliminarProducto();
         }else if(ElimProdu.btnDepartamentos == e.getSource()){
