@@ -1,7 +1,12 @@
-/*
-Descripción: Clase controlador para configuracion
-Fecha: 12-agosto-2022
-Nombre: David Enrique Garcia Olvera
+/* 
+* Descripcion: Controldores encargados de manejar los botones de las ventanas
+* Fecha:12/08/2022
+* Nombres: 
+    Quiroz Vega Kevin Alexis
+    Arellano Sandoval Luis Jackniel
+    García Olvera David Enrique
+    Rocha Lopez Jose Luis
+    Aguirre Ventura Hiory Antonio
  */
 package controlador;
 

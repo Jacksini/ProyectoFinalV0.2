@@ -1,3 +1,13 @@
+/* 
+* Descripcion: Controldores encargados de manejar los botones de las ventanas
+* Fecha:12/08/2022
+* Nombres: 
+    Quiroz Vega Kevin Alexis
+    Arellano Sandoval Luis Jackniel
+    García Olvera David Enrique
+    Rocha Lopez Jose Luis
+    Aguirre Ventura Hiory Antonio
+ */
 package controlador;
 
 //Librerias Java
@@ -6,11 +16,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.Arrays;
+//import java.util.Arrays;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
+//import javax.swing.event.TableModelEvent;
+//import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 
 //Packages Locales

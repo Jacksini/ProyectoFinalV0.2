@@ -1,3 +1,13 @@
+/* 
+* Descripcion: Clase encargada de consultas y conexiones a MySQL
+* Fecha:12/08/2022
+* Nombres: 
+    Quiroz Vega Kevin Alexis
+    Arellano Sandoval Luis Jackniel
+    García Olvera David Enrique
+    Rocha Lopez Jose Luis
+    Aguirre Ventura Hiory Antonio
+ */
 package modelo;
 
 import java.sql.Connection;

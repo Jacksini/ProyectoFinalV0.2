@@ -1,3 +1,13 @@
+/* 
+* Descripcion: Clase encargada de consultas y conexiones a MySQL
+* Fecha:12/08/2022
+* Nombres: 
+    Quiroz Vega Kevin Alexis
+    Arellano Sandoval Luis Jackniel
+    García Olvera David Enrique
+    Rocha Lopez Jose Luis
+    Aguirre Ventura Hiory Antonio
+ */
 package modelo;
 
 import java.sql.Connection;
@@ -10,13 +20,13 @@ import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 /////////////////////////////////////////////////
-import vista.proveedores;
+//import vista.proveedores;
 import vista.nuevoproveedor;
-import controlador.ControladorProveedor;
+//import controlador.ControladorProveedor;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import modelo.Modelo;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
+//import modelo.Modelo;
 
 public class Modelo {
     nuevoproveedor nuev = new nuevoproveedor();

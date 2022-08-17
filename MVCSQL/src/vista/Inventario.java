@@ -6,22 +6,12 @@
  */
 package vista;
 
-import com.mysql.jdbc.Driver;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Tanya
  */
 public class Inventario extends javax.swing.JFrame {
-
-    Connection con;
     /**
      * Creates new form Inventario
      */

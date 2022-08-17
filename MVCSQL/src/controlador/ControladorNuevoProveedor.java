@@ -1,3 +1,13 @@
+/* 
+* Descripcion: Controldores encargados de manejar los botones de las ventanas
+* Fecha:12/08/2022
+* Nombres: 
+    Quiroz Vega Kevin Alexis
+    Arellano Sandoval Luis Jackniel
+    García Olvera David Enrique
+    Rocha Lopez Jose Luis
+    Aguirre Ventura Hiory Antonio
+ */
 package controlador;
 
 import java.awt.event.ActionEvent;
@@ -8,7 +18,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 import modelo.Modelo;
 import vista.Clientes;
 import vista.Configuracion;
