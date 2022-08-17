@@ -143,7 +143,7 @@ public class ControladorVentas implements ActionListener, MouseListener{
         ventasInicial.pack(); //Abre la ventana al tamaño preferido de los componentes
         ventasInicial.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         ventasInicial.setLocationRelativeTo(null);
-        ventasInicial.setVisible(true); 
+        ventasInicial.setVisible(true);
     }
     
     public void ventanaClientes(){

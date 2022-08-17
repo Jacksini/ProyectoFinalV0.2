@@ -54,12 +54,13 @@ public class Clientes extends javax.swing.JFrame {
         txtApellidos = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
         txtCorreo = new javax.swing.JTextField();
-        cbMunicipio = new javax.swing.JComboBox();
-        cbEstado = new javax.swing.JComboBox();
         txtCP = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        cbTipoTel = new javax.swing.JComboBox();
-        cbColonia = new javax.swing.JComboBox();
+        btnActualizar = new javax.swing.JButton();
+        cbEstado = new javax.swing.JComboBox<>();
+        cbColonia = new javax.swing.JComboBox<>();
+        cbMunicipio = new javax.swing.JComboBox<>();
+        cbTipoTel = new javax.swing.JComboBox<>();
         btnBuscar = new javax.swing.JButton();
         MenuBar = new javax.swing.JMenuBar();
         BtnMenuVentas = new javax.swing.JMenu();
@@ -149,6 +150,18 @@ public class Clientes extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel15.setText("Nuevo Cliente");
 
+        btnActualizar.setBackground(new java.awt.Color(102, 102, 255));
+        btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        btnActualizar.setText("Actualizar Campos");
+
+        cbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        cbColonia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        cbMunicipio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        cbTipoTel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -169,35 +182,39 @@ public class Clientes extends javax.swing.JFrame {
                             .add(txtCorreo)
                             .add(txtTelefono)
                             .add(txtApellidos)
-                            .add(txtNombre))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(cbTipoTel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(txtNombre)))
                     .add(jLabel15))
-                .add(0, 124, Short.MAX_VALUE))
+                .add(0, 218, Short.MAX_VALUE))
             .add(jPanel1Layout.createSequentialGroup()
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jSeparator3)
                     .add(jPanel1Layout.createSequentialGroup()
-                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jPanel1Layout.createSequentialGroup()
-                                .add(34, 34, 34)
-                                .add(btnNuevoCliente)
-                                .add(18, 18, 18)
-                                .add(btnEliminarCliente))
-                            .add(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                                    .add(jLabel13)
-                                    .add(jLabel14)
-                                    .add(jLabel16))
-                                .add(18, 18, 18)
-                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                                    .add(cbMunicipio, 0, 100, Short.MAX_VALUE)
-                                    .add(cbColonia, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .add(33, 33, 33)
-                                .add(cbEstado, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                        .add(0, 223, Short.MAX_VALUE)))
+                        .add(34, 34, 34)
+                        .add(btnNuevoCliente)
+                        .add(18, 18, 18)
+                        .add(btnEliminarCliente)
+                        .add(18, 18, 18)
+                        .add(btnActualizar)
+                        .add(0, 148, Short.MAX_VALUE)))
                 .addContainerGap())
+            .add(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                    .add(jLabel13)
+                    .add(jLabel14)
+                    .add(jLabel16))
+                .add(18, 18, 18)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                    .add(cbColonia, 0, 100, Short.MAX_VALUE)
+                    .add(cbMunicipio, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .add(18, 18, 18)
+                .add(cbEstado, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(369, Short.MAX_VALUE)
+                    .add(cbTipoTel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(130, 130, 130)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -205,7 +222,8 @@ public class Clientes extends javax.swing.JFrame {
                 .addContainerGap()
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(btnNuevoCliente)
-                    .add(btnEliminarCliente))
+                    .add(btnEliminarCliente)
+                    .add(btnActualizar))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jSeparator3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -220,9 +238,7 @@ public class Clientes extends javax.swing.JFrame {
                     .add(txtApellidos, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                        .add(txtTelefono, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(cbTipoTel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(txtTelefono, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jLabel9))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
@@ -242,6 +258,11 @@ public class Clientes extends javax.swing.JFrame {
                     .add(txtCP, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jLabel16))
                 .addContainerGap(111, Short.MAX_VALUE))
+            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(jPanel1Layout.createSequentialGroup()
+                    .add(151, 151, 151)
+                    .add(cbTipoTel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(246, Short.MAX_VALUE)))
         );
 
         btnBuscar.setBackground(new java.awt.Color(102, 102, 255));
@@ -388,13 +409,14 @@ public class Clientes extends javax.swing.JFrame {
     public javax.swing.JMenu BtnMenuProveedores;
     public javax.swing.JMenu BtnMenuVentas;
     public javax.swing.JMenuBar MenuBar;
+    public javax.swing.JButton btnActualizar;
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnEliminarCliente;
     public javax.swing.JButton btnNuevoCliente;
-    public javax.swing.JComboBox cbColonia;
-    public javax.swing.JComboBox cbEstado;
-    public javax.swing.JComboBox cbMunicipio;
-    public javax.swing.JComboBox cbTipoTel;
+    public javax.swing.JComboBox<String> cbColonia;
+    public javax.swing.JComboBox<String> cbEstado;
+    public javax.swing.JComboBox<String> cbMunicipio;
+    public javax.swing.JComboBox<String> cbTipoTel;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

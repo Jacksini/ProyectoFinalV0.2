@@ -63,11 +63,7 @@ public class ControladorClientes implements ActionListener, MouseListener{
         this.ventanaClientes.btnNuevoCliente.addMouseListener(this);
         this.ventanaClientes.btnEliminarCliente.addMouseListener(this);
         this.ventanaClientes.btnBuscar.addMouseListener(this);
-        
-        this.ventanaClientes.cbColonia.addMouseListener(this);
-        this.ventanaClientes.cbTipoTel.addMouseListener(this);
-        this.ventanaClientes.cbMunicipio.addMouseListener(this);
-        this.ventanaClientes.cbEstado.addMouseListener(this);
+        this.ventanaClientes.btnActualizar.addMouseListener(this);
     }
     
     //Ventanas Clientes
@@ -141,7 +137,7 @@ public class ControladorClientes implements ActionListener, MouseListener{
         }else if(ventanaClientes.BtnMenuConfiguracion == e.getSource()){
             ventanaClientes.setVisible(false);
             ventanaConfiguracion();
-        }else if(ventanaClientes.cbColonia == e.getSource() || ventanaClientes.cbMunicipio == e.getSource() || ventanaClientes.cbTipoTel == e.getSource() || ventanaClientes.cbEstado == e.getSource()){
+        }else if(ventanaClientes.btnActualizar == e.getSource()){
             setComboBox();
         }else if(ventanaClientes.btnNuevoCliente == e.getSource()){
             //Nuevo CLiente

@@ -104,7 +104,7 @@ public class ControladorAgregarProducto implements ActionListener, MouseListener
         ventanaClientes.pack(); //Abre la ventana al tamaño preferido de los componentes
         ventanaClientes.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         ventanaClientes.setLocationRelativeTo(null);
-        ventanaClientes.setVisible(true); 
+        ventanaClientes.setVisible(true);
     }
     
     public void ventanaProveedores(){
