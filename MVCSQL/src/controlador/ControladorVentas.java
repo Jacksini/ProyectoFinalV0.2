@@ -242,7 +242,6 @@ public class ControladorVentas implements ActionListener, MouseListener{
     public void actionPerformed(ActionEvent e){
         model.setUsuario(vistaInicioSesion.txtUsuario.getText());
         model.setContraseña(String.valueOf(vistaInicioSesion.passUsuario.getPassword()));
-        model.conectar();
         if(model.conectar() == true){
             vistaInicioSesion.setVisible(false); 
             ventanaVentas();

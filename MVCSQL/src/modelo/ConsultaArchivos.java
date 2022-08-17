@@ -133,13 +133,13 @@ public class ConsultaArchivos{
     // <editor-fold defaultstate="collapsed" desc="Escritura de Archivos"> 
     public String searchFolder (String folder){
         //Se crea la carpeta
-        String location =  "";//C:\\Users\\David García\\Desktop\\temp\\"; Mantener a location vacia causara que se crea la carpeta en la carpeta del proyecto.
+        String location =  "";
         //Si la localizacion del folder desea ser cambiada, introduzca la ruta de acceso en location.
         folder = location + folder;
         File f = new File(folder);
         // check if the directory can be created
         // using the specified path name
-        if (f.mkdir() /*mkdir() retorna true si no existe la carpeta, Creo. Falso si ya existe*/) {
+        if (f.mkdir() /*mkdir() retorna true si no existe la carpeta. Falso si ya existe*/) {
             //System.out.println("Directory has been created successfully");
         }
         else {
@@ -167,7 +167,8 @@ public class ConsultaArchivos{
         try{
             BufferedReader reader = new BufferedReader(new FileReader(searchFolder(folder)+"\\"+file));
             String line;
-            //Este while leera la primera linea, despues de cada iteracion se mueve a otra linea. Despues de la ultima linea, el readLine arroja null
+            //Este while leera la primera linea, despues de cada iteracion se mueve a otra linea
+            //Despues de la ultima linea, el readLine arroja null
             while(( line = reader.readLine() ) != null){
                 datos.add(line);
             }
@@ -251,7 +252,6 @@ public class ConsultaArchivos{
     }String[] nombre = new String[0];
     
     public String exampleTicket(){
-        //Honestamente, ni yo se porque hice esto. Pero lo hice :p
         String ticket;
         //System.out.println(nombreTienda);
         ticket = nombreTienda+"\n"
@@ -448,8 +448,6 @@ public class ConsultaArchivos{
             DefaultTableModel modeloTabla = defaultImpuestos();
             for (String[] impuesto : impuestos) {
                 modeloTabla.addRow(impuesto);
-                //System.out.println("??? " + impuesto[0]);
-                //System.out.println("??? " + impuesto[1]);
             }
             return modeloTabla;
         }catch(NullPointerException e){

@@ -516,13 +516,13 @@ public class Modelo {
     public String[] consultaColonia(){
         try {
             Statement s = con.createStatement();
-            String query = "select NombreColonia from colonia";
+            String query = "select idColonia from colonia";
             System.out.println(query);
             ResultSet rs = s.executeQuery(query);
             ArrayList<String> List = new ArrayList<String>();
             int i=0;
             while(rs.next()){
-                List.add(rs.getString("NombreColonia"));
+                List.add(rs.getString("idColonia"));
             }
             String[] consulta = new String[List.size()];
             for(int x = 0; x < List.size(); x++){
@@ -539,13 +539,13 @@ public class Modelo {
     public String[] consultaTipoTelefono(){
         try {
             Statement s = con.createStatement();
-            String query = "select tipo from tipotelefono";
+            String query = "select idTipoTelefono from tipotelefono";
             System.out.println(query);
             ResultSet rs = s.executeQuery(query);
             ArrayList<String> List = new ArrayList<String>();
             int i=0;
             while(rs.next()){
-                List.add(rs.getString("tipo"));
+                List.add(rs.getString("idTipoTelefono"));
             }
             String[] consulta = new String[List.size()];
             for(int x = 0; x < List.size(); x++){
@@ -562,13 +562,13 @@ public class Modelo {
     public String[] consultaMunicipio(){
         try {
             Statement s = con.createStatement();
-            String query = "select NombreMunicipio from municipio";
+            String query = "select idMunicipio from municipio";
             System.out.println(query);
             ResultSet rs = s.executeQuery(query);
             ArrayList<String> List = new ArrayList<String>();
             int i=0;
             while(rs.next()){
-                List.add(rs.getString("NombreMunicipio"));
+                List.add(rs.getString("idMunicipio"));
             }
             String[] consulta = new String[List.size()];
             for(int x = 0; x < List.size(); x++){
@@ -585,13 +585,13 @@ public class Modelo {
     public String[] consultaEstado(){
         try {
             Statement s = con.createStatement();
-            String query = "select NombreEstado from estado";
+            String query = "select idEstado from estado";
             System.out.println(query);
             ResultSet rs = s.executeQuery(query);
             ArrayList<String> List = new ArrayList<String>();
             int i=0;
             while(rs.next()){
-                List.add(rs.getString("NombreEstado"));
+                List.add(rs.getString("idEstado"));
             }
             String[] producto = new String[List.size()];
             for(int x = 0; x < List.size(); x++){

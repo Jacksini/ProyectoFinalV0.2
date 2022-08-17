@@ -63,6 +63,11 @@ public class ControladorClientes implements ActionListener, MouseListener{
         this.ventanaClientes.btnNuevoCliente.addMouseListener(this);
         this.ventanaClientes.btnEliminarCliente.addMouseListener(this);
         this.ventanaClientes.btnBuscar.addMouseListener(this);
+        
+        this.ventanaClientes.cbColonia.addMouseListener(this);
+        this.ventanaClientes.cbTipoTel.addMouseListener(this);
+        this.ventanaClientes.cbMunicipio.addMouseListener(this);
+        this.ventanaClientes.cbEstado.addMouseListener(this);
     }
     
     //Ventanas Clientes
@@ -136,10 +141,21 @@ public class ControladorClientes implements ActionListener, MouseListener{
         }else if(ventanaClientes.BtnMenuConfiguracion == e.getSource()){
             ventanaClientes.setVisible(false);
             ventanaConfiguracion();
+        }else if(ventanaClientes.cbColonia == e.getSource() || ventanaClientes.cbMunicipio == e.getSource() || ventanaClientes.cbTipoTel == e.getSource() || ventanaClientes.cbEstado == e.getSource()){
+            setComboBox();
         }else if(ventanaClientes.btnNuevoCliente == e.getSource()){
             //Nuevo CLiente
-            setComboBox();
-            model.agregarCliente(ventanaClientes.txtNombre.getText(), ventanaClientes.txtApellidos.getText(), ventanaClientes.txtTelefono.getText(), ventanaClientes.cbColonia.getSelectedItem(), ventanaClientes.cbMunicipio.getSelectedItem(), ventanaClientes.txtCP.getText(), ventanaClientes.cbTipoTel.getSelectedItem(), ventanaClientes.txtCorreo.getText(), ventanaClientes.cbEstado.getSelectedItem());
+            try{
+                setComboBox();
+                int idCol = Integer.parseInt(ventanaClientes.cbColonia.getSelectedItem().toString());
+                int idMunicipio = Integer.parseInt(ventanaClientes.cbMunicipio.getSelectedItem().toString());
+                int idTipoTel = Integer.parseInt(ventanaClientes.cbTipoTel.getSelectedItem().toString());
+                int idEst = Integer.parseInt(ventanaClientes.cbEstado.getSelectedItem().toString());
+                model.agregarCliente(ventanaClientes.txtNombre.getText(), ventanaClientes.txtApellidos.getText(), ventanaClientes.txtTelefono.getText(), 
+                        idCol, idMunicipio, ventanaClientes.txtCP.getText(), idTipoTel, ventanaClientes.txtCorreo.getText(), idEst);
+            }catch(NumberFormatException ex){
+                JOptionPane.showMessageDialog(null, "Ocurrio un error: " +ex.getMessage());
+            }
             
         }else if(ventanaClientes.btnEliminarCliente == e.getSource()){
             //Eliminar cliente
