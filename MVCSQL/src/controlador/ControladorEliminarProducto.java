@@ -249,6 +249,7 @@ public class ControladorEliminarProducto implements ActionListener, MouseListene
                             JOptionPane.showMessageDialog(null, "No se pudo eliminar");
                         }else{
                             ElimProdu.TablaElimiarProducto.setModel(model.defaultTablaEliminar());
+                            JOptionPane.showMessageDialog(null, "Se elimino correctamente");
                         }
                     }catch(NumberFormatException ex){
                         JOptionPane.showMessageDialog(null, "Verifique que el codigo sea numerico.");

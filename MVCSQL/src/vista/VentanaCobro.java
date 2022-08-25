@@ -56,11 +56,6 @@ public class VentanaCobro extends javax.swing.JFrame {
         BtnCobrar.setText("F2 Cobrar");
 
         BtnCancelar.setText("ESC Cancelar");
-        BtnCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCancelarActionPerformed(evt);
-            }
-        });
 
         LblTotalArticulos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         LblTotalArticulos.setText("Total de artículos:");
@@ -177,10 +172,6 @@ public class VentanaCobro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void BtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_BtnCancelarActionPerformed
 
     /**
      * @param args the command line arguments

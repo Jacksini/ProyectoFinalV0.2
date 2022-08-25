@@ -289,23 +289,17 @@ public class ControladorVentas implements ActionListener, MouseListener{
                 Cobro.lblTotalArticulos.setText(ventasInicial.LblTotalProductos.getText());
             }catch(Exception ex){}
         }else if(ventasInicial.btnActualizar == e.getSource()){
-            settings.updateSettings("Configuracion");
-            String consulta = "call mostrarfacturasventa();";
-            try{
-                updateTabla(model.MostrarTablas(consulta));
-//                DefaultTableModel tabla = model.MostrarTablas(consulta);
-//                ventasInicial.TablaProductos.setModel(tabla);
-            }catch(IllegalArgumentException ex){
-                JOptionPane.showMessageDialog(null, ex.getMessage());
-            }
+            actualizarTabla();
             
         }else if(ventasInicial.BtnBorrar == e.getSource()){
             try{
                 DefaultTableModel tModel = (DefaultTableModel) ventasInicial.TablaProductos.getModel();
-                int column = ventasInicial.TablaProductos.getSelectedColumn();
                 int fila = ventasInicial.TablaProductos.getSelectedRow();
-                String name = ventasInicial.TablaProductos.getValueAt(fila, column).toString();
-                if(!model.eliminarProductoFactura(name)){
+                String name = ventasInicial.TablaProductos.getValueAt(fila, indexColumnaNombre()).toString();
+                String cant = ventasInicial.TablaProductos.getValueAt(fila, indexColumnaCantidad()).toString();
+                int amount = Integer.parseInt(cant);
+                System.out.println(name +", Cant> " +amount);
+                if(!model.eliminarProductoFactura(name, amount)){
                     JOptionPane.showMessageDialog(null, "No se pudo eliminar");
                 }else{
                     tModel.removeRow(ventasInicial.TablaProductos.getSelectedRow());
@@ -357,7 +351,8 @@ public class ControladorVentas implements ActionListener, MouseListener{
                     if(!model.insertarBuscarProducto(id, cantidad)){
                         JOptionPane.showMessageDialog(null, "No se pudo registrar la factura");
                     }else{
-                        ventasInicial.TablaProductos.setModel(model.mostrarFacturas());
+                        actualizarTabla();
+                        //ventasInicial.TablaProductos.setModel(model.mostrarFacturas());
 //                        Esta es una forma de hacerlo, sin embargo, opte por otra forma
 //                        Buscador.TfNombre.getText();
 //                        Buscador.TfPrecio.getText();
@@ -482,8 +477,37 @@ public class ControladorVentas implements ActionListener, MouseListener{
         }
     }
     
-    public void cobrar(){
-        
+    public int indexColumnaNombre(){
+        int columnas = ventasInicial.TablaProductos.getColumnCount();
+        int nombre;
+        for(nombre = 0; nombre <columnas; nombre++){
+            if(ventasInicial.TablaProductos.getColumnName(nombre).equalsIgnoreCase("NombreProducto")){
+                break;
+            }
+        }
+        return nombre;
+    }
+    
+    public int indexColumnaCantidad(){
+        int columnas = ventasInicial.TablaProductos.getColumnCount();
+        int cantidad;
+        for(cantidad = 0; cantidad <columnas; cantidad++){
+            if(ventasInicial.TablaProductos.getColumnName(cantidad).equalsIgnoreCase("Cantidad")){
+                break;
+            }
+        }
+        return cantidad;
+    }
+    
+    public void actualizarTabla(){
+        settings.updateSettings("Configuracion");
+            String consulta = "call mostrarfacturasventa();";
+            try{
+                updateTabla(model.MostrarTablas(consulta));
+                ventasInicial.TFCodigoProducto.setText(model.codigoFactura());
+            }catch(IllegalArgumentException ex){
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
     }
     
     @Override

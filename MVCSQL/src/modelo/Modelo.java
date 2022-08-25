@@ -111,7 +111,7 @@ public class Modelo {
             }
             return dtm;
         }catch(SQLException e){
-
+            System.out.println(e.getMessage());
             return null;
         }
 
@@ -452,7 +452,7 @@ public class Modelo {
                 return producto;
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-            return null;
+            return producto;
         }
     }
     
@@ -725,11 +725,10 @@ public class Modelo {
         }
     }
     
-    public boolean eliminarProductoFactura(String nombreProd){
+    public boolean eliminarProductoFactura(String nombreProd, int cant){
         try{
             Statement s = con.createStatement();
-            String id = "select idProducto from productos where NombreProducto = \"" +nombreProd +"\")";
-            String query = "call EliminarProducto(" +id +");";
+            String query = "call EliminarProductoTicket('" +nombreProd +"'," +cant +");";
             s.executeUpdate(query);
             return true;
         } catch (SQLException ex){
@@ -748,5 +747,21 @@ public class Modelo {
             System.out.println(ex.getMessage());
             return false;
         }
+    }
+    
+    public String codigoFactura(){
+        try {
+            Statement s = con.createStatement();
+            String query = "select max(idFacturas) from facturas;";
+            s.executeQuery(query);
+            ResultSet rs = s.getResultSet();
+            if(rs.next()){
+                return rs.getString(1);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return "";
+        }
+        return "";
     }
 }
