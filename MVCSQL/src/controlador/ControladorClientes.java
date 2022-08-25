@@ -199,7 +199,11 @@ public class ControladorClientes implements ActionListener, MouseListener{
                     ventanaClientes.tbClientes.setModel(model.consultaClientes(id));
                 }
             }catch(NumberFormatException ex){
-                JOptionPane.showMessageDialog(null, "Verifique que el codigo sea numerico.");
+                if(!ventanaClientes.txtFolio.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Verifique que el codigo sea numerico.");
+                }else{
+                    ventanaClientes.tbClientes.setModel(model.consultaClientes());
+                }
             }
         }
     }

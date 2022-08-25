@@ -224,7 +224,7 @@ public class ControladorProveedor implements ActionListener, MouseListener{
             DefaultTableModel tabla = model.MostrarTablas(consulta);
             Proveedor.TablaProveedores.setModel(tabla);
         }else if(Proveedor.BTTBuscar == e.getSource()){
-            String buscar = "call buscarProveedorid('"+ Proveedor.TXTNombreProveedor.getText() +"')";
+            String buscar = "call BuscarProveedorNombre('"+ Proveedor.TXTNombreProveedor.getText() +"')";
             DefaultTableModel tabla = model.MostrarTablas(buscar);
             Proveedor.TablaProveedores.setModel(tabla);            
         }
